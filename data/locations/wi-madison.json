@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "wi-madison",
+  "label": "Madison, WI",
+  "city": "Madison",
+  "state": "WI",
+  "fips": "55025",
+  "researchedAt": "2026-10-16T03:00:00Z",
+  "license": "CC-BY-NC-SA-4.0",
+  "sources": [
+    {
+      "title": "Published GeoNames county mapping",
+      "url": "https://siyuanfeng.com/compare-salary/data/cities.json",
+      "retrievedAt": "2026-10-16T03:00:00Z",
+      "quote": "{\"city\":\"Madison\",\"state\":\"WI\",\"fips\":\"55025\",\"population\":280305}",
+      "fields": [
+        "fips"
+      ]
+    },
+    {
+      "title": "US Census Bureau QuickFacts: Dane County, Wisconsin",
+      "url": "https://www.census.gov/quickfacts/fact/table/danecountywisconsin/POP645223",
+      "retrievedAt": "2026-10-16T03:00:00Z",
+      "quote": "FIPS Code 55025",
+      "fields": [
+        "fips"
+      ]
+    }
+  ]
+}
