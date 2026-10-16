@@ -109,7 +109,7 @@ The skill calls the installed calculator. MCP tools include `compare_salary`, `l
 - **No agent:** deterministic county data or state approximations.
 - **Existing coding-agent subscription:** use the skill/MCP with the host agent's search tools. The optional local browser companion invokes Codex CLI with GPT-6 Luna for missing locations.
 - **Free browser AI:** an optional WebLLM Qwen model extracts a structured entry from public source excerpts you provide. It downloads model weights and requires WebGPU. It cannot independently browse; unmatched quotes are rejected.
-- **Your API agent:** enter a browser-compatible OpenAI chat endpoint, or a Gemini endpoint with Google Search. Search capability and charges depend on your provider. API keys stay in tab memory and are sent only to the endpoint you enter. Known locations do not trigger agent requests.
+- **Your API agent:** enter an OpenAI Responses endpoint with web search, a Gemini endpoint with Google Search, or a browser-compatible chat endpoint with source excerpts you supply. Search capability and charges depend on your provider. API keys stay in tab memory and are sent only to the endpoint you enter. Known locations do not trigger agent requests.
 
 Agent output must pass the schema validator. Source verification is still required: valid JSON does not prove that an excerpt is true or applies to the location. Agents should return unknown when official evidence is insufficient.
 

@@ -7,8 +7,9 @@ export async function apiResearch({location,endpoint,key,model,evidence='',provi
  const prompt=researchPrompt(location)+(evidence?'\nPublic source excerpts to use:\n'+evidence:'');
  let body,headers={'Content-Type':'application/json'};
  if(provider==='gemini'){headers['x-goog-api-key']=key;body={contents:[{parts:[{text:prompt}]}],tools:[{google_search:{}}]};}
- else {headers.Authorization='Bearer '+key;body={model,messages:[{role:'user',content:prompt}],temperature:0};}
+ else if(provider==='openai-responses'){headers.Authorization='Bearer '+key;body={model,input:prompt,tools:[{type:'web_search'}]};}
+ else {if(!evidence.trim())throw Error('A chat-only endpoint needs supplied source excerpts. Choose a search-enabled provider to research online.');headers.Authorization='Bearer '+key;body={model,messages:[{role:'user',content:prompt}],temperature:0};}
  const response=await fetch(u,{method:'POST',headers,body:JSON.stringify(body),signal:AbortSignal.timeout(180000)});if(!response.ok)throw Error(`Agent request failed (${response.status}); check the endpoint, model and browser access.`);
- const data=await response.json();const text=provider==='gemini'?data.candidates?.[0]?.content?.parts?.map(p=>p.text||'').join(''):data.choices?.[0]?.message?.content;
+ const data=await response.json();const text=provider==='gemini'?data.candidates?.[0]?.content?.parts?.map(p=>p.text||'').join(''):provider==='openai-responses'?data.output?.flatMap(o=>o.content||[]).filter(c=>c.type==='output_text').map(c=>c.text).join(''):data.choices?.[0]?.message?.content;
  const entry=parseResearch(text,location);if(evidence&&!evidenceMatches(entry,evidence))throw Error('Research quotes did not match the supplied source excerpts');return entry;
 }
