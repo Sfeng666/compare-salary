@@ -4,6 +4,7 @@ import {tableCurve} from './tax-tables.mjs';
 export {normalizeSalary,interpolateTax} from './model.mjs';
 export const DEFAULTS=Object.freeze({filing:'single',adults:1,children:0,bedrooms:1,resident:true,taxYear:2026,spouse:'none',partnerIncome:0,referencePartnerIncome:0,annualHours:2080,extraLocalAnnual:0,includeAfterRent:true});
 export function settings(input={}){
+ if(Object.keys(input).some(k=>!Object.hasOwn(DEFAULTS,k)))throw Error('Unsupported household option');
  const o={...DEFAULTS,...input};
  if(!['single','joint','separate','lowest_married_tax'].includes(o.filing))throw Error('Choose Single, Married filing jointly, Married filing separately, or lowest married tax.');
  if(o.adults!==1&&o.adults!==2)throw Error('Choose one or two adults');
@@ -16,6 +17,7 @@ export function settings(input={}){
  return o;
 }
 export async function compareSalary(input,database,{taxCurve}={}){
+ if(input.currency&&input.currency!=='USD')throw Error('Version 1 accepts USD wages only');
  const o=settings(input.options),origin=input.remote?input.residence:input.location;
  if(input.remote&&!input.residence)throw Error('For fully remote work, specify where you will live');
  const factor={year:1,month:12,week:52,hour:o.annualHours}[input.period||'year'];
