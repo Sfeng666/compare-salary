@@ -21,7 +21,7 @@ export function resolveLocation(database,input,options={}){
  const rentKey=bedrooms===0?'studio':bedrooms===1?'oneBedroom':'twoBedroom';
  const warnings=[];
  let county=row&&database.counties[row.fips];
- let costs,rent,spouse,rentArea,metro,quality='county';
+ let costs,rent,spouse,rentArea,metro,quality='county',costBasis=county?'county':'state-median';
  if(county){
   const town=county.rents.find(r=>r.town.replace(/ (?:city|town)$/i,'').toLowerCase()===(row.city||parsed.city).toLowerCase());
   const rates=county.rents.map(r=>r[rentKey]);
@@ -30,7 +30,7 @@ export function resolveLocation(database,input,options={}){
   if(!town&&new Set(rates).size>1)warnings.push('Rent uses the median of HUD areas in this county; the town has not been matched to a rent area.');
   costs={...county.families[family]};metro=chosen?.metro;rentArea=chosen?.area;
   spouse=socialWorkerPay(database.wages[metro]||database.wages['state:'+parsed.state]);
-  if(row.boroughs){const parts=row.boroughs.map(fips=>database.counties[fips]);const weights=parts.map(c=>c.rents.reduce((s,r)=>s+r.population,0));const total=weights.reduce((a,b)=>a+b,0);for(const k of Object.keys(costs))costs[k]=parts.reduce((s,c,i)=>s+c.families[family][k]*weights[i]/total,0);rent=parts.reduce((s,c,i)=>s+c.rents[0][rentKey]*weights[i]/total,0);}
+  if(row.boroughs){const parts=row.boroughs.map(fips=>database.counties[fips]);const weights=parts.map(c=>c.rents.reduce((s,r)=>s+r.population,0));const total=weights.reduce((a,b)=>a+b,0);for(const k of Object.keys(costs))costs[k]=parts.reduce((s,c,i)=>s+c.families[family][k]*weights[i]/total,0);rent=parts.reduce((s,c,i)=>s+c.rents[0][rentKey]*weights[i]/total,0);costBasis='borough-weighted';}
  }else{
   const counties=Object.values(database.counties).filter(c=>c.state===parsed.state);
   costs=Object.fromEntries(['food','transport','healthcare','other'].map(k=>[k,median(counties.map(c=>c.families[family]?.[k]))]));
@@ -38,12 +38,12 @@ export function resolveLocation(database,input,options={}){
   spouse=socialWorkerPay(database.wages['state:'+parsed.state]);quality='state-approximation';
   warnings.push(`This city is not in the database. Costs and rent use ${STATES[parsed.state]} medians.${options.spouse==='local_social_worker'?' Spouse wages use the state estimate.':''} Research can replace these inputs.`);
  }
- if(entry?.familyCosts?.[family]){costs={...entry.familyCosts[family]};quality='researched';}
+ if(entry?.familyCosts?.[family]){costs={...entry.familyCosts[family]};quality='researched';costBasis='contributed';}
  if(entry?.rents?.[String(bedrooms)]!=null)rent=entry.rents[String(bedrooms)];
  if(entry?.socialWorkerMedian)spouse={median:entry.socialWorkerMedian,method:'Contributed local social-worker wage estimate'};
  const annualCost=Object.values(costs).reduce((a,b)=>a+b,0)+rent*12;
  if(!Number.isFinite(annualCost)||!Number.isFinite(rent))throw Error('Incomplete location budget');
- const place={...parsed,...row,label:row?.label||`${row?.city||parsed.city}, ${parsed.state}`,monthlyRent:rent,annualCost,costs:{rent:rent*12,...costs},spouse,county:county?.name,rentArea,metro,quality,warnings,rentBasis:entry?.rents?.[String(bedrooms)]!=null?'contributed':'HUD FY2027',needsResearch:!row};
+ const place={...parsed,...row,label:row?.label||`${row?.city||parsed.city}, ${parsed.state}`,monthlyRent:rent,annualCost,costs:{rent:rent*12,...costs},costBasis,spouse,county:county?.name,rentArea,metro,quality,warnings,rentBasis:entry?.rents?.[String(bedrooms)]!=null?'contributed':'HUD FY2027',needsResearch:!row};
  place.taxCoverage=resolveTaxCoverage(database.localTaxCoverage,place,entry,options.taxYear??2026);
  const taxTable=database.localTaxTables?.year===(options.taxYear??2026)&&database.localTaxTables.tables[place.taxCoverage.tableId];
  if(place.taxCoverage.tableId&&!taxTable)place.taxCoverage={...place.taxCoverage,status:'needs_research',needsResearch:true,reason:'Verified local tax rules exist, but the matching calculation table is unavailable.'};
@@ -51,7 +51,7 @@ export function resolveLocation(database,input,options={}){
  place.needsTaxResearch=place.taxCoverage.needsResearch;
  // Calculation tables are internal inputs, not part of every public result.
  if(taxTable)Object.defineProperty(place,'localTaxTable',{value:{gross:database.localTaxTables.gross,...taxTable},enumerable:false});
- place.sources=[...(database.sources||[]),...(entry?.sources||[]),...place.taxCoverage.sources];
+ place.sources=[...(database.sources||[]),...(costBasis==='contributed'?[]:[{name:'EPI family budget methodology, including transportation',url:'https://www.epi.org/publication/family-budget-calculator-documentation/',vintage:'2026'}]),...(entry?.sources||[]),...place.taxCoverage.sources];
  return place;
 }
 export const STATE_FIPS={"AL":"01","AK":"02","AZ":"04","AR":"05","CA":"06","CO":"08","CT":"09","DE":"10","DC":"11","FL":"12","GA":"13","HI":"15","ID":"16","IL":"17","IN":"18","IA":"19","KS":"20","KY":"21","LA":"22","ME":"23","MD":"24","MA":"25","MI":"26","MN":"27","MS":"28","MO":"29","MT":"30","NE":"31","NV":"32","NH":"33","NJ":"34","NM":"35","NY":"36","NC":"37","ND":"38","OH":"39","OK":"40","OR":"41","PA":"42","RI":"44","SC":"45","SD":"46","TN":"47","TX":"48","UT":"49","VT":"50","VA":"51","WA":"53","WV":"54","WI":"55","WY":"56"};
