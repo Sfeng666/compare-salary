@@ -5,13 +5,13 @@
   "city": "Madison",
   "state": "WI",
   "fips": "55025",
-  "researchedAt": "2026-10-16T03:00:00Z",
+  "researchedAt": "2026-10-16T02:39:34.891050+00:00",
   "license": "CC-BY-NC-SA-4.0",
   "sources": [
     {
       "title": "Published GeoNames county mapping",
       "url": "https://siyuanfeng.com/compare-salary/data/cities.json",
-      "retrievedAt": "2026-10-16T03:00:00Z",
+      "retrievedAt": "2026-10-16T02:39:34.891050+00:00",
       "quote": "{\"city\":\"Madison\",\"state\":\"WI\",\"fips\":\"55025\",\"population\":280305}",
       "fields": [
         "fips"
@@ -20,8 +20,17 @@
     {
       "title": "US Census Bureau QuickFacts: Dane County, Wisconsin",
       "url": "https://www.census.gov/quickfacts/fact/table/danecountywisconsin/POP645223",
-      "retrievedAt": "2026-10-16T03:00:00Z",
+      "retrievedAt": "2026-10-16T02:39:34.891050+00:00",
       "quote": "FIPS Code 55025",
+      "fields": [
+        "fips"
+      ]
+    },
+    {
+      "title": "GeoNames Madison administrative hierarchy",
+      "url": "https://www.geonames.org/5261457/madison.html",
+      "retrievedAt": "2026-10-16T02:39:34.891050+00:00",
+      "quote": "City of Madison",
       "fields": [
         "fips"
       ]
