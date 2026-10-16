@@ -6,9 +6,10 @@ export function tableTax(tables,place,gross,partner,filing){
  const t=tables.states[place.state];if(!t)throw Error('Tax tables unavailable for state');
  const wages=filing==='single'?[gross]:[gross,partner],total=gross+partner;
  const it=(mode,x)=>interpolate(tables.gross,t[mode],x);
- const single=()=>it('single',gross)+payroll([gross],'single')+local(place,[gross]);
- const joint=()=>it('joint',total)+payroll(wages,'joint')+local(place,wages);
- const separate=()=>{const taxed=COMMUNITY.has(place.state)?[total/2,total/2]:wages;return taxed.reduce((s,x)=>s+it('separate',x),0)+payroll(wages,'separate')+local(place,wages);};
+ const workerPayroll=(wages,mode)=>payroll(wages,mode)+wages.reduce((s,w)=>s+(t.employeePayroll?interpolate(tables.gross,t.employeePayroll,w)-payroll([w],'single'):0),0);
+ const single=()=>it('single',gross)+workerPayroll([gross],'single')+local(place,[gross]);
+ const joint=()=>it('joint',total)+workerPayroll(wages,'joint')+local(place,wages);
+ const separate=()=>{const taxed=COMMUNITY.has(place.state)?[total/2,total/2]:wages;return taxed.reduce((s,x)=>s+it('separate',x),0)+workerPayroll(wages,'separate')+local(place,wages);};
  const choices=filing==='single'?[{filing:'SINGLE',tax:single()}]:[{filing:'JOINT',tax:joint()},{filing:'SEPARATE',tax:separate()}];
  const chosen=filing==='joint'?choices[0]:filing==='separate'?choices[1]:choices.reduce((a,b)=>a.tax<=b.tax?a:b);
  return {gross,net:total-chosen.tax,...chosen,jointTax:choices[0].tax,separateTax:choices.at(-1).tax};

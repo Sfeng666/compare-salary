@@ -21,8 +21,9 @@ for state in sorted({c['state'] for c in base['counties'].values()}):
             families[key]={'members':members};spms[key]={'members':members};maritals[key]={'members':members}
     with contextlib.redirect_stdout(sys.stderr):
         sim=Simulation(situation={'people':people,'tax_units':units,'households':households,'families':families,'spm_units':spms,'marital_units':maritals})
-        federal=sim.calculate('income_tax',2026,map_to='household').tolist();stateTax=sim.calculate('state_income_tax',2026,map_to='household').tolist()
+        federal=sim.calculate('income_tax',2026,map_to='household').tolist();stateTax=sim.calculate('state_income_tax',2026,map_to='household').tolist();employeePayroll=sim.calculate('employee_payroll_tax',2026,map_to='household').tolist()
     n=len(gross);row={mode.lower():[round(federal[j]+stateTax[j],2) for j in range(k*n,(k+1)*n)] for k,mode in enumerate(['SINGLE','JOINT','SEPARATE'])}
+    row['employeePayroll']=[round(v,2) for v in employeePayroll[:n]]
     row['referenceCounty']=city['fips'];result['states'][state]=row
     print(state,flush=True)
     (ROOT/'data/tax-tables.json').write_text(json.dumps(result,separators=(',',':')))
