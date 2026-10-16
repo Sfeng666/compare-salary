@@ -43,6 +43,7 @@ export function resolveLocation(database,input,options={}){
  if(!Number.isFinite(annualCost)||!Number.isFinite(rent))throw Error('Incomplete location budget');
  return {...parsed,...row,label:row?.label||`${row?.city||parsed.city}, ${parsed.state}`,monthlyRent:rent,annualCost,costs:{rent:rent*12,...costs},spouse,county:county?.name,rentArea,metro,quality,warnings,localTax:entry?.localTax||null,sources:entry?.sources||database.sources,needsResearch:!row};
 }
+const STATE_FIPS={"AL":"01","AK":"02","AZ":"04","AR":"05","CA":"06","CO":"08","CT":"09","DE":"10","DC":"11","FL":"12","GA":"13","HI":"15","ID":"16","IL":"17","IN":"18","IA":"19","KS":"20","KY":"21","LA":"22","ME":"23","MD":"24","MA":"25","MI":"26","MN":"27","MS":"28","MO":"29","MT":"30","NE":"31","NV":"32","NH":"33","NJ":"34","NM":"35","NY":"36","NC":"37","ND":"38","OH":"39","OK":"40","OR":"41","PA":"42","RI":"44","SC":"45","SD":"46","TN":"47","TX":"48","UT":"49","VT":"50","VA":"51","WA":"53","WV":"54","WI":"55","WY":"56"};
 export function validateEntry(e){
  const fail=m=>{throw Error(m);};
  if(!e||e.schemaVersion!==1)fail('Location entry needs schemaVersion 1');
@@ -51,6 +52,7 @@ export function validateEntry(e){
  const allowed=['schemaVersion','id','label','city','state','fips','familyCosts','rents','socialWorkerMedian','localTax','sources','researchedAt','license'];
  if(Object.keys(e).some(k=>!allowed.includes(k)))fail('Unexpected entry field; personal and job data are not accepted');
  if(!/^\d{5}$/.test(e.fips||''))fail('A researched county FIPS is required');
+ if(e.fips.slice(0,2)!==STATE_FIPS[e.state])fail('County FIPS does not match state');
  if(!Number.isFinite(Date.parse(e.researchedAt))||Date.parse(e.researchedAt)>Date.now()+86400000)fail('Invalid research date');
  if(e.license!=='CC-BY-NC-SA-4.0')fail('Contribution license must be CC-BY-NC-SA-4.0');
  if(!Array.isArray(e.sources)||!e.sources.length||e.sources.length>20)fail('Provide 1 to 20 public sources');
