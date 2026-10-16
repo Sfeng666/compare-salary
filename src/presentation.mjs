@@ -20,7 +20,7 @@ export function breakdown(r){
  rows.push(row(married?'Your share of tax':'Your tax',allocations.map(a=>a.yourTax),i=>married?personalTax(i,false):taxFormula(i)));
  if(married)rows.push(row('Spouse share of tax',allocations.map(a=>a.spouseTax),i=>personalTax(i,true)));
  rows.push(row('Household taxes',tax,taxFormula));
- rows.push(row('Monthly rent',places.map(p=>p.monthlyRent),i=>`HUD FY2027 ${r.options.bedrooms===0?'studio':r.options.bedrooms+'-bedroom'} gross rent (including basic utilities) for ${places[i].rentArea||places[i].county||places[i].state}: ${f(places[i].monthlyRent)}.\nAnnual rent ${f(places[i].costs.rent)} ÷ 12 = ${f(places[i].monthlyRent)}.`));
+ rows.push(row('Monthly rent',places.map(p=>p.monthlyRent),i=>`${places[i].rentBasis==='contributed'?'Sourced local':'HUD FY2027'} ${r.options.bedrooms===0?'studio':r.options.bedrooms+'-bedroom'} gross rent (including basic utilities) for ${places[i].rentArea||places[i].county||places[i].state}: ${f(places[i].monthlyRent)}.\nAnnual rent ${f(places[i].costs.rent)} ÷ 12 = ${f(places[i].monthlyRent)}.`));
  for(const [key,label]of Object.entries({food:'Food',transport:'Transport',healthcare:'Health care',other:'Other necessities'}))rows.push(row(label,places.map(p=>p.costs[key]),i=>`Annual ${label.toLowerCase()} from the ${r.options.adults}-adult household budget for ${places[i].county||places[i].state}.\nMonthly ${f(places[i].costs[key]/12)} × 12 = ${f(places[i].costs[key])}. Rounded display; calculations retain full precision.`));
  rows.push(row('Extra annual costs',[r.options.extraLocalAnnual,r.options.extraLocalAnnual],()=>`Additional annual household costs you entered: ${f(r.options.extraLocalAnnual)}.`));
  rows.push(row('Annual household budget',budgets,costFormula));
