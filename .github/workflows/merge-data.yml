@@ -1,0 +1,29 @@
+name: Merge approved location data
+on:
+  pull_request_review:
+    types: [submitted]
+  workflow_dispatch:
+    inputs:
+      pull_request:
+        description: Pull request number already approved by the configured reviewer
+        required: true
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  merge:
+    if: vars.LOCATION_AUTO_MERGE == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number || inputs.pull_request }}
+          REVIEWER: ${{ vars.LOCATION_REVIEWER }}
+        run: node scripts/merge-contribution.mjs

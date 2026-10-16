@@ -1,0 +1,26 @@
+name: Validate location contribution
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened]
+permissions:
+  contents: read
+  pull-requests: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      # Run validator from the trusted base commit. Never execute PR code.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Download changed JSON as inert data
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
+        run: node scripts/check-contribution.mjs

@@ -1,0 +1,15 @@
+{
+  "name": "@sfeng666/compare-salary",
+  "version": "0.1.0",
+  "description": "Compare salary purchasing power with reproducible US location data",
+  "type": "module",
+  "license": "MIT",
+  "repository": "github:Sfeng666/compare-salary",
+  "engines": {"node": ">=20"},
+  "exports": {".": "./src/compare.mjs", "./model": "./src/model.mjs", "./locations": "./src/locations.mjs", "./taxes.py": "./src/taxes.py"},
+  "bin": {"compare-salary": "./bin/compare-salary.mjs", "compare-salary-mcp": "./bin/mcp.mjs"},
+  "scripts": {"test": "node --test test/*.test.mjs", "validate:data": "node scripts/validate-data.mjs", "build": "node scripts/build-site.mjs", "serve": "node bin/compare-salary.mjs serve"},
+  "files": ["src", "bin", "data", "skills", "README.md", "LICENSE", "DATA_LICENSE.md", "requirements.txt"],
+  "dependencies": {"@modelcontextprotocol/sdk": "1.32.1", "zod": "^3.25.76"},
+  "devDependencies": {"@mlc-ai/web-llm": "^0.2.85", "esbuild": "^0.25.12"}
+}

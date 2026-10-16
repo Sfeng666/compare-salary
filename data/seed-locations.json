@@ -1,0 +1,1926 @@
+{
+  "schemaVersion": 1,
+  "description": "Initial location coverage index. Generic geography only; no job or household data.",
+  "locations": [
+    {
+      "city": "Huntsville",
+      "state": "AL",
+      "fips": "01089"
+    },
+    {
+      "city": "Little Rock",
+      "state": "AR",
+      "fips": "05119"
+    },
+    {
+      "city": "Flagstaff",
+      "state": "AZ",
+      "fips": "04005"
+    },
+    {
+      "city": "Mesa",
+      "state": "AZ",
+      "fips": "04013"
+    },
+    {
+      "city": "Phoenix",
+      "state": "AZ",
+      "fips": "04013"
+    },
+    {
+      "city": "Scottsdale",
+      "state": "AZ",
+      "fips": "04013"
+    },
+    {
+      "city": "Sun City",
+      "state": "AZ",
+      "fips": "04013"
+    },
+    {
+      "city": "Tempe",
+      "state": "AZ",
+      "fips": "04013"
+    },
+    {
+      "city": "Tucson",
+      "state": "AZ",
+      "fips": "04019"
+    },
+    {
+      "city": "Alameda",
+      "state": "CA",
+      "fips": "06001"
+    },
+    {
+      "city": "Alhambra",
+      "state": "CA",
+      "fips": "06037"
+    },
+    {
+      "city": "Aliso Viejo",
+      "state": "CA",
+      "fips": "06059"
+    },
+    {
+      "city": "Anaheim",
+      "state": "CA",
+      "fips": "06059"
+    },
+    {
+      "city": "Antioch",
+      "state": "CA",
+      "fips": "06013"
+    },
+    {
+      "city": "Arcadia",
+      "state": "CA",
+      "fips": "06037"
+    },
+    {
+      "city": "Berkeley",
+      "state": "CA",
+      "fips": "06001"
+    },
+    {
+      "city": "Beverly Hills",
+      "state": "CA",
+      "fips": "06037"
+    },
+    {
+      "city": "Brisbane",
+      "state": "CA",
+      "fips": "06081"
+    },
+    {
+      "city": "Burlingame",
+      "state": "CA",
+      "fips": "06081"
+    },
+    {
+      "city": "Carlsbad",
+      "state": "CA",
+      "fips": "06073"
+    },
+    {
+      "city": "Chico",
+      "state": "CA",
+      "fips": "06007"
+    },
+    {
+      "city": "Cupertino",
+      "state": "CA",
+      "fips": "06085"
+    },
+    {
+      "city": "Del Mar",
+      "state": "CA",
+      "fips": "06073"
+    },
+    {
+      "city": "Duarte",
+      "state": "CA",
+      "fips": "06037"
+    },
+    {
+      "city": "El Monte",
+      "state": "CA",
+      "fips": "06037"
+    },
+    {
+      "city": "El Segundo",
+      "state": "CA",
+      "fips": "06037"
+    },
+    {
+      "city": "Emeryville",
+      "state": "CA",
+      "fips": "06001"
+    },
+    {
+      "city": "Foster City",
+      "state": "CA",
+      "fips": "06081"
+    },
+    {
+      "city": "Fremont",
+      "state": "CA",
+      "fips": "06001"
+    },
+    {
+      "city": "Hayward",
+      "state": "CA",
+      "fips": "06001"
+    },
+    {
+      "city": "Inglewood",
+      "state": "CA",
+      "fips": "06037"
+    },
+    {
+      "city": "Irvine",
+      "state": "CA",
+      "fips": "06059"
+    },
+    {
+      "city": "Joshua Tree",
+      "state": "CA",
+      "fips": "06071"
+    },
+    {
+      "city": "La Jolla",
+      "state": "CA",
+      "fips": "06073"
+    },
+    {
+      "city": "Laguna Hills",
+      "state": "CA",
+      "fips": "06059"
+    },
+    {
+      "city": "Livermore",
+      "state": "CA",
+      "fips": "06001"
+    },
+    {
+      "city": "Long Beach",
+      "state": "CA",
+      "fips": "06037"
+    },
+    {
+      "city": "Los Angeles",
+      "state": "CA",
+      "fips": "06037"
+    },
+    {
+      "city": "Marina del Rey",
+      "state": "CA",
+      "fips": "06037"
+    },
+    {
+      "city": "Menlo Park",
+      "state": "CA",
+      "fips": "06081"
+    },
+    {
+      "city": "Millbrae",
+      "state": "CA",
+      "fips": "06081"
+    },
+    {
+      "city": "Milpitas",
+      "state": "CA",
+      "fips": "06085"
+    },
+    {
+      "city": "Modesto",
+      "state": "CA",
+      "fips": "06099"
+    },
+    {
+      "city": "Monrovia",
+      "state": "CA",
+      "fips": "06037"
+    },
+    {
+      "city": "Morgan Hill",
+      "state": "CA",
+      "fips": "06085"
+    },
+    {
+      "city": "Mountain View",
+      "state": "CA",
+      "fips": "06085"
+    },
+    {
+      "city": "Newark",
+      "state": "CA",
+      "fips": "06001"
+    },
+    {
+      "city": "Newport Beach",
+      "state": "CA",
+      "fips": "06059"
+    },
+    {
+      "city": "Novato",
+      "state": "CA",
+      "fips": "06041"
+    },
+    {
+      "city": "Oakdale",
+      "state": "CA",
+      "fips": "06099"
+    },
+    {
+      "city": "Orange",
+      "state": "CA",
+      "fips": "06059"
+    },
+    {
+      "city": "Palm Springs",
+      "state": "CA",
+      "fips": "06065"
+    },
+    {
+      "city": "Palo Alto",
+      "state": "CA",
+      "fips": "06085"
+    },
+    {
+      "city": "Pasadena",
+      "state": "CA",
+      "fips": "06037"
+    },
+    {
+      "city": "Pleasanton",
+      "state": "CA",
+      "fips": "06001"
+    },
+    {
+      "city": "Porterville",
+      "state": "CA",
+      "fips": "06107"
+    },
+    {
+      "city": "Princeton",
+      "state": "CA",
+      "fips": "06011"
+    },
+    {
+      "city": "Redwood City",
+      "state": "CA",
+      "fips": "06081"
+    },
+    {
+      "city": "Riverside",
+      "state": "CA",
+      "fips": "06065"
+    },
+    {
+      "city": "Sacramento",
+      "state": "CA",
+      "fips": "06067"
+    },
+    {
+      "city": "San Bruno",
+      "state": "CA",
+      "fips": "06081"
+    },
+    {
+      "city": "San Carlos",
+      "state": "CA",
+      "fips": "06081"
+    },
+    {
+      "city": "San Diego",
+      "state": "CA",
+      "fips": "06073"
+    },
+    {
+      "city": "San Dimas",
+      "state": "CA",
+      "fips": "06037"
+    },
+    {
+      "city": "San Francisco",
+      "state": "CA",
+      "fips": "06075"
+    },
+    {
+      "city": "San Jose",
+      "state": "CA",
+      "fips": "06085"
+    },
+    {
+      "city": "San Juan Capistrano",
+      "state": "CA",
+      "fips": "06059"
+    },
+    {
+      "city": "San Mateo",
+      "state": "CA",
+      "fips": "06081"
+    },
+    {
+      "city": "San Ramon",
+      "state": "CA",
+      "fips": "06013"
+    },
+    {
+      "city": "Santa Clara",
+      "state": "CA",
+      "fips": "06085"
+    },
+    {
+      "city": "Santa Cruz",
+      "state": "CA",
+      "fips": "06087"
+    },
+    {
+      "city": "Santa Monica",
+      "state": "CA",
+      "fips": "06037"
+    },
+    {
+      "city": "Santa Rosa",
+      "state": "CA",
+      "fips": "06097"
+    },
+    {
+      "city": "Shafter",
+      "state": "CA",
+      "fips": "06029"
+    },
+    {
+      "city": "South San Francisco",
+      "state": "CA",
+      "fips": "06081"
+    },
+    {
+      "city": "Stanford",
+      "state": "CA",
+      "fips": "06085"
+    },
+    {
+      "city": "Sunnyvale",
+      "state": "CA",
+      "fips": "06085"
+    },
+    {
+      "city": "Susanville",
+      "state": "CA",
+      "fips": "06035"
+    },
+    {
+      "city": "Thousand Oaks",
+      "state": "CA",
+      "fips": "06111"
+    },
+    {
+      "city": "Torrance",
+      "state": "CA",
+      "fips": "06037"
+    },
+    {
+      "city": "Tustin",
+      "state": "CA",
+      "fips": "06059"
+    },
+    {
+      "city": "Ukiah",
+      "state": "CA",
+      "fips": "06045"
+    },
+    {
+      "city": "Victorville",
+      "state": "CA",
+      "fips": "06071"
+    },
+    {
+      "city": "Visalia",
+      "state": "CA",
+      "fips": "06107"
+    },
+    {
+      "city": "West Hollywood",
+      "state": "CA",
+      "fips": "06037"
+    },
+    {
+      "city": "Aurora",
+      "state": "CO",
+      "fips": "08001"
+    },
+    {
+      "city": "Austin",
+      "state": "CO",
+      "fips": "08029"
+    },
+    {
+      "city": "Boulder",
+      "state": "CO",
+      "fips": "08013"
+    },
+    {
+      "city": "Broomfield",
+      "state": "CO",
+      "fips": "08014"
+    },
+    {
+      "city": "Centennial",
+      "state": "CO",
+      "fips": "08005"
+    },
+    {
+      "city": "Colorado Springs",
+      "state": "CO",
+      "fips": "08041"
+    },
+    {
+      "city": "Denver",
+      "state": "CO",
+      "fips": "08031"
+    },
+    {
+      "city": "Englewood",
+      "state": "CO",
+      "fips": "08005"
+    },
+    {
+      "city": "Fort Collins",
+      "state": "CO",
+      "fips": "08069"
+    },
+    {
+      "city": "Greenwood Village",
+      "state": "CO",
+      "fips": "08005"
+    },
+    {
+      "city": "Lakewood",
+      "state": "CO",
+      "fips": "08059"
+    },
+    {
+      "city": "Louisville",
+      "state": "CO",
+      "fips": "08013"
+    },
+    {
+      "city": "Branford",
+      "state": "CT",
+      "fips": "09009"
+    },
+    {
+      "city": "Farmington",
+      "state": "CT",
+      "fips": "09003"
+    },
+    {
+      "city": "Groton",
+      "state": "CT",
+      "fips": "09011"
+    },
+    {
+      "city": "New Haven",
+      "state": "CT",
+      "fips": "09009"
+    },
+    {
+      "city": "Norwalk",
+      "state": "CT",
+      "fips": "09001"
+    },
+    {
+      "city": "Ridgefield",
+      "state": "CT",
+      "fips": "09001"
+    },
+    {
+      "city": "Stamford",
+      "state": "CT",
+      "fips": "09001"
+    },
+    {
+      "city": "Storrs",
+      "state": "CT",
+      "fips": "09013"
+    },
+    {
+      "city": "Washington",
+      "state": "DC",
+      "fips": "11001"
+    },
+    {
+      "city": "Newark",
+      "state": "DE",
+      "fips": "10003"
+    },
+    {
+      "city": "Wilmington",
+      "state": "DE",
+      "fips": "10003"
+    },
+    {
+      "city": "Clearwater",
+      "state": "FL",
+      "fips": "12103"
+    },
+    {
+      "city": "Gainesville",
+      "state": "FL",
+      "fips": "12001"
+    },
+    {
+      "city": "Jacksonville",
+      "state": "FL",
+      "fips": "12031"
+    },
+    {
+      "city": "Merritt Island",
+      "state": "FL",
+      "fips": "12009"
+    },
+    {
+      "city": "Miami",
+      "state": "FL",
+      "fips": "12086"
+    },
+    {
+      "city": "Naples",
+      "state": "FL",
+      "fips": "12021"
+    },
+    {
+      "city": "North Palm Beach",
+      "state": "FL",
+      "fips": "12099"
+    },
+    {
+      "city": "Pensacola",
+      "state": "FL",
+      "fips": "12033"
+    },
+    {
+      "city": "Saint Augustine",
+      "state": "FL",
+      "fips": "12109"
+    },
+    {
+      "city": "Tallahassee",
+      "state": "FL",
+      "fips": "12073"
+    },
+    {
+      "city": "Tampa",
+      "state": "FL",
+      "fips": "12057"
+    },
+    {
+      "city": "Atlanta",
+      "state": "GA",
+      "fips": "13121"
+    },
+    {
+      "city": "Augusta",
+      "state": "GA",
+      "fips": "13245"
+    },
+    {
+      "city": "Dunwoody",
+      "state": "GA",
+      "fips": "13089"
+    },
+    {
+      "city": "Forest Park",
+      "state": "GA",
+      "fips": "13063"
+    },
+    {
+      "city": "Kennesaw",
+      "state": "GA",
+      "fips": "13067"
+    },
+    {
+      "city": "Hilo",
+      "state": "HI",
+      "fips": "15001"
+    },
+    {
+      "city": "Ames",
+      "state": "IA",
+      "fips": "19169"
+    },
+    {
+      "city": "Des Moines",
+      "state": "IA",
+      "fips": "19153"
+    },
+    {
+      "city": "Fort Dodge",
+      "state": "IA",
+      "fips": "19187"
+    },
+    {
+      "city": "Iowa City",
+      "state": "IA",
+      "fips": "19103"
+    },
+    {
+      "city": "Chicago",
+      "state": "IL",
+      "fips": "17031"
+    },
+    {
+      "city": "Deerfield",
+      "state": "IL",
+      "fips": "17097"
+    },
+    {
+      "city": "Evanston",
+      "state": "IL",
+      "fips": "17031"
+    },
+    {
+      "city": "Glencoe",
+      "state": "IL",
+      "fips": "17031"
+    },
+    {
+      "city": "Joliet",
+      "state": "IL",
+      "fips": "17197"
+    },
+    {
+      "city": "Lemont",
+      "state": "IL",
+      "fips": "17031"
+    },
+    {
+      "city": "Mettawa",
+      "state": "IL",
+      "fips": "17097"
+    },
+    {
+      "city": "North Chicago",
+      "state": "IL",
+      "fips": "17097"
+    },
+    {
+      "city": "Rockford",
+      "state": "IL",
+      "fips": "17201"
+    },
+    {
+      "city": "Skokie",
+      "state": "IL",
+      "fips": "17031"
+    },
+    {
+      "city": "Urbana",
+      "state": "IL",
+      "fips": "17019"
+    },
+    {
+      "city": "Bloomington",
+      "state": "IN",
+      "fips": "18105"
+    },
+    {
+      "city": "Fort Wayne",
+      "state": "IN",
+      "fips": "18003"
+    },
+    {
+      "city": "Greenfield",
+      "state": "IN",
+      "fips": "18059"
+    },
+    {
+      "city": "Indianapolis",
+      "state": "IN",
+      "fips": "18097"
+    },
+    {
+      "city": "West Lafayette",
+      "state": "IN",
+      "fips": "18157"
+    },
+    {
+      "city": "Home",
+      "state": "KS",
+      "fips": "20117"
+    },
+    {
+      "city": "Kansas City",
+      "state": "KS",
+      "fips": "20209"
+    },
+    {
+      "city": "Leawood",
+      "state": "KS",
+      "fips": "20091"
+    },
+    {
+      "city": "Lenexa",
+      "state": "KS",
+      "fips": "20091"
+    },
+    {
+      "city": "Olathe",
+      "state": "KS",
+      "fips": "20091"
+    },
+    {
+      "city": "Overland Park",
+      "state": "KS",
+      "fips": "20091"
+    },
+    {
+      "city": "Canada",
+      "state": "KY",
+      "fips": "21195"
+    },
+    {
+      "city": "Lexington",
+      "state": "KY",
+      "fips": "21067"
+    },
+    {
+      "city": "Louisville",
+      "state": "KY",
+      "fips": "21111"
+    },
+    {
+      "city": "Baton Rouge",
+      "state": "LA",
+      "fips": "22033"
+    },
+    {
+      "city": "Gretna",
+      "state": "LA",
+      "fips": "22051"
+    },
+    {
+      "city": "Lafayette",
+      "state": "LA",
+      "fips": "22055"
+    },
+    {
+      "city": "New Orleans",
+      "state": "LA",
+      "fips": "22071"
+    },
+    {
+      "city": "Bedford",
+      "state": "MA",
+      "fips": "25017"
+    },
+    {
+      "city": "Belmont",
+      "state": "MA",
+      "fips": "25017"
+    },
+    {
+      "city": "Billerica",
+      "state": "MA",
+      "fips": "25017"
+    },
+    {
+      "city": "Boston",
+      "state": "MA",
+      "fips": "25025"
+    },
+    {
+      "city": "Brookline",
+      "state": "MA",
+      "fips": "25021"
+    },
+    {
+      "city": "Burlington",
+      "state": "MA",
+      "fips": "25017"
+    },
+    {
+      "city": "Cambridge",
+      "state": "MA",
+      "fips": "25017"
+    },
+    {
+      "city": "Danvers",
+      "state": "MA",
+      "fips": "25009"
+    },
+    {
+      "city": "Framingham",
+      "state": "MA",
+      "fips": "25017"
+    },
+    {
+      "city": "Lexington",
+      "state": "MA",
+      "fips": "25017"
+    },
+    {
+      "city": "Medford",
+      "state": "MA",
+      "fips": "25017"
+    },
+    {
+      "city": "Nahant",
+      "state": "MA",
+      "fips": "25009"
+    },
+    {
+      "city": "Natick",
+      "state": "MA",
+      "fips": "25017"
+    },
+    {
+      "city": "Somerville",
+      "state": "MA",
+      "fips": "25017"
+    },
+    {
+      "city": "South Boston",
+      "state": "MA",
+      "fips": "25025"
+    },
+    {
+      "city": "Waltham",
+      "state": "MA",
+      "fips": "25017"
+    },
+    {
+      "city": "Watertown",
+      "state": "MA",
+      "fips": "25017"
+    },
+    {
+      "city": "Westborough",
+      "state": "MA",
+      "fips": "25027"
+    },
+    {
+      "city": "Westford",
+      "state": "MA",
+      "fips": "25017"
+    },
+    {
+      "city": "Woburn",
+      "state": "MA",
+      "fips": "25017"
+    },
+    {
+      "city": "Woods Hole",
+      "state": "MA",
+      "fips": "25001"
+    },
+    {
+      "city": "Worcester",
+      "state": "MA",
+      "fips": "25027"
+    },
+    {
+      "city": "Baltimore",
+      "state": "MD",
+      "fips": "24510"
+    },
+    {
+      "city": "Bethesda",
+      "state": "MD",
+      "fips": "24031"
+    },
+    {
+      "city": "Chevy Chase",
+      "state": "MD",
+      "fips": "24031"
+    },
+    {
+      "city": "College Park",
+      "state": "MD",
+      "fips": "24033"
+    },
+    {
+      "city": "Elkton",
+      "state": "MD",
+      "fips": "24015"
+    },
+    {
+      "city": "Fort Meade",
+      "state": "MD",
+      "fips": "24003"
+    },
+    {
+      "city": "Frederick",
+      "state": "MD",
+      "fips": "24021"
+    },
+    {
+      "city": "Gaithersburg",
+      "state": "MD",
+      "fips": "24031"
+    },
+    {
+      "city": "Laurel",
+      "state": "MD",
+      "fips": "24033"
+    },
+    {
+      "city": "Rockville",
+      "state": "MD",
+      "fips": "24031"
+    },
+    {
+      "city": "Silver Spring",
+      "state": "MD",
+      "fips": "24031"
+    },
+    {
+      "city": "Bar Harbor",
+      "state": "ME",
+      "fips": "23009"
+    },
+    {
+      "city": "Biddeford",
+      "state": "ME",
+      "fips": "23031"
+    },
+    {
+      "city": "Westbrook",
+      "state": "ME",
+      "fips": "23005"
+    },
+    {
+      "city": "Ann Arbor",
+      "state": "MI",
+      "fips": "26161"
+    },
+    {
+      "city": "Dearborn",
+      "state": "MI",
+      "fips": "26163"
+    },
+    {
+      "city": "Detroit",
+      "state": "MI",
+      "fips": "26163"
+    },
+    {
+      "city": "Grand Rapids",
+      "state": "MI",
+      "fips": "26081"
+    },
+    {
+      "city": "Kalamazoo",
+      "state": "MI",
+      "fips": "26077"
+    },
+    {
+      "city": "Lansing",
+      "state": "MI",
+      "fips": "26065"
+    },
+    {
+      "city": "Mattawan",
+      "state": "MI",
+      "fips": "26159"
+    },
+    {
+      "city": "Okemos",
+      "state": "MI",
+      "fips": "26065"
+    },
+    {
+      "city": "Warren",
+      "state": "MI",
+      "fips": "26099"
+    },
+    {
+      "city": "Whitehall",
+      "state": "MI",
+      "fips": "26121"
+    },
+    {
+      "city": "Eagan",
+      "state": "MN",
+      "fips": "27037"
+    },
+    {
+      "city": "Eden Prairie",
+      "state": "MN",
+      "fips": "27053"
+    },
+    {
+      "city": "Le Sueur",
+      "state": "MN",
+      "fips": "27079"
+    },
+    {
+      "city": "Minneapolis",
+      "state": "MN",
+      "fips": "27053"
+    },
+    {
+      "city": "New Brighton",
+      "state": "MN",
+      "fips": "27123"
+    },
+    {
+      "city": "Plymouth",
+      "state": "MN",
+      "fips": "27053"
+    },
+    {
+      "city": "Rochester",
+      "state": "MN",
+      "fips": "27109"
+    },
+    {
+      "city": "Saint Paul",
+      "state": "MN",
+      "fips": "27123"
+    },
+    {
+      "city": "Chesterfield",
+      "state": "MO",
+      "fips": "29189"
+    },
+    {
+      "city": "Columbia",
+      "state": "MO",
+      "fips": "29019"
+    },
+    {
+      "city": "Kansas City",
+      "state": "MO",
+      "fips": "29095"
+    },
+    {
+      "city": "St. Louis",
+      "state": "MO",
+      "fips": "29510"
+    },
+    {
+      "city": "Warrensburg",
+      "state": "MO",
+      "fips": "29101"
+    },
+    {
+      "city": "Starkville",
+      "state": "MS",
+      "fips": "28105"
+    },
+    {
+      "city": "University",
+      "state": "MS",
+      "fips": "28071"
+    },
+    {
+      "city": "Asheville",
+      "state": "NC",
+      "fips": "37021"
+    },
+    {
+      "city": "Carrboro",
+      "state": "NC",
+      "fips": "37135"
+    },
+    {
+      "city": "Cary",
+      "state": "NC",
+      "fips": "37183"
+    },
+    {
+      "city": "Chapel Hill",
+      "state": "NC",
+      "fips": "37135"
+    },
+    {
+      "city": "Charlotte",
+      "state": "NC",
+      "fips": "37119"
+    },
+    {
+      "city": "Durham",
+      "state": "NC",
+      "fips": "37063"
+    },
+    {
+      "city": "Fayetteville",
+      "state": "NC",
+      "fips": "37051"
+    },
+    {
+      "city": "Greensboro",
+      "state": "NC",
+      "fips": "37081"
+    },
+    {
+      "city": "Kannapolis",
+      "state": "NC",
+      "fips": "37025"
+    },
+    {
+      "city": "Morrisville",
+      "state": "NC",
+      "fips": "37183"
+    },
+    {
+      "city": "Raleigh",
+      "state": "NC",
+      "fips": "37183"
+    },
+    {
+      "city": "Research Triangle Park",
+      "state": "NC",
+      "fips": "37183"
+    },
+    {
+      "city": "Sanford",
+      "state": "NC",
+      "fips": "37105"
+    },
+    {
+      "city": "Winston-Salem",
+      "state": "NC",
+      "fips": "37067"
+    },
+    {
+      "city": "Fargo",
+      "state": "ND",
+      "fips": "38017"
+    },
+    {
+      "city": "Lincoln",
+      "state": "NE",
+      "fips": "31109"
+    },
+    {
+      "city": "Omaha",
+      "state": "NE",
+      "fips": "31055"
+    },
+    {
+      "city": "Basking Ridge",
+      "state": "NJ",
+      "fips": "34035"
+    },
+    {
+      "city": "Bridgewater",
+      "state": "NJ",
+      "fips": "34035"
+    },
+    {
+      "city": "Camden",
+      "state": "NJ",
+      "fips": "34007"
+    },
+    {
+      "city": "Clark",
+      "state": "NJ",
+      "fips": "34039"
+    },
+    {
+      "city": "Cranbury",
+      "state": "NJ",
+      "fips": "34023"
+    },
+    {
+      "city": "Denville",
+      "state": "NJ",
+      "fips": "34027"
+    },
+    {
+      "city": "Dover",
+      "state": "NJ",
+      "fips": "34027"
+    },
+    {
+      "city": "Englewood",
+      "state": "NJ",
+      "fips": "34003"
+    },
+    {
+      "city": "Fort Lee",
+      "state": "NJ",
+      "fips": "34003"
+    },
+    {
+      "city": "Hoboken",
+      "state": "NJ",
+      "fips": "34017"
+    },
+    {
+      "city": "Lawrenceville",
+      "state": "NJ",
+      "fips": "34021"
+    },
+    {
+      "city": "Montclair",
+      "state": "NJ",
+      "fips": "34013"
+    },
+    {
+      "city": "Montvale",
+      "state": "NJ",
+      "fips": "34003"
+    },
+    {
+      "city": "New Brunswick",
+      "state": "NJ",
+      "fips": "34023"
+    },
+    {
+      "city": "Newark",
+      "state": "NJ",
+      "fips": "34013"
+    },
+    {
+      "city": "Paramus",
+      "state": "NJ",
+      "fips": "34003"
+    },
+    {
+      "city": "Piscataway",
+      "state": "NJ",
+      "fips": "34023"
+    },
+    {
+      "city": "Princeton",
+      "state": "NJ",
+      "fips": "34021"
+    },
+    {
+      "city": "Rahway",
+      "state": "NJ",
+      "fips": "34039"
+    },
+    {
+      "city": "Raritan",
+      "state": "NJ",
+      "fips": "34035"
+    },
+    {
+      "city": "Somerset",
+      "state": "NJ",
+      "fips": "34035"
+    },
+    {
+      "city": "Summit",
+      "state": "NJ",
+      "fips": "34039"
+    },
+    {
+      "city": "Titusville",
+      "state": "NJ",
+      "fips": "34021"
+    },
+    {
+      "city": "Los Alamos",
+      "state": "NM",
+      "fips": "35028"
+    },
+    {
+      "city": "Las Vegas",
+      "state": "NV",
+      "fips": "32003"
+    },
+    {
+      "city": "Reno",
+      "state": "NV",
+      "fips": "32031"
+    },
+    {
+      "city": "Albany",
+      "state": "NY",
+      "fips": "36001"
+    },
+    {
+      "city": "Armonk",
+      "state": "NY",
+      "fips": "36119"
+    },
+    {
+      "city": "Boston",
+      "state": "NY",
+      "fips": "36029"
+    },
+    {
+      "city": "Brooklyn",
+      "state": "NY",
+      "fips": "36047"
+    },
+    {
+      "city": "Buffalo",
+      "state": "NY",
+      "fips": "36029"
+    },
+    {
+      "city": "Grand Island",
+      "state": "NY",
+      "fips": "36029"
+    },
+    {
+      "city": "Manhattan",
+      "state": "NY",
+      "fips": "36061"
+    },
+    {
+      "city": "New York City",
+      "state": "NY",
+      "fips": "36061"
+    },
+    {
+      "city": "Orangeburg",
+      "state": "NY",
+      "fips": "36087"
+    },
+    {
+      "city": "Palisades",
+      "state": "NY",
+      "fips": "36087"
+    },
+    {
+      "city": "Pearl River",
+      "state": "NY",
+      "fips": "36087"
+    },
+    {
+      "city": "Rensselaer",
+      "state": "NY",
+      "fips": "36083"
+    },
+    {
+      "city": "Staten Island",
+      "state": "NY",
+      "fips": "36085"
+    },
+    {
+      "city": "Stony Brook",
+      "state": "NY",
+      "fips": "36103"
+    },
+    {
+      "city": "Tarrytown",
+      "state": "NY",
+      "fips": "36119"
+    },
+    {
+      "city": "Troy",
+      "state": "NY",
+      "fips": "36083"
+    },
+    {
+      "city": "Yorktown Heights",
+      "state": "NY",
+      "fips": "36119"
+    },
+    {
+      "city": "Beavercreek",
+      "state": "OH",
+      "fips": "39057"
+    },
+    {
+      "city": "Cincinnati",
+      "state": "OH",
+      "fips": "39061"
+    },
+    {
+      "city": "Cleveland",
+      "state": "OH",
+      "fips": "39035"
+    },
+    {
+      "city": "Columbus",
+      "state": "OH",
+      "fips": "39049"
+    },
+    {
+      "city": "Dayton",
+      "state": "OH",
+      "fips": "39113"
+    },
+    {
+      "city": "Delaware",
+      "state": "OH",
+      "fips": "39041"
+    },
+    {
+      "city": "Lakewood",
+      "state": "OH",
+      "fips": "39035"
+    },
+    {
+      "city": "Wright-Patterson AFB",
+      "state": "OH",
+      "fips": "39057"
+    },
+    {
+      "city": "Oklahoma City",
+      "state": "OK",
+      "fips": "40109"
+    },
+    {
+      "city": "Tulsa",
+      "state": "OK",
+      "fips": "40143"
+    },
+    {
+      "city": "Beaverton",
+      "state": "OR",
+      "fips": "41067"
+    },
+    {
+      "city": "Bend",
+      "state": "OR",
+      "fips": "41017"
+    },
+    {
+      "city": "Portland",
+      "state": "OR",
+      "fips": "41051"
+    },
+    {
+      "city": "Bristol",
+      "state": "PA",
+      "fips": "42017"
+    },
+    {
+      "city": "Center Valley",
+      "state": "PA",
+      "fips": "42077"
+    },
+    {
+      "city": "Collegeville",
+      "state": "PA",
+      "fips": "42091"
+    },
+    {
+      "city": "Conshohocken",
+      "state": "PA",
+      "fips": "42091"
+    },
+    {
+      "city": "Fort Washington",
+      "state": "PA",
+      "fips": "42091"
+    },
+    {
+      "city": "Harleysville",
+      "state": "PA",
+      "fips": "42091"
+    },
+    {
+      "city": "Horsham",
+      "state": "PA",
+      "fips": "42091"
+    },
+    {
+      "city": "Malvern",
+      "state": "PA",
+      "fips": "42029"
+    },
+    {
+      "city": "Marietta",
+      "state": "PA",
+      "fips": "42071"
+    },
+    {
+      "city": "Philadelphia",
+      "state": "PA",
+      "fips": "42101"
+    },
+    {
+      "city": "Pipersville",
+      "state": "PA",
+      "fips": "42017"
+    },
+    {
+      "city": "Pittsburgh",
+      "state": "PA",
+      "fips": "42003"
+    },
+    {
+      "city": "Spring House",
+      "state": "PA",
+      "fips": "42091"
+    },
+    {
+      "city": "University Park",
+      "state": "PA",
+      "fips": "42027"
+    },
+    {
+      "city": "Upper Providence",
+      "state": "PA",
+      "fips": "42045"
+    },
+    {
+      "city": "Wayne",
+      "state": "PA",
+      "fips": "42045"
+    },
+    {
+      "city": "West Norriton",
+      "state": "PA",
+      "fips": "42091"
+    },
+    {
+      "city": "West Point",
+      "state": "PA",
+      "fips": "42091"
+    },
+    {
+      "city": "Providence",
+      "state": "RI",
+      "fips": "44007"
+    },
+    {
+      "city": "Aiken",
+      "state": "SC",
+      "fips": "45003"
+    },
+    {
+      "city": "Charleston",
+      "state": "SC",
+      "fips": "45019"
+    },
+    {
+      "city": "Columbia",
+      "state": "SC",
+      "fips": "45079"
+    },
+    {
+      "city": "Florence",
+      "state": "SC",
+      "fips": "45041"
+    },
+    {
+      "city": "Greenville",
+      "state": "SC",
+      "fips": "45045"
+    },
+    {
+      "city": "Sioux Falls",
+      "state": "SD",
+      "fips": "46099"
+    },
+    {
+      "city": "Memphis",
+      "state": "TN",
+      "fips": "47157"
+    },
+    {
+      "city": "Nashville",
+      "state": "TN",
+      "fips": "47037"
+    },
+    {
+      "city": "New Johnsonville",
+      "state": "TN",
+      "fips": "47085"
+    },
+    {
+      "city": "Oak Ridge",
+      "state": "TN",
+      "fips": "47001"
+    },
+    {
+      "city": "Arlington",
+      "state": "TX",
+      "fips": "48439"
+    },
+    {
+      "city": "Atlanta",
+      "state": "TX",
+      "fips": "48067"
+    },
+    {
+      "city": "Austin",
+      "state": "TX",
+      "fips": "48453"
+    },
+    {
+      "city": "Bryan",
+      "state": "TX",
+      "fips": "48041"
+    },
+    {
+      "city": "College Station",
+      "state": "TX",
+      "fips": "48041"
+    },
+    {
+      "city": "Corpus Christi",
+      "state": "TX",
+      "fips": "48355"
+    },
+    {
+      "city": "Dallas",
+      "state": "TX",
+      "fips": "48113"
+    },
+    {
+      "city": "Fort Worth",
+      "state": "TX",
+      "fips": "48439"
+    },
+    {
+      "city": "Friendswood",
+      "state": "TX",
+      "fips": "48167"
+    },
+    {
+      "city": "Frisco",
+      "state": "TX",
+      "fips": "48085"
+    },
+    {
+      "city": "Galveston",
+      "state": "TX",
+      "fips": "48167"
+    },
+    {
+      "city": "Garland",
+      "state": "TX",
+      "fips": "48113"
+    },
+    {
+      "city": "Houston",
+      "state": "TX",
+      "fips": "48201"
+    },
+    {
+      "city": "Irving",
+      "state": "TX",
+      "fips": "48113"
+    },
+    {
+      "city": "Lewisville",
+      "state": "TX",
+      "fips": "48121"
+    },
+    {
+      "city": "Longview",
+      "state": "TX",
+      "fips": "48183"
+    },
+    {
+      "city": "Lubbock",
+      "state": "TX",
+      "fips": "48303"
+    },
+    {
+      "city": "Prosper",
+      "state": "TX",
+      "fips": "48085"
+    },
+    {
+      "city": "Richardson",
+      "state": "TX",
+      "fips": "48113"
+    },
+    {
+      "city": "Sam Houston",
+      "state": "TX",
+      "fips": "48291"
+    },
+    {
+      "city": "San Antonio",
+      "state": "TX",
+      "fips": "48029"
+    },
+    {
+      "city": "Sheffield",
+      "state": "TX",
+      "fips": "48067"
+    },
+    {
+      "city": "Texarkana",
+      "state": "TX",
+      "fips": "48037"
+    },
+    {
+      "city": "Weslaco",
+      "state": "TX",
+      "fips": "48215"
+    },
+    {
+      "city": "Lehi",
+      "state": "UT",
+      "fips": "49049"
+    },
+    {
+      "city": "Lindon",
+      "state": "UT",
+      "fips": "49049"
+    },
+    {
+      "city": "Ogden",
+      "state": "UT",
+      "fips": "49057"
+    },
+    {
+      "city": "Pleasant Grove",
+      "state": "UT",
+      "fips": "49049"
+    },
+    {
+      "city": "Provo",
+      "state": "UT",
+      "fips": "49049"
+    },
+    {
+      "city": "Saint George",
+      "state": "UT",
+      "fips": "49053"
+    },
+    {
+      "city": "Salt Lake City",
+      "state": "UT",
+      "fips": "49035"
+    },
+    {
+      "city": "Annandale",
+      "state": "VA",
+      "fips": "51059"
+    },
+    {
+      "city": "Arlington",
+      "state": "VA",
+      "fips": "51013"
+    },
+    {
+      "city": "Ashburn",
+      "state": "VA",
+      "fips": "51107"
+    },
+    {
+      "city": "Blacksburg",
+      "state": "VA",
+      "fips": "51121"
+    },
+    {
+      "city": "Chantilly",
+      "state": "VA",
+      "fips": "51059"
+    },
+    {
+      "city": "Charlottesville",
+      "state": "VA",
+      "fips": "51540"
+    },
+    {
+      "city": "Fairfax",
+      "state": "VA",
+      "fips": "51600"
+    },
+    {
+      "city": "Falls Church",
+      "state": "VA",
+      "fips": "51610"
+    },
+    {
+      "city": "Manassas",
+      "state": "VA",
+      "fips": "51683"
+    },
+    {
+      "city": "McLean",
+      "state": "VA",
+      "fips": "51059"
+    },
+    {
+      "city": "Reston",
+      "state": "VA",
+      "fips": "51059"
+    },
+    {
+      "city": "Richmond",
+      "state": "VA",
+      "fips": "51760"
+    },
+    {
+      "city": "Vienna",
+      "state": "VA",
+      "fips": "51059"
+    },
+    {
+      "city": "Burlington",
+      "state": "VT",
+      "fips": "50007"
+    },
+    {
+      "city": "Bellevue",
+      "state": "WA",
+      "fips": "53033"
+    },
+    {
+      "city": "Bothell",
+      "state": "WA",
+      "fips": "53033"
+    },
+    {
+      "city": "Centralia",
+      "state": "WA",
+      "fips": "53041"
+    },
+    {
+      "city": "Kirkland",
+      "state": "WA",
+      "fips": "53033"
+    },
+    {
+      "city": "Redmond",
+      "state": "WA",
+      "fips": "53033"
+    },
+    {
+      "city": "Renton",
+      "state": "WA",
+      "fips": "53033"
+    },
+    {
+      "city": "Seattle",
+      "state": "WA",
+      "fips": "53033"
+    },
+    {
+      "city": "Baraboo",
+      "state": "WI",
+      "fips": "55111"
+    },
+    {
+      "city": "Brookfield",
+      "state": "WI",
+      "fips": "55133"
+    },
+    {
+      "city": "Johnson Creek",
+      "state": "WI",
+      "fips": "55055"
+    },
+    {
+      "city": "Madison",
+      "state": "WI",
+      "fips": "55025"
+    },
+    {
+      "city": "Marshfield",
+      "state": "WI",
+      "fips": "55141"
+    },
+    {
+      "city": "Milwaukee",
+      "state": "WI",
+      "fips": "55079"
+    },
+    {
+      "city": "River Falls",
+      "state": "WI",
+      "fips": "55093"
+    },
+    {
+      "city": "Watertown",
+      "state": "WI",
+      "fips": "55055"
+    },
+    {
+      "city": "Wauwatosa",
+      "state": "WI",
+      "fips": "55079"
+    },
+    {
+      "city": "West Bend",
+      "state": "WI",
+      "fips": "55131"
+    },
+    {
+      "city": "Morgantown",
+      "state": "WV",
+      "fips": "54061"
+    }
+  ]
+}

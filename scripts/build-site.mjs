@@ -1,0 +1,10 @@
+import fs from 'node:fs';
+import {build} from 'esbuild';
+fs.mkdirSync('dist',{recursive:true});
+for(const file of ['index.html','style.css'])fs.copyFileSync(file,'dist/'+file);
+fs.cpSync('data','dist/data',{recursive:true});
+const entries=fs.readdirSync('data/locations').filter(n=>n.endsWith('.json')).map(n=>JSON.parse(fs.readFileSync('data/locations/'+n,'utf8')));
+fs.writeFileSync('dist/data/locations.json',JSON.stringify(entries));
+fs.writeFileSync('dist/.nojekyll','');
+await build({entryPoints:['app.mjs'],outdir:'dist',entryNames:'app',bundle:true,format:'esm',splitting:true,minify:true,chunkNames:'chunks/[name]-[hash]'});
+console.log('Built static website in dist/');
