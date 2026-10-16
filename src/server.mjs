@@ -3,13 +3,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import {spawn} from 'node:child_process';
-import {ROOT,loadDatabase,createPolicyEngine,saveEntry} from './local.mjs';
-import {compareSalary} from './compare.mjs';
+import {ROOT,saveEntry} from './local.mjs';
 import {fullResearchPrompt as researchPrompt,parseResearch,apiResearch,PROVIDERS} from './research.mjs';
 const port=Number(process.env.COMPARE_SALARY_PORT||4317),token=crypto.randomBytes(24).toString('hex');
 const origins=new Set(['https://sfeng666.github.io','https://siyuanfeng.com','https://www.siyuanfeng.com',`http://127.0.0.1:${port}`,`http://localhost:${port}`]);
 const site=fs.existsSync(path.join(ROOT,'dist/index.html'))?path.join(ROOT,'dist'):ROOT;
-const engine=process.env.COMPARE_SALARY_PYTHON?createPolicyEngine(process.env.COMPARE_SALARY_PYTHON):null;
 let researchRunning=false;
 const server=http.createServer(async(req,res)=>{
  const origin=req.headers.origin;if(origin&&!origins.has(origin)){res.writeHead(403);res.end('Origin not allowed');return;}
@@ -19,10 +17,9 @@ const server=http.createServer(async(req,res)=>{
  try{
   if(req.url.startsWith('/api/')){
    if(req.headers.authorization!=='Bearer '+token){send(401,{error:'Companion token required'});return;}
-   if(req.url==='/api/health'){send(200,{ready:true,policyEngine:!!engine,research:'codex'});return;}
+   if(req.url==='/api/health'){send(200,{ready:true,research:'codex'});return;}
    if(req.method!=='POST'){send(405,{error:'POST required'});return;}
    let text='';for await(const b of req){text+=b;if(text.length>100000){send(413,{error:'Request too large'});return;}}const data=JSON.parse(text);
-   if(req.url==='/api/compare'){send(200,await compareSalary(data,loadDatabase(),{taxCurve:engine?.curve.bind(engine)}));return;}
    if(req.url==='/api/research-api'){
     const preset=PROVIDERS[data.provider];
     if(!preset||!preset.endpoint||new URL(data.endpoint||preset.endpoint).origin!==new URL(preset.endpoint).origin)throw Error('The local relay accepts the selected provider’s official endpoint only');
@@ -45,4 +42,4 @@ const server=http.createServer(async(req,res)=>{
  }catch(e){send(400,{error:e.message});}
 });
 server.listen(port,'127.0.0.1',()=>console.error(`compare salary: http://127.0.0.1:${port}/#connection=${token}\nLocal companion token: ${token}\nOpen the local link to connect automatically. The token is not saved.`));
-process.on('SIGTERM',()=>{engine?.close();server.close();});
+process.on('SIGTERM',()=>server.close());

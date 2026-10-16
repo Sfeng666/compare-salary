@@ -1,6 +1,6 @@
 {
   "name": "@sfeng666/compare-salary",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Compare salary purchasing power with reproducible US location data",
   "type": "module",
   "license": "MIT",

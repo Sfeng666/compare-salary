@@ -1,7 +1,6 @@
 """Precompute county/city income and local tax together, including SALT effects.
 
-Uses the same sourced rate overrides as the local engine. Joint tables retain
-the existing equal-earner approximation; detailed mode uses actual earnings.
+Uses sourced rate overrides. Joint tables retain the equal-earner approximation.
 """
 import contextlib
 import gc

@@ -1,6 +1,5 @@
 """Tabulate 2026 federal/state income tax; payroll and local tax are added at runtime.
 Married joint tables assume equally split earnings; published results are approximations.
-The local PolicyEngine adapter calculates both actual wages when installed.
 """
 import json, contextlib, sys
 from pathlib import Path

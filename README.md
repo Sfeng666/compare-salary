@@ -44,30 +44,13 @@ Use `--input request.json` for the full API input. Salary periods are year, mont
 
 ## Tax calculation
 
-The browser and default CLI use interpolated tax tables generated with **PolicyEngine US 2.42.14**. Employee Social Security, Medicare, additional Medicare and state payroll contributions are calculated per worker. Joint income-tax tables assume equally split earnings; deductions and credits can differ for the actual earnings split.
+The website, CLI and MCP use interpolated tax tables generated with **PolicyEngine US 2.42.14**. Employee Social Security, Medicare, additional Medicare and state payroll contributions are calculated per worker. Joint income-tax tables assume equally split earnings; deductions and credits can differ for the actual earnings split.
 
-Local taxes have their own source-backed coverage records in `data/local-tax-coverage.json`. They include statewide evidence for zero local wage tax, all 92 Indiana county rates, all Maryland counties and Baltimore City, NYC and Yonkers, and supported city earnings taxes and employee fees. The 118 county/city curves in `data/local-tax-tables.json` include local taxes and their effect on federal deductions. The browser and Python engine apply the same verified 2026 Indiana and Maryland rate corrections. Simple city rules use employee liabilities only.
+Local taxes have their own source-backed coverage records in `data/local-tax-coverage.json`. They include statewide evidence for zero local wage tax, all 92 Indiana county rates, all Maryland counties and Baltimore City, NYC and Yonkers, and supported city earnings taxes and employee fees. The 118 county/city curves in `data/local-tax-tables.json` include local taxes and their effect on federal deductions. These tables apply the verified 2026 Indiana and Maryland rate corrections. Simple city rules use employee liabilities only.
 
 Each result shows a separate local-tax amount. Assumptions & sources contains a brief note about omitted unverified local taxes and links to research them. An unresolved jurisdiction stays labeled incomplete; zero included tax is not evidence of zero tax owed. The [database audit](data/tax-coverage-audit.json) accounts for every named place, and [research queue](data/tax-research-queue.json) lists the unresolved ones. This is partial verification, not nationwide certification. Postal names, city boundaries, counties and school districts can differ. Rules are scoped to full-year resident employees living and working in the same city, with level earnings over 12 months. Published curves interpolate income points and remain estimates, especially near tax-credit or whole-income rate thresholds.
 
-For detailed local calculations, install the pinned Python engine:
-
-```sh
-python3 -m venv .venv
-.venv/bin/pip install -r requirements.txt
-compare-salary compare --location "Indianapolis, IN" --salary 100000 --reference "Madison, WI" --python .venv/bin/python
-```
-
-The detailed engine uses both actual wages, federal and state income tax, employee payroll tax and supported local taxes. It compares married filing options, including community-property treatment where applicable. Unsupported municipal rules remain unresolved until researched. It models two 40-year-old adults or one 40-year-old adult, no children, wage income and no voluntary pretax deductions. PolicyEngine is a separate AGPL dependency.
-
-To connect the website to your local engine:
-
-```sh
-npm run build
-COMPARE_SALARY_PYTHON="$PWD/.venv/bin/python" compare-salary serve
-```
-
-The command prints a localhost link that connects the browser automatically with a temporary token. Open that link and select “Calculate with my local tax engine” under My saved locations & local tax engine. To connect the published website, enter the token under Agent setup. Salary inputs are then sent only to that local companion. The companion listens on loopback, checks browser origins and requires the temporary token for API access.
+The website calculates salaries in the browser. The local companion supports Codex location research and an optional API relay. To use it, run `compare-salary serve` and open the localhost link it prints. The link connects with a temporary token; the companion listens on loopback and checks browser origins.
 
 ## Agent installation
 
@@ -128,7 +111,7 @@ Search-capable agents must return a `taxReview` covering city, county, school-di
 
 The complete public database lives in `data/`. Clone it for offline use. The CLI accepts `--data /path/to/database`; additions are stored in `~/.local/share/compare-salary/locations`, or the directory set by `COMPARE_SALARY_DATA`.
 
-The website keeps your added entries in browser storage. You can import and export them as JSON. Clearing browser storage removes that local copy, so export entries you want to retain. The page never sends salary input to GitHub or an AI provider automatically.
+The website keeps your added entries in browser storage. You can import and export them as JSON. Clearing browser storage removes that local copy, so export entries you want to retain. Website salary calculations stay in the browser; location research sends only public location inputs to the selected provider.
 
 ```sh
 compare-salary research-prompt "City, ST"
@@ -156,4 +139,4 @@ The calculator covers US resident wage earners with no children and one or two a
 
 Code is MIT. The EPI-derived data collection is **CC BY-NC-SA 4.0**, so commercial redistribution needs separate permission or replacement data. GeoNames attribution and all source hashes are preserved. See [DATA_LICENSE.md](DATA_LICENSE.md).
 
-Rebuild data with `python scripts/build-data.py /path/to/publisher-downloads` and federal/state tax tables with `python scripts/build-tax-tables.py` in the pinned Python environment. After reviewing government sources, update `scripts/build-local-tax-coverage.mjs`, run it, then run `python scripts/build-local-tax-tables.py` and `npm run audit:tax`. The audit uses only published entries, never personal additions. The original budget and rent download URLs and SHA-256 hashes are recorded in `data/base.json`.
+Maintainers can install the pinned Python dependencies in `requirements.txt` to rebuild published tax tables. Rebuild data with `python scripts/build-data.py /path/to/publisher-downloads` and federal/state tax tables with `python scripts/build-tax-tables.py`. After reviewing government sources, update `scripts/build-local-tax-coverage.mjs`, run it, then run `python scripts/build-local-tax-tables.py` and `npm run audit:tax`. The audit uses only published entries, never personal additions. The original budget and rent download URLs and SHA-256 hashes are recorded in `data/base.json`.
