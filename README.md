@@ -44,7 +44,7 @@ Use `--input request.json` for the full API input. Salary periods are year, mont
 
 ## Tax calculation
 
-The browser and default CLI use interpolated federal/state tax tables generated with **PolicyEngine US 2.42.14**. Employee Social Security, Medicare and additional Medicare taxes are calculated per worker. Joint income-tax tables assume equally split earnings; deductions and credits can differ for the actual earnings split. City/county taxes are added only when a researched entry provides complete local rules. The result explicitly warns when those taxes are omitted.
+The browser and default CLI use interpolated federal/state tax tables generated with **PolicyEngine US 2.42.14**. Employee Social Security, Medicare, additional Medicare and state payroll contributions are calculated per worker. Joint income-tax tables assume equally split earnings; deductions and credits can differ for the actual earnings split. City/county taxes are added only when a researched entry provides complete local rules. The result explicitly warns when those taxes are omitted.
 
 For detailed local calculations, install the pinned Python engine:
 
