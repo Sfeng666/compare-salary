@@ -12,7 +12,11 @@
     ".": "./src/compare.mjs",
     "./model": "./src/model.mjs",
     "./locations": "./src/locations.mjs",
-    "./taxes.py": "./src/taxes.py"
+    "./taxes.py": "./src/taxes.py",
+    "./local": "./src/local.mjs",
+    "./contribute": "./src/contribute.mjs",
+    "./research": "./src/research.mjs",
+    "./tax-jurisdiction": "./src/tax-jurisdiction.mjs"
   },
   "bin": {
     "compare-salary": "./bin/compare-salary.mjs",

@@ -34,6 +34,9 @@ with zipfile.ZipFile(SOURCE/'geonames-US.zip') as z:
         if fips not in counties:continue
         for name in set([r[1],r[2]]):
             key=f'{name}, {r[10]}'.lower();row={'city':name,'state':r[10],'fips':fips,'population':int(r[14] or 0)}
+            if r[7]=='PPLX':
+                row['urbanSection']=True
+                row['taxCityNeedsVerification']=r[10] in {'AL','CO','DE','IN','KY','MI','MO','NY','OH','OR','PA','WV'}
             if key not in cities or row['population']>cities[key]['population']:cities[key]=row
 wages={}
 for archive,suffix,is_state in [('bls-2025-metro.zip','MSA_M2025_dl.xlsx',False),('bls-2025-state.zip','state_M2025_dl.xlsx',True)]:
