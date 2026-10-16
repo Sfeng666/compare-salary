@@ -1,0 +1,575 @@
+{
+  "schemaVersion": 1,
+  "taxYear": 2026,
+  "checkedAt": "2026-10-16",
+  "totalNamedPlaces": 168640,
+  "counts": {
+    "verified": 81684,
+    "needs_research": 50178,
+    "address_required": 36778
+  },
+  "states": {
+    "AK": {
+      "total": 796,
+      "verified": 0,
+      "needs_research": 796,
+      "address_required": 0
+    },
+    "AL": {
+      "total": 5369,
+      "verified": 0,
+      "needs_research": 0,
+      "address_required": 5369
+    },
+    "TX": {
+      "total": 8668,
+      "verified": 0,
+      "needs_research": 8668,
+      "address_required": 0
+    },
+    "SC": {
+      "total": 4126,
+      "verified": 4126,
+      "needs_research": 0,
+      "address_required": 0
+    },
+    "VA": {
+      "total": 7700,
+      "verified": 7700,
+      "needs_research": 0,
+      "address_required": 0
+    },
+    "WV": {
+      "total": 3650,
+      "verified": 0,
+      "needs_research": 0,
+      "address_required": 3650
+    },
+    "MS": {
+      "total": 2968,
+      "verified": 0,
+      "needs_research": 2968,
+      "address_required": 0
+    },
+    "KS": {
+      "total": 1951,
+      "verified": 0,
+      "needs_research": 1951,
+      "address_required": 0
+    },
+    "AR": {
+      "total": 3269,
+      "verified": 3269,
+      "needs_research": 0,
+      "address_required": 0
+    },
+    "FL": {
+      "total": 8483,
+      "verified": 8483,
+      "needs_research": 0,
+      "address_required": 0
+    },
+    "DE": {
+      "total": 1755,
+      "verified": 1,
+      "needs_research": 1754,
+      "address_required": 0
+    },
+    "GA": {
+      "total": 6091,
+      "verified": 6091,
+      "needs_research": 0,
+      "address_required": 0
+    },
+    "IL": {
+      "total": 4654,
+      "verified": 4654,
+      "needs_research": 0,
+      "address_required": 0
+    },
+    "IN": {
+      "total": 3346,
+      "verified": 3346,
+      "needs_research": 0,
+      "address_required": 0
+    },
+    "MD": {
+      "total": 7892,
+      "verified": 7892,
+      "needs_research": 0,
+      "address_required": 0
+    },
+    "KY": {
+      "total": 4485,
+      "verified": 0,
+      "needs_research": 0,
+      "address_required": 4485
+    },
+    "LA": {
+      "total": 3757,
+      "verified": 3757,
+      "needs_research": 0,
+      "address_required": 0
+    },
+    "MO": {
+      "total": 3998,
+      "verified": 2,
+      "needs_research": 3996,
+      "address_required": 0
+    },
+    "OH": {
+      "total": 6713,
+      "verified": 0,
+      "needs_research": 0,
+      "address_required": 6713
+    },
+    "NC": {
+      "total": 5967,
+      "verified": 5967,
+      "needs_research": 0,
+      "address_required": 0
+    },
+    "NJ": {
+      "total": 2465,
+      "verified": 2465,
+      "needs_research": 0,
+      "address_required": 0
+    },
+    "PA": {
+      "total": 9455,
+      "verified": 0,
+      "needs_research": 0,
+      "address_required": 9455
+    },
+    "OK": {
+      "total": 1875,
+      "verified": 0,
+      "needs_research": 1875,
+      "address_required": 0
+    },
+    "TN": {
+      "total": 5472,
+      "verified": 5472,
+      "needs_research": 0,
+      "address_required": 0
+    },
+    "DC": {
+      "total": 149,
+      "verified": 0,
+      "needs_research": 149,
+      "address_required": 0
+    },
+    "IA": {
+      "total": 2302,
+      "verified": 0,
+      "needs_research": 0,
+      "address_required": 2302
+    },
+    "CT": {
+      "total": 1012,
+      "verified": 0,
+      "needs_research": 1012,
+      "address_required": 0
+    },
+    "WI": {
+      "total": 2474,
+      "verified": 2474,
+      "needs_research": 0,
+      "address_required": 0
+    },
+    "MA": {
+      "total": 2226,
+      "verified": 0,
+      "needs_research": 2226,
+      "address_required": 0
+    },
+    "ME": {
+      "total": 2058,
+      "verified": 0,
+      "needs_research": 2058,
+      "address_required": 0
+    },
+    "MI": {
+      "total": 3461,
+      "verified": 0,
+      "needs_research": 0,
+      "address_required": 3461
+    },
+    "MN": {
+      "total": 2489,
+      "verified": 2489,
+      "needs_research": 0,
+      "address_required": 0
+    },
+    "NE": {
+      "total": 1172,
+      "verified": 0,
+      "needs_research": 1172,
+      "address_required": 0
+    },
+    "ND": {
+      "total": 893,
+      "verified": 0,
+      "needs_research": 893,
+      "address_required": 0
+    },
+    "NY": {
+      "total": 7020,
+      "verified": 433,
+      "needs_research": 6587,
+      "address_required": 0
+    },
+    "NH": {
+      "total": 980,
+      "verified": 0,
+      "needs_research": 980,
+      "address_required": 0
+    },
+    "SD": {
+      "total": 962,
+      "verified": 0,
+      "needs_research": 962,
+      "address_required": 0
+    },
+    "RI": {
+      "total": 390,
+      "verified": 0,
+      "needs_research": 390,
+      "address_required": 0
+    },
+    "VT": {
+      "total": 871,
+      "verified": 0,
+      "needs_research": 871,
+      "address_required": 0
+    },
+    "AZ": {
+      "total": 2378,
+      "verified": 2378,
+      "needs_research": 0,
+      "address_required": 0
+    },
+    "CA": {
+      "total": 6408,
+      "verified": 6408,
+      "needs_research": 0,
+      "address_required": 0
+    },
+    "CO": {
+      "total": 1777,
+      "verified": 3,
+      "needs_research": 1774,
+      "address_required": 0
+    },
+    "NM": {
+      "total": 1531,
+      "verified": 0,
+      "needs_research": 1531,
+      "address_required": 0
+    },
+    "NV": {
+      "total": 649,
+      "verified": 649,
+      "needs_research": 0,
+      "address_required": 0
+    },
+    "UT": {
+      "total": 4038,
+      "verified": 0,
+      "needs_research": 4038,
+      "address_required": 0
+    },
+    "ID": {
+      "total": 1210,
+      "verified": 0,
+      "needs_research": 1210,
+      "address_required": 0
+    },
+    "MT": {
+      "total": 1627,
+      "verified": 0,
+      "needs_research": 1627,
+      "address_required": 0
+    },
+    "OR": {
+      "total": 1343,
+      "verified": 0,
+      "needs_research": 0,
+      "address_required": 1343
+    },
+    "WA": {
+      "total": 3062,
+      "verified": 3062,
+      "needs_research": 0,
+      "address_required": 0
+    },
+    "WY": {
+      "total": 563,
+      "verified": 563,
+      "needs_research": 0,
+      "address_required": 0
+    },
+    "HI": {
+      "total": 690,
+      "verified": 0,
+      "needs_research": 690,
+      "address_required": 0
+    }
+  },
+  "meaning": "Verified means the local wage-tax jurisdiction/rate rules have evidence and a supported calculation for the modeled full-year resident employee. It does not certify a tax return, exact address, or every federal/state deduction. Missing coverage is never a verified zero.",
+  "limitations": [
+    "The place index contains neighborhoods and unincorporated places as well as cities.",
+    "Municipal, school and transit boundaries may require residence and workplace addresses.",
+    "Single-county mappings use representative geography; cross-county cities can differ within the city.",
+    "Rules from older publications need confirmation if law changes; the checked date is a review date, not the source publication date."
+  ],
+  "unresolvedFile": "tax-research-queue.json",
+  "sources": {
+    "wi-law": {
+      "title": "Wisconsin Statutes 66.0611",
+      "url": "https://docs.legis.wisconsin.gov/statutes/statutes/66/vi/0611",
+      "retrievedAt": "2026-10-16",
+      "summary": "Wisconsin prohibits political subdivisions from taxing income or using income as a tax measure."
+    },
+    "ca-law": {
+      "title": "California Office of Tax Appeals: R&TC 17041.5, footnote 20",
+      "url": "https://ota.ca.gov/wp-content/uploads/sites/54/2024/11/2024-OTA-377P-Mather-rev1-1.pdf",
+      "retrievedAt": "2026-10-16",
+      "summary": "California prohibits local personal income taxes. Business gross-receipts taxes are employer liabilities, outside this employee wage model."
+    },
+    "az-law": {
+      "title": "Arizona Revised Statutes 43-201",
+      "url": "https://www.azleg.gov/ars/43/00201.htm",
+      "retrievedAt": "2026-10-16",
+      "summary": "Income taxation is reserved to the state while urban revenue sharing under 43-206 remains in effect."
+    },
+    "wa-law": {
+      "title": "Washington RCW 1.90.100",
+      "url": "https://app.leg.wa.gov/RCW/default.aspx?cite=1.90.100",
+      "retrievedAt": "2026-10-16",
+      "summary": "For 2026, state law prohibits local personal income taxes. Employer payroll-expense taxes do not reduce employee wages in this model."
+    },
+    "fl-law": {
+      "title": "Florida Constitution, Article VII, sections 5 and 9",
+      "url": "https://www.flsenate.gov/Laws/Constitution/",
+      "retrievedAt": "2026-10-16",
+      "summary": "Personal income taxation is constitutionally prohibited; local taxing authority does not create an exception for employee wages."
+    },
+    "nv-law": {
+      "title": "Nevada Constitution, Article 10, section 1(9)",
+      "url": "https://www.leg.state.nv.us/Const/NvConst.html",
+      "retrievedAt": "2026-10-16",
+      "summary": "The constitution prohibits taxes on natural persons’ wages and personal income."
+    },
+    "la-law": {
+      "title": "Louisiana Constitution, Article VII, section 4(C)",
+      "url": "https://senate.la.gov/Documents/Constitution/Article7.html",
+      "retrievedAt": "2026-10-16",
+      "summary": "Political subdivisions may not impose income taxes."
+    },
+    "tn-law": {
+      "title": "Tennessee Constitution, Article II, section 28",
+      "url": "https://sharetngov.tnsosfiles.com/sos/bluebook/15-16/15-16BBTNState.pdf",
+      "retrievedAt": "2026-10-16",
+      "summary": "The 2014 constitutional amendment prohibits state and local taxes on payroll and earned personal income, subject to its pre-2011 exception."
+    },
+    "ga-law": {
+      "title": "Georgia General Assembly: 2010 enactment of O.C.G.A. 48-7-140",
+      "url": "https://www.legis.ga.gov/api/document/docs/default-source/general-statutes/2010sumdoc.pdf?sfvrsn=77cd7bf9_2",
+      "retrievedAt": "2026-10-16",
+      "summary": "Section 48-7-140 prohibits political subdivisions from collecting local income taxes."
+    },
+    "nc-law": {
+      "title": "North Carolina General Statutes 105-247",
+      "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-247.html",
+      "retrievedAt": "2026-10-16",
+      "summary": "The statute prohibits city, town, township and county taxes on income."
+    },
+    "wy-law": {
+      "title": "Wyoming Statutes, Title 39: income-tax preemption",
+      "url": "https://www.wyoleg.gov/statutes/compress/title39.pdf",
+      "retrievedAt": "2026-10-16",
+      "summary": "Wyoming reserves income and earnings taxation to the state and prohibits political subdivisions from imposing wage-based taxes."
+    },
+    "mn-law": {
+      "title": "Minnesota House Research: Background Briefing on Minnesota Taxes, 2025",
+      "url": "https://www.house.mn.gov/comm/docs/UrsuC_apOkeM2XPwzLgA9Q.pdf",
+      "retrievedAt": "2026-10-16",
+      "summary": "House Research confirms Minnesota has no local income taxes and that state law prohibits their imposition."
+    },
+    "sc-commerce": {
+      "title": "South Carolina Department of Commerce: incentives and taxes",
+      "url": "https://www.sccommerce.com/why-sc/incentives-taxes",
+      "retrievedAt": "2026-10-16",
+      "summary": "The state Department of Commerce confirms there is no local income tax."
+    },
+    "il-handbook": {
+      "title": "Illinois General Assembly: Tax Handbook for Legislators, 2025",
+      "url": "https://beta.ilga.gov/commission/lru/TaxHandbook2025.pdf",
+      "retrievedAt": "2026-10-16",
+      "summary": "The personal income tax chapter confirms no local income tax is authorized; the constitution requires statutory authorization even for home-rule units."
+    },
+    "va-law": {
+      "title": "Code of Virginia 58.1-300",
+      "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-300/",
+      "retrievedAt": "2026-10-16",
+      "summary": "Current law reserves income taxation to the state and prohibits counties, cities, towns and other political subdivisions from taxing income."
+    },
+    "va-repeal": {
+      "title": "Code of Virginia: repeal of local income-tax authority",
+      "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-540/",
+      "retrievedAt": "2026-10-16",
+      "summary": "Sections 58.1-540 through 58.1-549, which previously authorized some local income taxes, were repealed in 2013."
+    },
+    "nj-payroll": {
+      "title": "Rutgers University Finance: 2025 W-2 guidance, issued for 2026 filing",
+      "url": "https://finance.rutgers.edu/news/important-2025-tax-information",
+      "retrievedAt": "2026-10-16",
+      "summary": "The state university payroll office confirms New Jersey has no local wage-tax filing requirement; state disability and unemployment amounts in W-2 local boxes are not local income taxes."
+    },
+    "nj-newark": {
+      "title": "Newark Finance: 2026 payroll-tax booklet",
+      "url": "https://www.newarknj.gov/DocumentCenter/View/3058/Payroll-Tax-Booklet--2026-PDF",
+      "retrievedAt": "2026-10-16",
+      "summary": "The 2026 instructions make the employer responsible for the Newark payroll tax. It is not an employee wage tax."
+    },
+    "nj-jersey-city": {
+      "title": "Jersey City Finance: payroll-tax FAQ",
+      "url": "https://www.jerseycitynj.gov/cityhall/finance/taxes",
+      "retrievedAt": "2026-10-16",
+      "summary": "Jersey City expressly prohibits employers from deducting or withholding its payroll tax from employee wages."
+    },
+    "ar-act": {
+      "title": "Arkansas Legislature: Act 96 of 2023",
+      "url": "https://www.arkleg.state.ar.us/Bills/RecentActivities?by=desc&date=2023-02-21&ddBienniumSession=2023%2F2023R&sort=Chamber",
+      "retrievedAt": "2026-10-16",
+      "summary": "The legislature records enactment of HB1026 as Act 96, prohibiting local governments from imposing income taxes."
+    },
+    "ar-text": {
+      "title": "Arkansas Legislature: HB1026 enacted as Act 96",
+      "url": "https://arkleg.state.ar.us/Bills/FTPDocument?path=%2FBills%2F2023R%2FPublic%2FHB1026.pdf",
+      "retrievedAt": "2026-10-16",
+      "summary": "The enacted text repeals municipal income-tax authority and prohibits counties, municipalities and other local governments from taxing income."
+    },
+    "pa-lookup": {
+      "title": "Pennsylvania DCED: local income tax information",
+      "url": "https://dced.pa.gov/local-government/local-income-tax-information/",
+      "retrievedAt": "2026-10-16",
+      "summary": "Residence and work addresses determine municipal and school district earned-income taxes and local-services tax."
+    },
+    "oh-lookup": {
+      "title": "Ohio government: local tax information",
+      "url": "https://ohio.gov/residents/resources/local-tax-information",
+      "retrievedAt": "2026-10-16",
+      "summary": "The Finder resolves municipal and school-district income taxes using residence and workplace addresses."
+    },
+    "ia-lookup": {
+      "title": "Iowa Department of Revenue: school district surtax and EMS tax",
+      "url": "https://revenue.iowa.gov/taxes/tax-guidance/individual-income-tax/1040-expanded-instructions/school-district-surtaxemergency",
+      "retrievedAt": "2026-10-16",
+      "summary": "School-district surtax and EMS income tax depend on the resident jurisdiction and state income tax."
+    },
+    "mi-list": {
+      "title": "Michigan Treasury: cities imposing an income tax",
+      "url": "https://www.michigan.gov/taxes/citytax/what-cities-impose-an-income-tax",
+      "retrievedAt": "2026-10-16",
+      "summary": "Treasury lists 24 taxing cities. A named place or postal city alone does not establish municipal tax boundaries."
+    },
+    "or-local": {
+      "title": "Portland Revenue Division: personal income tax",
+      "url": "https://www.portland.gov/revenue/personal-tax",
+      "retrievedAt": "2026-10-16",
+      "summary": "Metro SHS and Multnomah PFA taxes have separate jurisdiction boundaries, thresholds and rates."
+    },
+    "or-eugene": {
+      "title": "Eugene: Community Safety Payroll Tax",
+      "url": "https://www.eugene-or.gov/4281/Community-Safety-Payroll-Tax",
+      "retrievedAt": "2026-10-16",
+      "summary": "Eugene has an employee payroll tax in addition to employer payroll tax."
+    },
+    "in-2026": {
+      "title": "Indiana DOR Departmental Notice 1, January 2026",
+      "url": "https://www.in.gov/dor/files/dn01.pdf",
+      "retrievedAt": "2026-10-16",
+      "summary": "County residence on January 1 determines local tax. The notice publishes all 92 rates and a $1,000 personal exemption."
+    },
+    "md-2026": {
+      "title": "Maryland Comptroller: 2026 Withholding Tax Facts",
+      "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/legal-publications/facts/withholding-tax-facts-2026.pdf",
+      "retrievedAt": "2026-10-16",
+      "summary": "Publishes actual 2026 county rates, including Allegany and Kent changes, Anne Arundel marginal brackets, and Frederick whole-income rate bands."
+    },
+    "kc-tax": {
+      "title": "Kansas City: earnings tax",
+      "url": "https://www.kcmo.gov/city-hall/departments/finance/earnings-tax",
+      "retrievedAt": "2026-10-16",
+      "summary": "Kansas City resident wages are subject to a 1% earnings tax."
+    },
+    "stl-tax": {
+      "title": "St. Louis: Earnings Tax Department",
+      "url": "https://www.stlouis-mo.gov/government/departments/collector/earnings-tax/index.cfm",
+      "retrievedAt": "2026-10-16",
+      "summary": "St. Louis resident wages are subject to a 1% earnings tax."
+    },
+    "wilmington-tax": {
+      "title": "Wilmington: wage and net-profits taxes",
+      "url": "https://www.wilmingtonde.gov/residents/earned-income-tax-and-net-profits-tax",
+      "retrievedAt": "2026-10-16",
+      "summary": "Wilmington resident wages are subject to a 1.25% earned-income tax."
+    },
+    "denver-tax": {
+      "title": "Denver: occupational privilege tax FAQ",
+      "url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Department-of-Finance/Our-Divisions/Treasury/Business-Tax-Information/Business-Tax-FAQ",
+      "retrievedAt": "2026-10-16",
+      "summary": "Denver employee tax is $5.75 per qualifying month at $500 or more in monthly wages. Assumes level earnings across 12 months."
+    },
+    "glendale-tax": {
+      "title": "Glendale: occupational privilege tax",
+      "url": "https://www.glendale.co.us/355/Occupational-Privilege-Tax",
+      "retrievedAt": "2026-10-16",
+      "summary": "Glendale employee tax is $5 per qualifying month above $750 in monthly wages. Assumes level earnings across 12 months."
+    },
+    "greenwood-tax": {
+      "title": "Greenwood Village: occupational privilege tax",
+      "url": "https://www.greenwoodvillage.com/1220/Occupational-Privilege-Tax-OPT",
+      "retrievedAt": "2026-10-16",
+      "summary": "Greenwood Village employee tax is $2 per qualifying month at $250 or more in monthly wages. Assumes level earnings across 12 months."
+    },
+    "ny-local": {
+      "title": "New York: NYC, Yonkers and MCTMT",
+      "url": "https://www.tax.ny.gov/pit/file/nyc_yonkers_residents.htm",
+      "retrievedAt": "2026-10-16",
+      "summary": "NYC resident income tax and Yonkers resident surcharge apply to the respective city residents. MCTMT is an employer or self-employment tax, not an employee wage deduction."
+    },
+    "ny-rates": {
+      "title": "New York Tax Law 1304: city resident rates",
+      "url": "https://www.nysenate.gov/legislation/laws/TAX/1304",
+      "retrievedAt": "2026-10-16",
+      "summary": "Current law retains the resident city marginal tax schedule through 2029."
+    },
+    "ny-additional": {
+      "title": "New York Tax Law 1304-B: city additional tax",
+      "url": "https://www.nysenate.gov/legislation/laws/TAX/1304-B",
+      "retrievedAt": "2026-10-16",
+      "summary": "The additional 14% city tax combines with section 1304 rates; the model includes the combined schedule."
+    },
+    "ny-credits": {
+      "title": "New York Tax Department: city credits",
+      "url": "https://www.tax.ny.gov/pit/credits/new_york_city_credits.htm",
+      "retrievedAt": "2026-10-16",
+      "summary": "City household, earned-income and school credits are modeled where eligible. The income-tax elimination credit requires dependents, outside this no-children model."
+    },
+    "yonkers-rate": {
+      "title": "New York Tax Department: IT-201 instructions, Yonkers worksheet",
+      "url": "https://www.tax.ny.gov/pdf/2025/inc/it201i_2025.pdf",
+      "retrievedAt": "2026-10-16",
+      "summary": "The Yonkers resident surcharge is 16.75% of the specified state tax liability, after the listed credit adjustments."
+    },
+    "yonkers-law": {
+      "title": "New York Tax Law 1321: Yonkers resident surcharge",
+      "url": "https://www.nysenate.gov/legislation/laws/TAX/1321",
+      "retrievedAt": "2026-10-16",
+      "summary": "Current law authorizes the Yonkers resident surcharge for tax years beginning before 2028."
+    }
+  }
+}

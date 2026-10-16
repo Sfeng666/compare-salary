@@ -5,7 +5,7 @@ import crypto from 'node:crypto';
 import {spawn} from 'node:child_process';
 import {ROOT,loadDatabase,createPolicyEngine,saveEntry} from './local.mjs';
 import {compareSalary} from './compare.mjs';
-import {researchPrompt,parseResearch,apiResearch,PROVIDERS} from './research.mjs';
+import {fullResearchPrompt as researchPrompt,parseResearch,apiResearch,PROVIDERS} from './research.mjs';
 const port=Number(process.env.COMPARE_SALARY_PORT||4317),token=crypto.randomBytes(24).toString('hex');
 const origins=new Set(['https://sfeng666.github.io','https://siyuanfeng.com','https://www.siyuanfeng.com',`http://127.0.0.1:${port}`,`http://localhost:${port}`]);
 const site=fs.existsSync(path.join(ROOT,'dist/index.html'))?path.join(ROOT,'dist'):ROOT;
@@ -31,7 +31,7 @@ const server=http.createServer(async(req,res)=>{
    if(req.url==='/api/research'){
     if(researchRunning){send(409,{error:'Research is already running'});return;}researchRunning=true;
     try{const value=await new Promise((resolve,reject)=>{
-     const child=spawn(process.env.CODEX_BIN||'codex',['--search','exec','--skip-git-repo-check','--sandbox','read-only','--model',process.env.COMPARE_SALARY_CODEX_MODEL||'gpt-6-luna','-c','model_reasoning_effort="low"',researchPrompt(data.location)],{cwd:ROOT,stdio:['ignore','pipe','pipe']});let output='';let errors='';const timer=setTimeout(()=>{child.kill();reject(Error('Location research timed out'));},240000);child.stdout.on('data',b=>output+=b);child.stderr.on('data',b=>errors=(errors+b).slice(-300));child.on('error',e=>{clearTimeout(timer);reject(e);});child.on('close',code=>{clearTimeout(timer);code?reject(Error('Codex research failed: '+errors)):resolve(parseResearch(output,data.location));});
+     const child=spawn(process.env.CODEX_BIN||'codex',['--search','exec','--skip-git-repo-check','--sandbox','read-only','--model',process.env.COMPARE_SALARY_CODEX_MODEL||'gpt-6-luna','-c','model_reasoning_effort="low"',researchPrompt(data.location)],{cwd:ROOT,stdio:['ignore','pipe','pipe']});let output='';let errors='';const timer=setTimeout(()=>{child.kill();reject(Error('Location research timed out'));},240000);child.stdout.on('data',b=>output+=b);child.stderr.on('data',b=>errors=(errors+b).slice(-300));child.on('error',e=>{clearTimeout(timer);reject(e);});child.on('close',code=>{clearTimeout(timer);code?reject(Error('Codex research failed: '+errors)):resolve(parseResearch(output,data.location,{requireTaxReview:true}));});
     });send(200,{entry:value});}finally{researchRunning=false;}return;
    }
    if(req.url==='/api/save'){send(200,{path:saveEntry(data.entry)});return;}

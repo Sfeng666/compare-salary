@@ -1,6 +1,7 @@
 import {resolveLocation} from './locations.mjs';
 import {normalizeSalary,interpolateTax} from './model.mjs';
 import {tableCurve} from './tax-tables.mjs';
+import {taxCoverageMessage} from './local-tax-coverage.mjs';
 export {normalizeSalary,interpolateTax} from './model.mjs';
 export const DEFAULTS=Object.freeze({filing:'single',adults:1,children:0,bedrooms:1,resident:true,taxYear:2026,spouse:'none',partnerIncome:0,referencePartnerIncome:0,annualHours:2080,extraLocalAnnual:0,includeAfterRent:true});
 export function settings(input={}){
@@ -34,6 +35,7 @@ export async function compareSalary(input,database,{taxCurve}={}){
  const sourceAllocation=allocate(result.taxes,annual,sp),referenceAllocation=allocate(result.baselineTax,result.equivalent,bp);
  const approximate=curves.some(c=>c.approximate)||source.quality==='state-approximation'||baseline.quality==='state-approximation';
  const warnings=[...source.warnings,...baseline.warnings,'Budgets combine EPI costs in 2025 dollars with HUD FY2027 rents. Employer health benefits, retirement contributions and unusual deductions are not modeled.'];
- if(curves.some(c=>c.approximate)){warnings.push('Tax-table estimate: joint taxes assume equally split earnings when the tables are built. Credits, deductions and filing choices may differ with actual spouse wages. Use the local PolicyEngine option for detailed calculations.');if(!source.localTax||!baseline.localTax)warnings.push('City and county income taxes are omitted unless a researched local tax entry exists. This can materially overstate take-home pay.');}
- return {version:'0.2.0',currency:'USD',options:o,source,reference:baseline,annualSalary:annual,salaryInput:{amount:input.salary,period:input.period||'year',annualFactor:factor},normalizedBeforeTax:result.equivalent,normalizedAfterTax:result.baselineTax.net,afterTaxBasis:o.adults===2?'household':'individual',sourceAfterTax:result.householdNet,sourceTax:result.taxes.tax,referenceTax:result.baselineTax.tax,monthlyAfterRent:o.includeAfterRent?(result.householdNet-source.monthlyRent*12)/12:null,monthlyAfterBudget:result.surplus/12,sourcePartnerIncome:sp,referencePartnerIncome:bp,sourceAllocation,referenceAllocation,approximate,warnings,calculation:result};
+ if(curves.some(c=>c.approximate))warnings.push('Tax-table estimate: joint taxes assume equally split earnings when the tables are built. Credits, deductions and filing choices may differ with actual spouse wages. The local PolicyEngine option uses actual earnings where jurisdiction coverage is verified.');
+ for(const p of [source,baseline])if(p.needsTaxResearch)warnings.push(taxCoverageMessage(p));
+ return {version:'0.2.1',currency:'USD',options:o,source,reference:baseline,annualSalary:annual,salaryInput:{amount:input.salary,period:input.period||'year',annualFactor:factor},normalizedBeforeTax:result.equivalent,normalizedAfterTax:result.baselineTax.net,afterTaxBasis:o.adults===2?'household':'individual',sourceAfterTax:result.householdNet,sourceTax:result.taxes.tax,referenceTax:result.baselineTax.tax,monthlyAfterRent:o.includeAfterRent?(result.householdNet-source.monthlyRent*12)/12:null,monthlyAfterBudget:result.surplus/12,sourcePartnerIncome:sp,referencePartnerIncome:bp,sourceAllocation,referenceAllocation,approximate,warnings,calculation:result};
 }

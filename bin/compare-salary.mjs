@@ -4,7 +4,7 @@ import path from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {compareSalary} from '../src/compare.mjs';
 import {loadDatabase,saveEntry,createPolicyEngine,ROOT} from '../src/local.mjs';
-import {researchPrompt} from '../src/research.mjs';
+import {fullResearchPrompt as researchPrompt} from '../src/research.mjs';
 import {createContribution} from '../src/contribute.mjs';
 const args=process.argv.slice(2),command=args.shift()||'help';
 try{

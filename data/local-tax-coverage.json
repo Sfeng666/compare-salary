@@ -1,0 +1,2105 @@
+{
+  "schemaVersion": 1,
+  "year": 2026,
+  "checkedAt": "2026-10-16",
+  "scope": "Full-year resident employees, no children, age 40, living and working in the same city. Rates checked; tax estimates still depend on model assumptions. Postal addresses and named places do not establish municipal or school boundaries.",
+  "sources": {
+    "wi-law": {
+      "title": "Wisconsin Statutes 66.0611",
+      "url": "https://docs.legis.wisconsin.gov/statutes/statutes/66/vi/0611",
+      "retrievedAt": "2026-10-16",
+      "summary": "Wisconsin prohibits political subdivisions from taxing income or using income as a tax measure."
+    },
+    "ca-law": {
+      "title": "California Office of Tax Appeals: R&TC 17041.5, footnote 20",
+      "url": "https://ota.ca.gov/wp-content/uploads/sites/54/2024/11/2024-OTA-377P-Mather-rev1-1.pdf",
+      "retrievedAt": "2026-10-16",
+      "summary": "California prohibits local personal income taxes. Business gross-receipts taxes are employer liabilities, outside this employee wage model."
+    },
+    "az-law": {
+      "title": "Arizona Revised Statutes 43-201",
+      "url": "https://www.azleg.gov/ars/43/00201.htm",
+      "retrievedAt": "2026-10-16",
+      "summary": "Income taxation is reserved to the state while urban revenue sharing under 43-206 remains in effect."
+    },
+    "wa-law": {
+      "title": "Washington RCW 1.90.100",
+      "url": "https://app.leg.wa.gov/RCW/default.aspx?cite=1.90.100",
+      "retrievedAt": "2026-10-16",
+      "summary": "For 2026, state law prohibits local personal income taxes. Employer payroll-expense taxes do not reduce employee wages in this model."
+    },
+    "fl-law": {
+      "title": "Florida Constitution, Article VII, sections 5 and 9",
+      "url": "https://www.flsenate.gov/Laws/Constitution/",
+      "retrievedAt": "2026-10-16",
+      "summary": "Personal income taxation is constitutionally prohibited; local taxing authority does not create an exception for employee wages."
+    },
+    "nv-law": {
+      "title": "Nevada Constitution, Article 10, section 1(9)",
+      "url": "https://www.leg.state.nv.us/Const/NvConst.html",
+      "retrievedAt": "2026-10-16",
+      "summary": "The constitution prohibits taxes on natural persons’ wages and personal income."
+    },
+    "la-law": {
+      "title": "Louisiana Constitution, Article VII, section 4(C)",
+      "url": "https://senate.la.gov/Documents/Constitution/Article7.html",
+      "retrievedAt": "2026-10-16",
+      "summary": "Political subdivisions may not impose income taxes."
+    },
+    "tn-law": {
+      "title": "Tennessee Constitution, Article II, section 28",
+      "url": "https://sharetngov.tnsosfiles.com/sos/bluebook/15-16/15-16BBTNState.pdf",
+      "retrievedAt": "2026-10-16",
+      "summary": "The 2014 constitutional amendment prohibits state and local taxes on payroll and earned personal income, subject to its pre-2011 exception."
+    },
+    "ga-law": {
+      "title": "Georgia General Assembly: 2010 enactment of O.C.G.A. 48-7-140",
+      "url": "https://www.legis.ga.gov/api/document/docs/default-source/general-statutes/2010sumdoc.pdf?sfvrsn=77cd7bf9_2",
+      "retrievedAt": "2026-10-16",
+      "summary": "Section 48-7-140 prohibits political subdivisions from collecting local income taxes."
+    },
+    "nc-law": {
+      "title": "North Carolina General Statutes 105-247",
+      "url": "https://www.ncleg.gov/EnactedLegislation/Statutes/HTML/BySection/Chapter_105/GS_105-247.html",
+      "retrievedAt": "2026-10-16",
+      "summary": "The statute prohibits city, town, township and county taxes on income."
+    },
+    "wy-law": {
+      "title": "Wyoming Statutes, Title 39: income-tax preemption",
+      "url": "https://www.wyoleg.gov/statutes/compress/title39.pdf",
+      "retrievedAt": "2026-10-16",
+      "summary": "Wyoming reserves income and earnings taxation to the state and prohibits political subdivisions from imposing wage-based taxes."
+    },
+    "mn-law": {
+      "title": "Minnesota House Research: Background Briefing on Minnesota Taxes, 2025",
+      "url": "https://www.house.mn.gov/comm/docs/UrsuC_apOkeM2XPwzLgA9Q.pdf",
+      "retrievedAt": "2026-10-16",
+      "summary": "House Research confirms Minnesota has no local income taxes and that state law prohibits their imposition."
+    },
+    "sc-commerce": {
+      "title": "South Carolina Department of Commerce: incentives and taxes",
+      "url": "https://www.sccommerce.com/why-sc/incentives-taxes",
+      "retrievedAt": "2026-10-16",
+      "summary": "The state Department of Commerce confirms there is no local income tax."
+    },
+    "il-handbook": {
+      "title": "Illinois General Assembly: Tax Handbook for Legislators, 2025",
+      "url": "https://beta.ilga.gov/commission/lru/TaxHandbook2025.pdf",
+      "retrievedAt": "2026-10-16",
+      "summary": "The personal income tax chapter confirms no local income tax is authorized; the constitution requires statutory authorization even for home-rule units."
+    },
+    "va-law": {
+      "title": "Code of Virginia 58.1-300",
+      "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-300/",
+      "retrievedAt": "2026-10-16",
+      "summary": "Current law reserves income taxation to the state and prohibits counties, cities, towns and other political subdivisions from taxing income."
+    },
+    "va-repeal": {
+      "title": "Code of Virginia: repeal of local income-tax authority",
+      "url": "https://law.lis.virginia.gov/vacode/title58.1/chapter3/section58.1-540/",
+      "retrievedAt": "2026-10-16",
+      "summary": "Sections 58.1-540 through 58.1-549, which previously authorized some local income taxes, were repealed in 2013."
+    },
+    "nj-payroll": {
+      "title": "Rutgers University Finance: 2025 W-2 guidance, issued for 2026 filing",
+      "url": "https://finance.rutgers.edu/news/important-2025-tax-information",
+      "retrievedAt": "2026-10-16",
+      "summary": "The state university payroll office confirms New Jersey has no local wage-tax filing requirement; state disability and unemployment amounts in W-2 local boxes are not local income taxes."
+    },
+    "nj-newark": {
+      "title": "Newark Finance: 2026 payroll-tax booklet",
+      "url": "https://www.newarknj.gov/DocumentCenter/View/3058/Payroll-Tax-Booklet--2026-PDF",
+      "retrievedAt": "2026-10-16",
+      "summary": "The 2026 instructions make the employer responsible for the Newark payroll tax. It is not an employee wage tax."
+    },
+    "nj-jersey-city": {
+      "title": "Jersey City Finance: payroll-tax FAQ",
+      "url": "https://www.jerseycitynj.gov/cityhall/finance/taxes",
+      "retrievedAt": "2026-10-16",
+      "summary": "Jersey City expressly prohibits employers from deducting or withholding its payroll tax from employee wages."
+    },
+    "ar-act": {
+      "title": "Arkansas Legislature: Act 96 of 2023",
+      "url": "https://www.arkleg.state.ar.us/Bills/RecentActivities?by=desc&date=2023-02-21&ddBienniumSession=2023%2F2023R&sort=Chamber",
+      "retrievedAt": "2026-10-16",
+      "summary": "The legislature records enactment of HB1026 as Act 96, prohibiting local governments from imposing income taxes."
+    },
+    "ar-text": {
+      "title": "Arkansas Legislature: HB1026 enacted as Act 96",
+      "url": "https://arkleg.state.ar.us/Bills/FTPDocument?path=%2FBills%2F2023R%2FPublic%2FHB1026.pdf",
+      "retrievedAt": "2026-10-16",
+      "summary": "The enacted text repeals municipal income-tax authority and prohibits counties, municipalities and other local governments from taxing income."
+    },
+    "pa-lookup": {
+      "title": "Pennsylvania DCED: local income tax information",
+      "url": "https://dced.pa.gov/local-government/local-income-tax-information/",
+      "retrievedAt": "2026-10-16",
+      "summary": "Residence and work addresses determine municipal and school district earned-income taxes and local-services tax."
+    },
+    "oh-lookup": {
+      "title": "Ohio government: local tax information",
+      "url": "https://ohio.gov/residents/resources/local-tax-information",
+      "retrievedAt": "2026-10-16",
+      "summary": "The Finder resolves municipal and school-district income taxes using residence and workplace addresses."
+    },
+    "ia-lookup": {
+      "title": "Iowa Department of Revenue: school district surtax and EMS tax",
+      "url": "https://revenue.iowa.gov/taxes/tax-guidance/individual-income-tax/1040-expanded-instructions/school-district-surtaxemergency",
+      "retrievedAt": "2026-10-16",
+      "summary": "School-district surtax and EMS income tax depend on the resident jurisdiction and state income tax."
+    },
+    "mi-list": {
+      "title": "Michigan Treasury: cities imposing an income tax",
+      "url": "https://www.michigan.gov/taxes/citytax/what-cities-impose-an-income-tax",
+      "retrievedAt": "2026-10-16",
+      "summary": "Treasury lists 24 taxing cities. A named place or postal city alone does not establish municipal tax boundaries."
+    },
+    "or-local": {
+      "title": "Portland Revenue Division: personal income tax",
+      "url": "https://www.portland.gov/revenue/personal-tax",
+      "retrievedAt": "2026-10-16",
+      "summary": "Metro SHS and Multnomah PFA taxes have separate jurisdiction boundaries, thresholds and rates."
+    },
+    "or-eugene": {
+      "title": "Eugene: Community Safety Payroll Tax",
+      "url": "https://www.eugene-or.gov/4281/Community-Safety-Payroll-Tax",
+      "retrievedAt": "2026-10-16",
+      "summary": "Eugene has an employee payroll tax in addition to employer payroll tax."
+    },
+    "in-2026": {
+      "title": "Indiana DOR Departmental Notice 1, January 2026",
+      "url": "https://www.in.gov/dor/files/dn01.pdf",
+      "retrievedAt": "2026-10-16",
+      "summary": "County residence on January 1 determines local tax. The notice publishes all 92 rates and a $1,000 personal exemption."
+    },
+    "md-2026": {
+      "title": "Maryland Comptroller: 2026 Withholding Tax Facts",
+      "url": "https://www.marylandcomptroller.gov/content/dam/mdcomp/tax/legal-publications/facts/withholding-tax-facts-2026.pdf",
+      "retrievedAt": "2026-10-16",
+      "summary": "Publishes actual 2026 county rates, including Allegany and Kent changes, Anne Arundel marginal brackets, and Frederick whole-income rate bands."
+    },
+    "kc-tax": {
+      "title": "Kansas City: earnings tax",
+      "url": "https://www.kcmo.gov/city-hall/departments/finance/earnings-tax",
+      "retrievedAt": "2026-10-16",
+      "summary": "Kansas City resident wages are subject to a 1% earnings tax."
+    },
+    "stl-tax": {
+      "title": "St. Louis: Earnings Tax Department",
+      "url": "https://www.stlouis-mo.gov/government/departments/collector/earnings-tax/index.cfm",
+      "retrievedAt": "2026-10-16",
+      "summary": "St. Louis resident wages are subject to a 1% earnings tax."
+    },
+    "wilmington-tax": {
+      "title": "Wilmington: wage and net-profits taxes",
+      "url": "https://www.wilmingtonde.gov/residents/earned-income-tax-and-net-profits-tax",
+      "retrievedAt": "2026-10-16",
+      "summary": "Wilmington resident wages are subject to a 1.25% earned-income tax."
+    },
+    "denver-tax": {
+      "title": "Denver: occupational privilege tax FAQ",
+      "url": "https://www.denvergov.org/Government/Agencies-Departments-Offices/Agencies-Departments-Offices-Directory/Department-of-Finance/Our-Divisions/Treasury/Business-Tax-Information/Business-Tax-FAQ",
+      "retrievedAt": "2026-10-16",
+      "summary": "Denver employee tax is $5.75 per qualifying month at $500 or more in monthly wages. Assumes level earnings across 12 months."
+    },
+    "glendale-tax": {
+      "title": "Glendale: occupational privilege tax",
+      "url": "https://www.glendale.co.us/355/Occupational-Privilege-Tax",
+      "retrievedAt": "2026-10-16",
+      "summary": "Glendale employee tax is $5 per qualifying month above $750 in monthly wages. Assumes level earnings across 12 months."
+    },
+    "greenwood-tax": {
+      "title": "Greenwood Village: occupational privilege tax",
+      "url": "https://www.greenwoodvillage.com/1220/Occupational-Privilege-Tax-OPT",
+      "retrievedAt": "2026-10-16",
+      "summary": "Greenwood Village employee tax is $2 per qualifying month at $250 or more in monthly wages. Assumes level earnings across 12 months."
+    },
+    "ny-local": {
+      "title": "New York: NYC, Yonkers and MCTMT",
+      "url": "https://www.tax.ny.gov/pit/file/nyc_yonkers_residents.htm",
+      "retrievedAt": "2026-10-16",
+      "summary": "NYC resident income tax and Yonkers resident surcharge apply to the respective city residents. MCTMT is an employer or self-employment tax, not an employee wage deduction."
+    },
+    "ny-rates": {
+      "title": "New York Tax Law 1304: city resident rates",
+      "url": "https://www.nysenate.gov/legislation/laws/TAX/1304",
+      "retrievedAt": "2026-10-16",
+      "summary": "Current law retains the resident city marginal tax schedule through 2029."
+    },
+    "ny-additional": {
+      "title": "New York Tax Law 1304-B: city additional tax",
+      "url": "https://www.nysenate.gov/legislation/laws/TAX/1304-B",
+      "retrievedAt": "2026-10-16",
+      "summary": "The additional 14% city tax combines with section 1304 rates; the model includes the combined schedule."
+    },
+    "ny-credits": {
+      "title": "New York Tax Department: city credits",
+      "url": "https://www.tax.ny.gov/pit/credits/new_york_city_credits.htm",
+      "retrievedAt": "2026-10-16",
+      "summary": "City household, earned-income and school credits are modeled where eligible. The income-tax elimination credit requires dependents, outside this no-children model."
+    },
+    "yonkers-rate": {
+      "title": "New York Tax Department: IT-201 instructions, Yonkers worksheet",
+      "url": "https://www.tax.ny.gov/pdf/2025/inc/it201i_2025.pdf",
+      "retrievedAt": "2026-10-16",
+      "summary": "The Yonkers resident surcharge is 16.75% of the specified state tax liability, after the listed credit adjustments."
+    },
+    "yonkers-law": {
+      "title": "New York Tax Law 1321: Yonkers resident surcharge",
+      "url": "https://www.nysenate.gov/legislation/laws/TAX/1321",
+      "retrievedAt": "2026-10-16",
+      "summary": "Current law authorizes the Yonkers resident surcharge for tax years beginning before 2028."
+    }
+  },
+  "states": {
+    "AL": {
+      "status": "address_required",
+      "reason": "City and county occupational taxes or employee service fees need residence and workplace verification.",
+      "sources": []
+    },
+    "AK": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "AZ": {
+      "status": "verified",
+      "type": "none",
+      "reason": "No local wage income tax applies under the cited statewide rule.",
+      "sources": [
+        "az-law"
+      ]
+    },
+    "AR": {
+      "status": "verified",
+      "type": "none",
+      "reason": "No local wage income tax applies under the cited statewide rule.",
+      "sources": [
+        "ar-act",
+        "ar-text"
+      ]
+    },
+    "CA": {
+      "status": "verified",
+      "type": "none",
+      "reason": "No local wage income tax applies under the cited statewide rule.",
+      "sources": [
+        "ca-law"
+      ]
+    },
+    "CO": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "CT": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "DE": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "DC": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "FL": {
+      "status": "verified",
+      "type": "none",
+      "reason": "No local wage income tax applies under the cited statewide rule.",
+      "sources": [
+        "fl-law"
+      ]
+    },
+    "GA": {
+      "status": "verified",
+      "type": "none",
+      "reason": "No local wage income tax applies under the cited statewide rule.",
+      "sources": [
+        "ga-law"
+      ]
+    },
+    "HI": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "ID": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "IL": {
+      "status": "verified",
+      "type": "none",
+      "reason": "No local wage income tax applies under the cited statewide rule.",
+      "sources": [
+        "il-handbook"
+      ]
+    },
+    "IN": {
+      "status": "needs_research",
+      "reason": "A verified county is needed to apply the Indiana local income-tax rate.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "IA": {
+      "status": "address_required",
+      "reason": "The resident school district is needed to verify the income-tax surtax.",
+      "sources": [
+        "ia-lookup"
+      ]
+    },
+    "KS": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "KY": {
+      "status": "address_required",
+      "reason": "City and county occupational taxes or employee service fees need residence and workplace verification.",
+      "sources": []
+    },
+    "LA": {
+      "status": "verified",
+      "type": "none",
+      "reason": "No local wage income tax applies under the cited statewide rule.",
+      "sources": [
+        "la-law"
+      ]
+    },
+    "ME": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "MD": {
+      "status": "needs_research",
+      "reason": "A verified county or Baltimore City is needed to apply Maryland local income tax.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "MA": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "MI": {
+      "status": "address_required",
+      "reason": "Municipal boundaries, resident rates and personal exemptions need verification.",
+      "sources": [
+        "mi-list"
+      ]
+    },
+    "MN": {
+      "status": "verified",
+      "type": "none",
+      "reason": "No local wage income tax applies under the cited statewide rule.",
+      "sources": [
+        "mn-law"
+      ]
+    },
+    "MS": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "MO": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "MT": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "NE": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "NV": {
+      "status": "verified",
+      "type": "none",
+      "reason": "No local wage income tax applies under the cited statewide rule.",
+      "sources": [
+        "nv-law"
+      ]
+    },
+    "NH": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "NJ": {
+      "status": "verified",
+      "type": "none",
+      "reason": "No employee local wage tax applies. Newark and Jersey City payroll taxes are employer liabilities; state payroll contributions remain included separately.",
+      "sources": [
+        "nj-payroll",
+        "nj-newark",
+        "nj-jersey-city"
+      ]
+    },
+    "NM": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "NY": {
+      "status": "needs_research",
+      "reason": "Local tax jurisdiction needs confirmation; NYC and Yonkers have separate resident taxes.",
+      "sources": [
+        "ny-local"
+      ]
+    },
+    "NC": {
+      "status": "verified",
+      "type": "none",
+      "reason": "No local wage income tax applies under the cited statewide rule.",
+      "sources": [
+        "nc-law"
+      ]
+    },
+    "ND": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "OH": {
+      "status": "address_required",
+      "reason": "Residence and workplace municipality and resident school district must be checked by address.",
+      "sources": [
+        "oh-lookup"
+      ]
+    },
+    "OK": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "OR": {
+      "status": "address_required",
+      "reason": "City, county and transit-district boundaries and employee payroll taxes need verification.",
+      "sources": [
+        "or-local",
+        "or-eugene"
+      ]
+    },
+    "PA": {
+      "status": "address_required",
+      "reason": "Residence and workplace municipality, school district and local-services tax must be checked by address.",
+      "sources": [
+        "pa-lookup"
+      ]
+    },
+    "RI": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "SC": {
+      "status": "verified",
+      "type": "none",
+      "reason": "No local wage income tax applies under the cited statewide rule.",
+      "sources": [
+        "sc-commerce"
+      ]
+    },
+    "SD": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "TN": {
+      "status": "verified",
+      "type": "none",
+      "reason": "No local wage income tax applies under the cited statewide rule.",
+      "sources": [
+        "tn-law"
+      ]
+    },
+    "TX": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "UT": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "VT": {
+      "status": "needs_research",
+      "reason": "Local wage-tax coverage still needs source verification for this state.",
+      "sources": []
+    },
+    "VA": {
+      "status": "verified",
+      "type": "none",
+      "reason": "No local wage income tax applies under the cited statewide rule.",
+      "sources": [
+        "va-law",
+        "va-repeal"
+      ]
+    },
+    "WA": {
+      "status": "verified",
+      "type": "none",
+      "reason": "No local wage income tax applies under the cited statewide rule.",
+      "sources": [
+        "wa-law"
+      ]
+    },
+    "WV": {
+      "status": "address_required",
+      "reason": "City and county occupational taxes or employee service fees need residence and workplace verification.",
+      "sources": []
+    },
+    "WI": {
+      "status": "verified",
+      "type": "none",
+      "reason": "No local wage income tax applies under the cited statewide rule.",
+      "sources": [
+        "wi-law"
+      ]
+    },
+    "WY": {
+      "status": "verified",
+      "type": "none",
+      "reason": "No local wage income tax applies under the cited statewide rule.",
+      "sources": [
+        "wy-law"
+      ]
+    }
+  },
+  "counties": {
+    "18001": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18001",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18003": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18003",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18005": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18005",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18007": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18007",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18009": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18009",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18011": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18011",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18013": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18013",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18015": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18015",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18017": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18017",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18019": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18019",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18021": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18021",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18023": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18023",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18025": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18025",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18027": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18027",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18029": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18029",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18031": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18031",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18033": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18033",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18035": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18035",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18037": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18037",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18039": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18039",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18041": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18041",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18043": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18043",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18045": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18045",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18047": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18047",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18049": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18049",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18051": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18051",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18053": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18053",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18055": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18055",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18057": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18057",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18059": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18059",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18061": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18061",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18063": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18063",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18065": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18065",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18067": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18067",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18069": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18069",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18071": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18071",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18073": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18073",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18075": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18075",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18077": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18077",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18079": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18079",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18081": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18081",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18083": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18083",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18085": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18085",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18087": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18087",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18089": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18089",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18091": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18091",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18093": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18093",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18095": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18095",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18097": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18097",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18099": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18099",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18101": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18101",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18103": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18103",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18105": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18105",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18107": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18107",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18109": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18109",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18111": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18111",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18113": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18113",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18115": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18115",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18117": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18117",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18119": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18119",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18121": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18121",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18123": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18123",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18125": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18125",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18127": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18127",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18129": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18129",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18131": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18131",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18133": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18133",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18135": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18135",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18137": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18137",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18139": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18139",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18141": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18141",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18143": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18143",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18145": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18145",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18147": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18147",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18149": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18149",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18151": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18151",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18153": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18153",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18155": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18155",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18157": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18157",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18159": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18159",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18161": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18161",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18163": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18163",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18165": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18165",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18167": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18167",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18169": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18169",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18171": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18171",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18173": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18173",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18175": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18175",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18177": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18177",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18179": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18179",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18181": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18181",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "18183": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "18183",
+      "model": "in_county",
+      "reason": "2026 county income-tax rate verified and included; deductions use the published tax model.",
+      "sources": [
+        "in-2026"
+      ]
+    },
+    "24001": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24001",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24003": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24003",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24005": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24005",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24009": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24009",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24011": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24011",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24013": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24013",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24015": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24015",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24017": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24017",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24019": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24019",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24021": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24021",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24023": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24023",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24025": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24025",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24027": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24027",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24029": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24029",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24031": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24031",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24033": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24033",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24035": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24035",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24037": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24037",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24039": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24039",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24041": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24041",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24043": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24043",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24045": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24045",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24047": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24047",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "24510": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "24510",
+      "model": "md_county",
+      "reason": "2026 county income-tax rules verified and included; deductions and credits use the published tax model.",
+      "sources": [
+        "md-2026"
+      ]
+    },
+    "36005": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "nyc",
+      "model": "nyc",
+      "reason": "NYC resident income tax is included using published tax curves and modeled credits.",
+      "sources": [
+        "ny-local",
+        "ny-rates",
+        "ny-additional",
+        "ny-credits"
+      ]
+    },
+    "36047": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "nyc",
+      "model": "nyc",
+      "reason": "NYC resident income tax is included using published tax curves and modeled credits.",
+      "sources": [
+        "ny-local",
+        "ny-rates",
+        "ny-additional",
+        "ny-credits"
+      ]
+    },
+    "36061": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "nyc",
+      "model": "nyc",
+      "reason": "NYC resident income tax is included using published tax curves and modeled credits.",
+      "sources": [
+        "ny-local",
+        "ny-rates",
+        "ny-additional",
+        "ny-credits"
+      ]
+    },
+    "36081": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "nyc",
+      "model": "nyc",
+      "reason": "NYC resident income tax is included using published tax curves and modeled credits.",
+      "sources": [
+        "ny-local",
+        "ny-rates",
+        "ny-additional",
+        "ny-credits"
+      ]
+    },
+    "36085": {
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "nyc",
+      "model": "nyc",
+      "reason": "NYC resident income tax is included using published tax curves and modeled credits.",
+      "sources": [
+        "ny-local",
+        "ny-rates",
+        "ny-additional",
+        "ny-credits"
+      ]
+    }
+  },
+  "cities": [
+    {
+      "state": "MO",
+      "names": [
+        "Kansas City"
+      ],
+      "fips": [
+        "29037",
+        "29047",
+        "29095",
+        "29165"
+      ],
+      "status": "verified",
+      "type": "simple",
+      "reason": "Kansas City resident wages are subject to a 1% earnings tax.",
+      "sources": [
+        "kc-tax"
+      ],
+      "rules": {
+        "income": [
+          {
+            "rate": 0.01,
+            "exemption_per_person": 0
+          }
+        ],
+        "occupational": []
+      }
+    },
+    {
+      "state": "MO",
+      "names": [
+        "St. Louis",
+        "Saint Louis"
+      ],
+      "fips": [
+        "29510"
+      ],
+      "status": "verified",
+      "type": "simple",
+      "reason": "St. Louis resident wages are subject to a 1% earnings tax.",
+      "sources": [
+        "stl-tax"
+      ],
+      "rules": {
+        "income": [
+          {
+            "rate": 0.01,
+            "exemption_per_person": 0
+          }
+        ],
+        "occupational": []
+      }
+    },
+    {
+      "state": "DE",
+      "names": [
+        "Wilmington"
+      ],
+      "fips": [
+        "10003"
+      ],
+      "status": "verified",
+      "type": "simple",
+      "reason": "Wilmington resident wages are subject to a 1.25% earned-income tax.",
+      "sources": [
+        "wilmington-tax"
+      ],
+      "rules": {
+        "income": [
+          {
+            "rate": 0.0125,
+            "exemption_per_person": 0
+          }
+        ],
+        "occupational": []
+      }
+    },
+    {
+      "state": "CO",
+      "names": [
+        "Denver"
+      ],
+      "fips": [
+        "08031"
+      ],
+      "status": "verified",
+      "type": "simple",
+      "reason": "Denver employee tax is $5.75 per qualifying month at $500 or more in monthly wages. Assumes level earnings across 12 months.",
+      "sources": [
+        "denver-tax"
+      ],
+      "rules": {
+        "income": [],
+        "occupational": [
+          {
+            "amount": 5.75,
+            "period": "month",
+            "minimum_annual_wages": 6000,
+            "threshold_inclusive": true
+          }
+        ]
+      }
+    },
+    {
+      "state": "CO",
+      "names": [
+        "Glendale"
+      ],
+      "fips": [
+        "08005"
+      ],
+      "status": "verified",
+      "type": "simple",
+      "reason": "Glendale employee tax is $5 per qualifying month above $750 in monthly wages. Assumes level earnings across 12 months.",
+      "sources": [
+        "glendale-tax"
+      ],
+      "rules": {
+        "income": [],
+        "occupational": [
+          {
+            "amount": 5,
+            "period": "month",
+            "minimum_annual_wages": 9000,
+            "threshold_inclusive": false
+          }
+        ]
+      }
+    },
+    {
+      "state": "CO",
+      "names": [
+        "Greenwood Village"
+      ],
+      "fips": [
+        "08005"
+      ],
+      "status": "verified",
+      "type": "simple",
+      "reason": "Greenwood Village employee tax is $2 per qualifying month at $250 or more in monthly wages. Assumes level earnings across 12 months.",
+      "sources": [
+        "greenwood-tax"
+      ],
+      "rules": {
+        "income": [],
+        "occupational": [
+          {
+            "amount": 2,
+            "period": "month",
+            "minimum_annual_wages": 3000,
+            "threshold_inclusive": true
+          }
+        ]
+      }
+    },
+    {
+      "state": "NY",
+      "names": [
+        "Yonkers"
+      ],
+      "fips": [
+        "36119"
+      ],
+      "status": "verified",
+      "type": "policyengine",
+      "tableId": "yonkers",
+      "model": "yonkers",
+      "reason": "Yonkers resident income-tax surcharge is included using published tax curves.",
+      "sources": [
+        "ny-local",
+        "yonkers-rate",
+        "yonkers-law"
+      ]
+    }
+  ],
+  "parameterOverrides": {
+    "inRateByFips": {
+      "18001": 0.016,
+      "18003": 0.0159,
+      "18005": 0.0175,
+      "18007": 0.0179,
+      "18009": 0.025,
+      "18011": 0.017,
+      "18013": 0.025234,
+      "18015": 0.024733,
+      "18017": 0.0295,
+      "18019": 0.02,
+      "18021": 0.0235,
+      "18023": 0.0265,
+      "18025": 0.0165,
+      "18027": 0.015,
+      "18029": 0.014,
+      "18031": 0.0245,
+      "18033": 0.0213,
+      "18035": 0.015,
+      "18037": 0.012,
+      "18039": 0.02,
+      "18041": 0.0282,
+      "18043": 0.0189,
+      "18045": 0.021,
+      "18047": 0.017,
+      "18049": 0.0288,
+      "18051": 0.013,
+      "18053": 0.0275,
+      "18055": 0.0235,
+      "18057": 0.011,
+      "18059": 0.0194,
+      "18061": 0.01,
+      "18063": 0.017,
+      "18065": 0.0202,
+      "18067": 0.0235,
+      "18069": 0.0195,
+      "18071": 0.021,
+      "18073": 0.02864,
+      "18075": 0.025,
+      "18077": 0.0103,
+      "18079": 0.025,
+      "18081": 0.014,
+      "18083": 0.017,
+      "18085": 0.01,
+      "18087": 0.0165,
+      "18089": 0.015,
+      "18091": 0.0145,
+      "18093": 0.0175,
+      "18095": 0.0225,
+      "18097": 0.0202,
+      "18099": 0.0125,
+      "18101": 0.025,
+      "18103": 0.0254,
+      "18105": 0.0214,
+      "18107": 0.0265,
+      "18109": 0.0272,
+      "18111": 0.01,
+      "18113": 0.0175,
+      "18115": 0.02,
+      "18117": 0.0175,
+      "18119": 0.025,
+      "18121": 0.0265,
+      "18123": 0.014,
+      "18125": 0.012,
+      "18127": 0.005,
+      "18129": 0.0145,
+      "18131": 0.0285,
+      "18133": 0.023,
+      "18135": 0.03,
+      "18137": 0.0238,
+      "18139": 0.0215,
+      "18141": 0.0175,
+      "18143": 0.0216,
+      "18145": 0.017,
+      "18147": 0.008,
+      "18149": 0.0171,
+      "18151": 0.0199,
+      "18153": 0.017,
+      "18155": 0.0145,
+      "18157": 0.0128,
+      "18159": 0.026,
+      "18161": 0.0275,
+      "18163": 0.0125,
+      "18165": 0.015,
+      "18167": 0.02,
+      "18169": 0.029,
+      "18171": 0.0212,
+      "18173": 0.01,
+      "18175": 0.02,
+      "18177": 0.0125,
+      "18179": 0.021,
+      "18181": 0.0232,
+      "18183": 0.016829
+    },
+    "mdRateByFips": {
+      "24001": 0.032,
+      "24005": 0.032,
+      "24009": 0.032,
+      "24011": 0.032,
+      "24013": 0.0303,
+      "24015": 0.0274,
+      "24017": 0.0303,
+      "24019": 0.033,
+      "24023": 0.0265,
+      "24025": 0.0306,
+      "24027": 0.032,
+      "24029": 0.033,
+      "24031": 0.032,
+      "24033": 0.032,
+      "24035": 0.032,
+      "24037": 0.032,
+      "24039": 0.032,
+      "24041": 0.024,
+      "24043": 0.0295,
+      "24045": 0.032,
+      "24047": 0.0225,
+      "24510": 0.032
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import {socialWorkerPay} from './model.mjs';
+import {resolveTaxCoverage,validateTaxReview} from './local-tax-coverage.mjs';
 export const STATES={AL:'Alabama',AK:'Alaska',AZ:'Arizona',AR:'Arkansas',CA:'California',CO:'Colorado',CT:'Connecticut',DE:'Delaware',DC:'District of Columbia',FL:'Florida',GA:'Georgia',HI:'Hawaii',ID:'Idaho',IL:'Illinois',IN:'Indiana',IA:'Iowa',KS:'Kansas',KY:'Kentucky',LA:'Louisiana',ME:'Maine',MD:'Maryland',MA:'Massachusetts',MI:'Michigan',MN:'Minnesota',MS:'Mississippi',MO:'Missouri',MT:'Montana',NE:'Nebraska',NV:'Nevada',NH:'New Hampshire',NJ:'New Jersey',NM:'New Mexico',NY:'New York',NC:'North Carolina',ND:'North Dakota',OH:'Ohio',OK:'Oklahoma',OR:'Oregon',PA:'Pennsylvania',RI:'Rhode Island',SC:'South Carolina',SD:'South Dakota',TN:'Tennessee',TX:'Texas',UT:'Utah',VT:'Vermont',VA:'Virginia',WA:'Washington',WV:'West Virginia',WI:'Wisconsin',WY:'Wyoming'};
 export function locationKey(value){return String(value).normalize('NFKC').trim().toLowerCase().replace(/\s+/g,' ');}
 const median=xs=>{const a=xs.filter(Number.isFinite).sort((a,b)=>a-b);if(!a.length)throw Error('No regional data available');return a.length%2?a[(a.length-1)/2]:(a[a.length/2-1]+a[a.length/2])/2;};
@@ -42,7 +43,16 @@ export function resolveLocation(database,input,options={}){
  if(entry?.socialWorkerMedian)spouse={median:entry.socialWorkerMedian,method:'Contributed local social-worker wage estimate'};
  const annualCost=Object.values(costs).reduce((a,b)=>a+b,0)+rent*12;
  if(!Number.isFinite(annualCost)||!Number.isFinite(rent))throw Error('Incomplete location budget');
- return {...parsed,...row,label:row?.label||`${row?.city||parsed.city}, ${parsed.state}`,monthlyRent:rent,annualCost,costs:{rent:rent*12,...costs},spouse,county:county?.name,rentArea,metro,quality,warnings,localTax:entry?.localTax||null,sources:[...(database.sources||[]),...(entry?.sources||[])],rentBasis:entry?.rents?.[String(bedrooms)]!=null?'contributed':'HUD FY2027',needsResearch:!row};
+ const place={...parsed,...row,label:row?.label||`${row?.city||parsed.city}, ${parsed.state}`,monthlyRent:rent,annualCost,costs:{rent:rent*12,...costs},spouse,county:county?.name,rentArea,metro,quality,warnings,rentBasis:entry?.rents?.[String(bedrooms)]!=null?'contributed':'HUD FY2027',needsResearch:!row};
+ place.taxCoverage=resolveTaxCoverage(database.localTaxCoverage,place,entry,options.taxYear??2026);
+ const taxTable=database.localTaxTables?.year===(options.taxYear??2026)&&database.localTaxTables.tables[place.taxCoverage.tableId];
+ if(place.taxCoverage.tableId&&!taxTable)place.taxCoverage={...place.taxCoverage,status:'needs_research',needsResearch:true,reason:'Verified local tax rules exist, but the matching calculation table is unavailable.'};
+ place.localTax=place.taxCoverage.localTax||null;
+ place.needsTaxResearch=place.taxCoverage.needsResearch;
+ // Calculation tables are internal inputs, not part of every public result.
+ if(taxTable)Object.defineProperty(place,'localTaxTable',{value:{gross:database.localTaxTables.gross,...taxTable},enumerable:false});
+ place.sources=[...(database.sources||[]),...(entry?.sources||[]),...place.taxCoverage.sources];
+ return place;
 }
 export const STATE_FIPS={"AL":"01","AK":"02","AZ":"04","AR":"05","CA":"06","CO":"08","CT":"09","DE":"10","DC":"11","FL":"12","GA":"13","HI":"15","ID":"16","IL":"17","IN":"18","IA":"19","KS":"20","KY":"21","LA":"22","ME":"23","MD":"24","MA":"25","MI":"26","MN":"27","MS":"28","MO":"29","MT":"30","NE":"31","NV":"32","NH":"33","NJ":"34","NM":"35","NY":"36","NC":"37","ND":"38","OH":"39","OK":"40","OR":"41","PA":"42","RI":"44","SC":"45","SD":"46","TN":"47","TX":"48","UT":"49","VT":"50","VA":"51","WA":"53","WV":"54","WI":"55","WY":"56"};
 export function validateEntry(e){
@@ -50,7 +60,7 @@ export function validateEntry(e){
  if(!e||e.schemaVersion!==1)fail('Location entry needs schemaVersion 1');
  const p=parseLocation(e.label);if(e.state!==p.state||e.city!==p.city)fail('City/state must match label');
  if(!/^[a-z0-9-]{3,100}$/.test(e.id||''))fail('Invalid location id');
- const allowed=['schemaVersion','id','label','city','state','fips','familyCosts','rents','socialWorkerMedian','localTax','sources','researchedAt','license'];
+ const allowed=['schemaVersion','id','label','city','state','fips','familyCosts','rents','socialWorkerMedian','localTax','taxReview','sources','researchedAt','license'];
  if(Object.keys(e).some(k=>!allowed.includes(k)))fail('Unexpected entry field; personal and job data are not accepted');
  if(!/^\d{5}$/.test(e.fips||''))fail('A researched county FIPS is required');
  if(e.fips.slice(0,2)!==STATE_FIPS[e.state])fail('County FIPS does not match state');
@@ -64,6 +74,8 @@ export function validateEntry(e){
  if(e.familyCosts)for(const [family,costs]of Object.entries(e.familyCosts)){if(!['1p0c','2p0c'].includes(family)||Object.keys(costs).sort().join()!=='food,healthcare,other,transport')fail('Invalid family budget');if(Object.values(costs).some(v=>!amount(v,300000))||!covers('familyCosts'))fail('Invalid or unsourced annual costs');}
  if(e.rents)for(const [beds,value]of Object.entries(e.rents))if(!['0','1','2'].includes(beds)||!amount(value,20000)||value===0||!covers('rents'))fail('Invalid or unsourced monthly rent');
  if(e.socialWorkerMedian!=null&&(!amount(e.socialWorkerMedian,300000)||e.socialWorkerMedian===0||!covers('socialWorkerMedian')))fail('Invalid or unsourced social-worker pay');
- if(e.localTax){const t=e.localTax;if(t.year!==2026||t.verified!==true||t.coverage!=='complete_resident_and_work_city'||!Array.isArray(t.income)||!Array.isArray(t.occupational)||!covers('localTax'))fail('Local tax needs complete sourced 2026 coverage');for(const r of t.income)if(!amount(r.rate,.15)||!amount(r.exemption_per_person,1000000))fail('Invalid local income tax');for(const r of t.occupational)if(!amount(r.amount,10000)||!['year','month','week'].includes(r.period)||!amount(r.minimum_annual_wages,1000000))fail('Invalid occupational tax');}
+ if(e.localTax){const t=e.localTax;if(t.year!==2026||t.verified!==true||t.coverage!=='complete_resident_and_work_city'||!Array.isArray(t.income)||!Array.isArray(t.occupational)||!covers('localTax'))fail('Local tax needs complete sourced 2026 coverage');if(Object.keys(t).some(k=>!['year','verified','coverage','income','occupational'].includes(k)))fail('Unsupported local tax rule');for(const r of t.income){if(Object.keys(r).some(k=>!['rate','exemption_per_person'].includes(k)))fail('Unsupported local income tax rule');if(!amount(r.rate,.15)||!amount(r.exemption_per_person,1000000))fail('Invalid local income tax');}for(const r of t.occupational){if(Object.keys(r).some(k=>!['amount','period','minimum_annual_wages','threshold_inclusive'].includes(k)))fail('Unsupported occupational tax rule');if(!amount(r.amount,10000)||!['year','month','week'].includes(r.period)||!amount(r.minimum_annual_wages,1000000))fail('Invalid occupational tax');}}
+ if(e.localTax?.occupational.some(r=>r.threshold_inclusive!==undefined&&typeof r.threshold_inclusive!=='boolean'))fail('Invalid fee threshold');
+ if(e.taxReview)validateTaxReview(e.taxReview,e);
  return e;
 }

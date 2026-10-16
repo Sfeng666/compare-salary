@@ -25,6 +25,8 @@ export function normalizeSalary({ salary, source, baseline, sourceTax, baselineT
     let equivalent=null;
     for(let i=1;i<baselineTax.rows.length;i++){
       const a=baselineTax.rows[i-1],b=baselineTax.rows[i];
+      if(Math.abs(target-a.net)<1e-7){equivalent=a.gross;break;}
+      if(Math.abs(target-b.net)<1e-7){equivalent=b.gross;break;}
       if(target<Math.min(a.net,b.net) || target>Math.max(a.net,b.net))continue;
       equivalent=a.gross+(b.gross-a.gross)*(b.net===a.net?0:(target-a.net)/(b.net-a.net));break;
     }

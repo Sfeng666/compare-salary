@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import {build} from 'esbuild';
+await import('./audit-tax-coverage.mjs');
 fs.rmSync('dist',{recursive:true,force:true});
 fs.mkdirSync('dist',{recursive:true});
 fs.mkdirSync('data/locations',{recursive:true});

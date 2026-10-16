@@ -44,14 +44,18 @@ Use `--input request.json` for the full API input. Salary periods are year, mont
 
 ## Tax calculation
 
-The browser and default CLI use interpolated federal/state tax tables generated with **PolicyEngine US 2.42.14**. Employee Social Security, Medicare, additional Medicare and state payroll contributions are calculated per worker. Joint income-tax tables assume equally split earnings; deductions and credits can differ for the actual earnings split. City/county taxes are added only when a researched entry provides complete local rules. The result explicitly warns when those taxes are omitted.
+The browser and default CLI use interpolated tax tables generated with **PolicyEngine US 2.42.14**. Employee Social Security, Medicare, additional Medicare and state payroll contributions are calculated per worker. Joint income-tax tables assume equally split earnings; deductions and credits can differ for the actual earnings split.
+
+Local taxes have their own source-backed coverage records in `data/local-tax-coverage.json`. They include statewide evidence for zero local wage tax, all 92 Indiana county rates, all Maryland counties and Baltimore City, NYC and Yonkers, and supported city earnings taxes and employee fees. The 118 county/city curves in `data/local-tax-tables.json` include local taxes and their effect on federal deductions. The browser and Python engine apply the same verified 2026 Indiana and Maryland rate corrections. Simple city rules use employee liabilities only.
+
+Each result shows the coverage status of both locations and a separate local-tax amount. An unresolved jurisdiction stays labeled incomplete; zero included tax is not evidence of zero tax owed. The [database audit](data/tax-coverage-audit.json) accounts for every named place, and [research queue](data/tax-research-queue.json) lists the unresolved ones. This is partial verification, not nationwide certification. Postal names, city boundaries, counties and school districts can differ. Rules are scoped to full-year resident employees living and working in the same city, with level earnings over 12 months. Published curves interpolate income points and remain estimates, especially near tax-credit or whole-income rate thresholds.
 
 For detailed local calculations, install the pinned Python engine:
 
 ```sh
 python3 -m venv .venv
 .venv/bin/pip install -r requirements.txt
-compare-salary compare --location "Boston, MA" --salary 100000 --reference "Madison, WI" --python .venv/bin/python
+compare-salary compare --location "Indianapolis, IN" --salary 100000 --reference "Madison, WI" --python .venv/bin/python
 ```
 
 The detailed engine uses both actual wages, federal and state income tax, employee payroll tax and supported local taxes. It compares married filing options, including community-property treatment where applicable. Unsupported municipal rules remain unresolved until researched. It models two 40-year-old adults or one 40-year-old adult, no children, wage income and no voluntary pretax deductions. PolicyEngine is a separate AGPL dependency.
@@ -106,7 +110,7 @@ The skill calls the installed calculator. MCP tools include `compare_salary`, `l
 
 ## Research options
 
-Enter a location and choose a provider in Agent setup, then select Research location. Provider endpoints and models are prefilled. Review the returned sources and select Use this location to save the entry. Known locations do not trigger agent requests.
+Enter a location and choose a provider in Agent setup, then select Research location. Provider endpoints and models are prefilled. Review the returned sources and select Use this location to save the entry. Calculations reuse known data without an agent request. A known city can still need tax research; its result has a Research taxes for this city button.
 
 - **Groq:** the default GPT-OSS model uses Groq’s built-in browser search. A Groq API key is required.
 - **NVIDIA:** the page retrieves official Census geography itself, then asks the selected NVIDIA model to check that evidence. An NVIDIA API key is required. This mode improves county matching and reuses published county costs; it does not independently research new rent or tax rules.
@@ -117,6 +121,8 @@ Enter a location and choose a provider in Agent setup, then select Research loca
 Groq and NVIDIA account quotas or trial credits may allow free use; availability and search charges depend on the provider. There is no model download or source-text pasting. API keys are held only in the current tab and sent to the selected provider. If a provider blocks browser requests, open the local companion link and use its relay; it forwards requests only to the selected provider’s official endpoint. The relay receives the key for that request and does not save it.
 
 The Census lookup selects the county containing the place’s internal point. For places spanning counties, review whether that county matches the intended home or work address. AI search results still require source review before contribution.
+
+Search-capable agents must return a `taxReview` covering city, county, school-district and employee local payroll taxes, with the tax year, review date and government citations. They must check the tax base, exemptions, credits, thresholds and effective dates. A complete review requires supported `localTax` rules; missing evidence or rules that the calculator cannot represent stay unresolved. The current contribution format supports wage rates with per-person exemptions and fixed employee fees. It rejects unsupported caps, brackets or tax bases instead of silently ignoring them. Complex rules can be added to the shared model and table builder through code review. Geography-only NVIDIA/custom API and Census lookups reuse existing verified tax coverage but cannot certify a new tax rule.
 
 ## Your own database
 
@@ -150,4 +156,4 @@ The calculator covers US resident wage earners with no children and one or two a
 
 Code is MIT. The EPI-derived data collection is **CC BY-NC-SA 4.0**, so commercial redistribution needs separate permission or replacement data. GeoNames attribution and all source hashes are preserved. See [DATA_LICENSE.md](DATA_LICENSE.md).
 
-Rebuild data with `python scripts/build-data.py /path/to/publisher-downloads` and tax tables with `python scripts/build-tax-tables.py` in the pinned Python environment. The original download URLs and SHA-256 hashes are recorded in `data/base.json`.
+Rebuild data with `python scripts/build-data.py /path/to/publisher-downloads` and federal/state tax tables with `python scripts/build-tax-tables.py` in the pinned Python environment. After reviewing government sources, update `scripts/build-local-tax-coverage.mjs`, run it, then run `python scripts/build-local-tax-tables.py` and `npm run audit:tax`. The audit uses only published entries, never personal additions. The original budget and rent download URLs and SHA-256 hashes are recorded in `data/base.json`.

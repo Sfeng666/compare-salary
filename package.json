@@ -1,6 +1,6 @@
 {
   "name": "@sfeng666/compare-salary",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Compare salary purchasing power with reproducible US location data",
   "type": "module",
   "license": "MIT",
@@ -25,6 +25,7 @@
   "scripts": {
     "test": "node --test test/*.test.mjs",
     "validate:data": "node scripts/validate-data.mjs",
+    "audit:tax": "node scripts/audit-tax-coverage.mjs",
     "build": "node scripts/build-site.mjs",
     "serve": "node bin/compare-salary.mjs serve",
     "prepare": "npm run build"
@@ -40,6 +41,7 @@
     "requirements.txt",
     "dist",
     "scripts/build-site.mjs",
+    "scripts/audit-tax-coverage.mjs",
     "app.mjs",
     "index.html",
     "style.css"

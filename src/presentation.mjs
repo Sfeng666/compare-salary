@@ -20,6 +20,15 @@ export function breakdown(r){
  rows.push(row(married?'Your share of tax':'Your tax',allocations.map(a=>a.yourTax),i=>married?personalTax(i,false):taxFormula(i)));
  if(married)rows.push(row('Spouse share of tax',allocations.map(a=>a.spouseTax),i=>personalTax(i,true)));
  rows.push(row('Household taxes',tax,taxFormula));
+ rows.push(row('Local income tax & employee fees',places.map((p,i)=>(i===0?r.calculation.taxes:r.calculation.baselineTax).parts?.local_tax||0),i=>{
+  const p=places[i],value=(i===0?r.calculation.taxes:r.calculation.baselineTax).parts?.local_tax||0;
+  if(p.needsTaxResearch)return `Local tax included = ${f(value)}. This is incomplete, not a verified zero. ${p.taxCoverage.reason}`;
+  const rules=p.localTax;
+  if(rules){const wages=married?[gross[i],spouse[i]]:[gross[i]];const terms=wages.flatMap(w=>[...rules.income.map(t=>`max(0, ${f(w)} − ${f(t.exemption_per_person)}) × ${(t.rate*100).toFixed(4)}%`),...rules.occupational.map(t=>`${f(t.amount)} × ${{year:1,month:12,week:52}[t.period]} × ${w>0&&(t.threshold_inclusive===false?w>t.minimum_annual_wages:w>=t.minimum_annual_wages)?1:0}`)]);return `${terms.length?terms.join(' + '):'No applicable local wage-tax rules'} = ${f(value)}.\n${p.taxCoverage.reason}`;}
+  return `Local income tax from the ${p.taxCoverage.tableId} tax curve for ${allocations[i].filing}, at gross wages ${f(gross[i])}${married?' + '+f(spouse[i]):''} = ${f(value)}. Uses taxable-income rules, deductions and modeled credits; interpolated between published points.\n${p.taxCoverage.reason}`;
+ }));
+ const localRow=rows.at(-1);
+ for(let i=0;i<places.length;i++)if(places[i].needsTaxResearch)localRow.cells[i].display='Unverified';
  rows.push(row('Monthly rent',places.map(p=>p.monthlyRent),i=>`${places[i].rentBasis==='contributed'?'Sourced local':'HUD FY2027'} ${r.options.bedrooms===0?'studio':r.options.bedrooms+'-bedroom'} gross rent (including basic utilities) for ${places[i].rentArea||places[i].county||places[i].state}: ${f(places[i].monthlyRent)}.\nAnnual rent ${f(places[i].costs.rent)} ÷ 12 = ${f(places[i].monthlyRent)}.`));
  for(const [key,label]of Object.entries({food:'Food',transport:'Transport',healthcare:'Health care',other:'Other necessities'}))rows.push(row(label,places.map(p=>p.costs[key]),i=>`Annual ${label.toLowerCase()} from the ${r.options.adults}-adult household budget for ${places[i].county||places[i].state}.\nMonthly ${f(places[i].costs[key]/12)} × 12 = ${f(places[i].costs[key])}. Rounded display; calculations retain full precision.`));
  rows.push(row('Extra annual costs',[r.options.extraLocalAnnual,r.options.extraLocalAnnual],()=>`Additional annual household costs you entered: ${f(r.options.extraLocalAnnual)}.`));

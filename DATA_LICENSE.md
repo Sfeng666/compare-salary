@@ -6,6 +6,8 @@ Code is MIT licensed. Data keep the licenses of their sources.
 
 HUD rents, BLS occupational wages and Census crosswalks are US government public data. `data/cities.json` adapts the [GeoNames](https://www.geonames.org/) gazetteer under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Changes select populated places and reconcile Connecticut counties.
 
-`data/tax-tables.json` contains numerical outputs from PolicyEngine US 2.42.14. PolicyEngine is a separate AGPL-3.0 dependency; its source is available at https://github.com/PolicyEngine/policyengine-us. The tax tables describe the documented hypothetical households, not tax advice or official tax determinations.
+`data/tax-tables.json` and `data/local-tax-tables.json` contain numerical outputs from PolicyEngine US 2.42.14. Local tables apply the sourced 2026 county rate corrections in `src/verified_tax_policy.py`. PolicyEngine is a separate AGPL-3.0 dependency; its source is available at https://github.com/PolicyEngine/policyengine-us. The tax tables describe the documented hypothetical households, not official tax determinations.
+
+`data/local-tax-coverage.json` records tax facts and short paraphrases of government publications, with source URLs and review dates. It does not reproduce those publications. The tax coverage audit and unresolved-location queue combine these records with the GeoNames-derived place index; GeoNames attribution and CC BY 4.0 terms apply to that place data.
 
 Publisher URLs, snapshot hashes and vintages are included in `data/base.json`. Location contributions must identify their sources and license, contain no personal data, and permit redistribution under CC BY-NC-SA 4.0. Source excerpts must be brief. Contributors license their original database entries under CC BY-NC-SA 4.0.

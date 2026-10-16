@@ -6,6 +6,9 @@ import sys
 
 with contextlib.redirect_stdout(sys.stderr):
     from policyengine_us import Simulation
+    from verified_tax_policy import verified_local_reform
+
+VERIFIED_LOCAL_REFORM = verified_local_reform()
 
 COMMUNITY = {"AZ", "CA", "ID", "LA", "NV", "NM", "TX", "WA", "WI"}
 
@@ -37,7 +40,7 @@ def calculate(request):
                          for wage in wages for rule in local_rules["income"])
         fees = sum(rule["amount"] * {"year": 1, "month": 12, "week": 52}[rule["period"]]
                    for wage in wages for rule in local_rules["occupational"]
-                   if wage > 0 and wage >= rule["minimum_annual_wages"])
+                   if wage > 0 and (wage >= rule["minimum_annual_wages"] if rule.get("threshold_inclusive", True) else wage > rule["minimum_annual_wages"]))
         # TaxUnit inputs also feed federal SALT deductions. This replaces only
         # local regimes whose complete coverage was independently researched.
         return {"local_income_tax_before_refundable_credits": {year: income_tax},
@@ -87,7 +90,7 @@ def calculate(request):
     situation = {"people": people, "tax_units": units, "households": households,
                  "families": families, "spm_units": spms, "marital_units": maritals}
     with contextlib.redirect_stdout(sys.stderr):
-        sim = Simulation(situation=situation)
+        sim = Simulation(situation=situation, reform=VERIFIED_LOCAL_REFORM)
         # Income + employee payroll + local income taxes. Sales/use taxes belong
         # in the consumption budget, so household_tax would double count them.
         values = {}
