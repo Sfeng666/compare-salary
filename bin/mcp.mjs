@@ -7,7 +7,7 @@ import {loadDatabase,saveEntry,createPolicyEngine} from '../src/local.mjs';
 import {resolveLocation,validateEntry} from '../src/locations.mjs';
 import {researchPrompt} from '../src/research.mjs';
 import {contributionUrl} from '../src/contribute.mjs';
-const server=new McpServer({name:'compare-salary',version:'0.1.0'});
+const server=new McpServer({name:'compare-salary',version:'0.2.0'});
 const result=value=>({content:[{type:'text',text:JSON.stringify(value)}]});
 const wrap=fn=>async args=>{try{return result(await fn(args));}catch(e){return {...result({error:e.message}),isError:true};}};
 server.registerTool('compare_salary',{description:'Deterministic US salary purchasing-power comparison. Fully remote work requires residence. No AI call. Default Single filing, one adult, one bedroom, 2026.',inputSchema:{location:z.string().optional(),residence:z.string().optional(),remote:z.boolean().optional(),salary:z.number(),period:z.enum(['year','month','week','hour']).optional(),reference:z.string(),options:z.record(z.any()).optional()},annotations:{readOnlyHint:true}},wrap(async args=>{const engine=process.env.COMPARE_SALARY_PYTHON?createPolicyEngine(process.env.COMPARE_SALARY_PYTHON):null;try{return await compareSalary(args,loadDatabase(),{taxCurve:engine?.curve.bind(engine)});}finally{engine?.close();}}));

@@ -1,6 +1,6 @@
 {
   "name": "@sfeng666/compare-salary",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Compare salary purchasing power with reproducible US location data",
   "type": "module",
   "license": "MIT",
@@ -49,7 +49,6 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@mlc-ai/web-llm": "^0.2.85",
     "esbuild": "^0.25.12"
   }
 }

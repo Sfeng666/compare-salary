@@ -9,12 +9,19 @@ export function tableTax(tables,place,gross,partner,filing){
  const workerPayroll=(wages,mode)=>payroll(wages,mode)+wages.reduce((s,w)=>s+(t.employeePayroll?interpolate(tables.gross,t.employeePayroll,w)-payroll([w],'single'):0),0);
  const single=()=>it('single',gross)+workerPayroll([gross],'single')+local(place,[gross]);
  const joint=()=>it('joint',total)+workerPayroll(wages,'joint')+local(place,wages);
- const separate=()=>{const taxed=COMMUNITY.has(place.state)?[total/2,total/2]:wages;return taxed.reduce((s,x)=>s+it('separate',x),0)+workerPayroll(wages,'separate')+local(place,wages);};
+ const separateParts=()=>{const taxed=COMMUNITY.has(place.state)?[total/2,total/2]:wages;return wages.map((w,i)=>it('separate',taxed[i])+workerPayroll([w],'separate')+local(place,[w]));};
+ const separate=()=>separateParts().reduce((a,b)=>a+b,0);
  const choices=filing==='single'?[{filing:'SINGLE',tax:single()}]:[{filing:'JOINT',tax:joint()},{filing:'SEPARATE',tax:separate()}];
  const chosen=filing==='joint'?choices[0]:filing==='separate'?choices[1]:choices.reduce((a,b)=>a.tax<=b.tax?a:b);
- return {gross,net:total-chosen.tax,...chosen,jointTax:choices[0].tax,separateTax:choices.at(-1).tax};
+ const individualTax=chosen.filing==='SEPARATE'?separateParts():[total?chosen.tax*gross/total:chosen.tax,total?chosen.tax*partner/total:0];
+ const chosenMode=chosen.filing.toLowerCase();
+ const income=chosenMode==='single'?it('single',gross):chosenMode==='joint'?it('joint',total):(COMMUNITY.has(place.state)?[total/2,total/2]:wages).reduce((s,w)=>s+it('separate',w),0);
+ const parts={income_tax:income,employee_payroll_tax:workerPayroll(wages,chosenMode),local_tax:local(place,wages)};
+ const ownParts=wages.map((w,i)=>chosenMode==='separate'?{income_tax:it('separate',COMMUNITY.has(place.state)?total/2:w),employee_payroll_tax:workerPayroll([w],'separate'),local_tax:local(place,[w])}:Object.fromEntries(Object.entries(parts).map(([k,v])=>[k,v*(total?w/total:i===0?1:0)])));
+ return {gross,partnerIncome:partner,net:total-chosen.tax,...chosen,parts,yourParts:ownParts[0],spouseParts:ownParts[1]||{},yourTax:individualTax[0],spouseTax:individualTax[1]||0,jointTax:choices[0].tax,separateTax:choices.at(-1).tax};
 }
 export function tableCurve(tables,place,options,partner){
- const gross=tables.gross.filter(x=>x+partner<=tables.gross.at(-1));
- return {engine:tables.engine,approximate:true,year:tables.year,rows:gross.map(x=>tableTax(tables,place,x,partner,options.filing))};
+ const partnerAt=x=>typeof partner==='object'?x*partner.ratio:partner;
+ const gross=tables.gross.filter(x=>x+partnerAt(x)<=tables.gross.at(-1));
+ return {engine:tables.engine,approximate:true,year:tables.year,rows:gross.map(x=>tableTax(tables,place,x,partnerAt(x),options.filing))};
 }

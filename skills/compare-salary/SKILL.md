@@ -5,7 +5,7 @@ description: Compare US salary purchasing power between cities, including taxes,
 
 Use the compare-salary MCP tools when installed. Otherwise run the installed `compare-salary` command, or `node bin/compare-salary.mjs` in its checkout. Installation instructions are in the repository README: https://github.com/Sfeng666/compare-salary.
 
-Collect salary, work/residence city and comparison city. For fully remote work, ask where the user will live. Default to Single filing, one adult, no children, one bedroom and full-year US tax residence at the work location. Married filing separately is a different option. Existing user settings take precedence.
+Collect salary, work/residence city and comparison city. For fully remote work, ask where the user will live. Default to Single filing, one adult, no children, one bedroom and full-year US tax residence at the work location. Married filing separately is a different option. For couples, collect only source-location spouse gross income and use spouse="normalized". Both gross salaries are solved together while preserving their income ratio. Joint tax is allocated by gross-income share; separate filing uses each person’s modeled return and payroll tax. Studio is bedrooms=0. Keep occupation-based spouse estimates in personal adapters rather than public defaults. Existing user settings take precedence.
 
 Run the calculator for arithmetic. Explain the normalized gross salary and individual or household take-home basis shown in the result. Monthly after-rent money still has to cover other living expenses. Keep approximations and source dates visible.
 

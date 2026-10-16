@@ -5,7 +5,7 @@ import crypto from 'node:crypto';
 import {spawn} from 'node:child_process';
 import {ROOT,loadDatabase,createPolicyEngine,saveEntry} from './local.mjs';
 import {compareSalary} from './compare.mjs';
-import {researchPrompt,parseResearch} from './research.mjs';
+import {researchPrompt,parseResearch,apiResearch,PROVIDERS} from './research.mjs';
 const port=Number(process.env.COMPARE_SALARY_PORT||4317),token=crypto.randomBytes(24).toString('hex');
 const origins=new Set(['https://sfeng666.github.io','https://siyuanfeng.com','https://www.siyuanfeng.com',`http://127.0.0.1:${port}`,`http://localhost:${port}`]);
 const site=fs.existsSync(path.join(ROOT,'dist/index.html'))?path.join(ROOT,'dist'):ROOT;
@@ -23,6 +23,11 @@ const server=http.createServer(async(req,res)=>{
    if(req.method!=='POST'){send(405,{error:'POST required'});return;}
    let text='';for await(const b of req){text+=b;if(text.length>100000){send(413,{error:'Request too large'});return;}}const data=JSON.parse(text);
    if(req.url==='/api/compare'){send(200,await compareSalary(data,loadDatabase(),{taxCurve:engine?.curve.bind(engine)}));return;}
+   if(req.url==='/api/research-api'){
+    const preset=PROVIDERS[data.provider];
+    if(!preset||!preset.endpoint||new URL(data.endpoint||preset.endpoint).origin!==new URL(preset.endpoint).origin)throw Error('The local relay accepts the selected provider’s official endpoint only');
+    send(200,{entry:await apiResearch(data)});return;
+   }
    if(req.url==='/api/research'){
     if(researchRunning){send(409,{error:'Research is already running'});return;}researchRunning=true;
     try{const value=await new Promise((resolve,reject)=>{
@@ -39,5 +44,5 @@ const server=http.createServer(async(req,res)=>{
   const type={'.html':'text/html','.css':'text/css','.js':'text/javascript','.mjs':'text/javascript','.json':'application/json','.svg':'image/svg+xml'}[path.extname(file)]||'application/octet-stream';res.writeHead(200,{'Content-Type':type});fs.createReadStream(file).pipe(res);
  }catch(e){send(400,{error:e.message});}
 });
-server.listen(port,'127.0.0.1',()=>console.error(`compare salary: http://127.0.0.1:${port}\nLocal companion token: ${token}\nUse this token only in your own compare salary browser tab. It is not saved.`));
+server.listen(port,'127.0.0.1',()=>console.error(`compare salary: http://127.0.0.1:${port}/#connection=${token}\nLocal companion token: ${token}\nOpen the local link to connect automatically. The token is not saved.`));
 process.on('SIGTERM',()=>{engine?.close();server.close();});

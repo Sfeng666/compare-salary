@@ -17,9 +17,9 @@ net(job salary + source spouse income) - source living costs
 
 Costs include rent and basic utilities, food, transport, health care and other necessities. Dollars left over retain their face value for savings and purchases whose prices do not vary with local costs. This model preserves a specified household budget and nominal surplus; it does not claim that every lifestyle has one equivalent salary.
 
-“Before tax” is the equivalent annual salary of the job holder. “After tax” is the take-home income at that equivalent salary. For a couple, after-tax figures are **household** income, including the spouse; joint tax cannot be uniquely assigned to one spouse. Monthly money after rent excludes rent only, so other expenses still have to be paid.
+“Before tax” is the equivalent annual salary of the job holder. “After tax” is the take-home income at that equivalent salary. For a couple, the headline take-home figure includes both spouses. Detailed salary & costs also shows each person’s gross and after-tax salary. Joint tax is allocated in proportion to gross income; separate filing uses each person’s modeled income and payroll taxes. Hover, focus or tap any amount to see its formula and numeric inputs. Monthly money after rent excludes rent only, so other expenses still have to be paid.
 
-Default: Single filing, one adult, no children, one-bedroom rental, full-year US tax residence at the job location, tax year 2026. Single and Married filing separately are distinct choices. Fully remote work requires an explicit residence. Married users can choose joint, separate or the lower modeled tax, with fixed spouse pay or estimated local social-worker median pay. Bedrooms, paid hours and extra annual costs are configurable.
+Default: Single filing, one adult, no children, one-bedroom rental, full-year US tax residence at the job location, tax year 2026. Single and Married filing separately are distinct choices. Fully remote work requires an explicit residence. Married users can choose joint, separate or the lower modeled tax and enter only the spouse’s gross annual salary at the source location. The calculator solves both comparison-city salaries together, preserving their source gross-income ratio and the household’s remaining dollars after its budget. Studio, one-bedroom and two-bedroom rentals, paid hours and extra annual costs are configurable.
 
 ## Install and run
 
@@ -37,7 +37,7 @@ Or install the commands globally with `npm install -g github:Sfeng666/compare-sa
 ```sh
 compare-salary compare --remote --residence "Madison, WI" --salary 100000 --reference "Boston, MA"
 compare-salary compare --location "Berkeley, CA" --salary 79788 --reference "Madison, WI" \
-  --filing lowest_married_tax --adults 2 --bedrooms 2 --spouse local_social_worker
+  --filing lowest_married_tax --adults 2 --bedrooms 2 --partner-income 60000
 ```
 
 Use `--input request.json` for the full API input. Salary periods are year, month, week and hour. Hourly inputs use 2,080 paid hours by default. The package exports `compareSalary(input, database, {taxCurve})` and the lower-level `normalizeSalary` function for adapters with existing tax curves and budgets.
@@ -63,7 +63,7 @@ npm run build
 COMPARE_SALARY_PYTHON="$PWD/.venv/bin/python" compare-salary serve
 ```
 
-The command prints a localhost URL and a temporary token. Enter the token under Research & data options and select “Calculate with my local tax engine.” Salary inputs are then sent only to that local companion. The companion listens on loopback, checks browser origins and requires the temporary token for API access.
+The command prints a localhost link that connects the browser automatically with a temporary token. Open that link and select “Calculate with my local tax engine” under My saved locations & local tax engine. To connect the published website, enter the token under Agent setup. Salary inputs are then sent only to that local companion. The companion listens on loopback, checks browser origins and requires the temporary token for API access.
 
 ## Agent installation
 
@@ -106,12 +106,17 @@ The skill calls the installed calculator. MCP tools include `compare_salary`, `l
 
 ## Research options
 
-- **No agent:** deterministic county data or state approximations.
-- **Existing coding-agent subscription:** use the skill/MCP with the host agent's search tools. The optional local browser companion invokes Codex CLI with GPT-6 Luna for missing locations.
-- **Free browser AI:** an optional WebLLM Qwen model extracts a structured entry from public source excerpts you provide. It downloads model weights and requires WebGPU. It cannot independently browse; unmatched quotes are rejected.
-- **Your API agent:** enter an OpenAI Responses endpoint with web search, a Gemini endpoint with Google Search, or a browser-compatible chat endpoint with source excerpts you supply. Search capability and charges depend on your provider. API keys stay in tab memory and are sent only to the endpoint you enter. Known locations do not trigger agent requests.
+Enter a location and choose a provider in Agent setup, then select Research location. Provider endpoints and models are prefilled. Review the returned sources and select Use this location to save the entry. Known locations do not trigger agent requests.
 
-Agent output must pass the schema validator. Source verification is still required: valid JSON does not prove that an excerpt is true or applies to the location. Agents should return unknown when official evidence is insufficient.
+- **Groq:** the default GPT-OSS model uses Groq’s built-in browser search. A Groq API key is required.
+- **NVIDIA:** the page retrieves official Census geography itself, then asks the selected NVIDIA model to check that evidence. An NVIDIA API key is required. This mode improves county matching and reuses published county costs; it does not independently research new rent or tax rules.
+- **Gemini or OpenAI:** uses the provider’s hosted web-search tool. Custom chat APIs use the same automatic Census evidence retrieval as NVIDIA.
+- **Existing coding-agent subscription:** the skill/MCP uses the host agent’s search tools. My Codex subscription connects to a local companion and uses Codex CLI with GPT-6 Luna.
+- **No AI:** Official location lookup retrieves Census geography without a key. State approximations remain available when the city cannot be resolved.
+
+Groq and NVIDIA account quotas or trial credits may allow free use; availability and search charges depend on the provider. There is no model download or source-text pasting. API keys are held only in the current tab and sent to the selected provider. If a provider blocks browser requests, open the local companion link and use its relay; it forwards requests only to the selected provider’s official endpoint. The relay receives the key for that request and does not save it.
+
+The Census lookup selects the county containing the place’s internal point. For places spanning counties, review whether that county matches the intended home or work address. AI search results still require source review before contribution.
 
 ## Your own database
 
@@ -131,7 +136,7 @@ compare-salary contribute researched-entry.json
 
 Data PRs are checked with a validator from the trusted base commit. Contributor code is not executed with repository secrets. Reviewers must verify sources, geography, units, tax coverage and licensing; `AGENTS.md` contains the review instructions.
 
-Enable Codex cloud review for this repository in your [Codex GitHub review settings](https://chatgpt.com/codex/settings/code-review). GitHub authorization and access to the new repository are account settings, not something the repository can grant itself. The optional merge workflow uses `LOCATION_AUTO_MERGE=true` and `LOCATION_REVIEWER=<exact reviewer login>`; it requires a formal APPROVED review on the current commit and successful checks. A thumbs-up reaction or an old review does not authorize merging. Code changes cannot use this data-only merge path.
+Enable Codex cloud review for this repository in your [Codex GitHub review settings](https://chatgpt.com/settings/code-review). GitHub authorization and access to the new repository are account settings, not something the repository can grant itself. The optional merge workflow uses `LOCATION_AUTO_MERGE=true` and `LOCATION_REVIEWER=<exact reviewer login>`; it requires a formal APPROVED review on the current commit and successful checks. The validator records its result on that same commit, and trusted base-branch code rechecks after validation or a review event, including for fork contributions. A thumbs-up reaction, a COMMENTED review or an old approval does not authorize merging. Confirm that the configured reviewer produces a formal approval before enabling this workflow. Code changes cannot use this data-only merge path.
 
 The Pages workflow tests the package, validates data and publishes `dist/`. To run locally: `npm test`, `npm run validate:data`, `npm run build`, then `npm run serve`.
 
@@ -139,9 +144,9 @@ The Pages workflow tests the package, validates data and publishes `dist/`. To r
 
 EPI nonhousing budgets are in 2025 dollars, HUD rents are FY2027 and BLS wages are May 2025. EPI health costs assume individual insurance, and transport budgets include commuting; actual benefits and remote-work expenses may differ. HUD fair-market rent is a regional benchmark, not a live apartment quote.
 
-The pooled social-worker median is an estimate from available BLS occupational quartiles weighted by employment, with a state fallback when metro data are missing. It is not a weighted average of occupation medians.
+The optional Career Ops adapter can use the pooled social-worker median. It is an estimate from available BLS occupational quartiles weighted by employment, with a state fallback when metro data are missing. It is not a weighted average of occupation medians.
 
-Version 1 covers US resident wage earners with no children and one or two adults. It does not model cross-border work, nonresident taxation, self-employment, equity, bonuses, retirement deductions, unusual benefits or every local tax regime. Very low income can have no nonnegative equivalent gross salary under the chosen household budget; the tool reports that instead of inventing a result.
+The calculator covers US resident wage earners with no children and one or two adults. It does not model cross-border work, nonresident taxation, self-employment, equity, bonuses, retirement deductions, unusual benefits or every local tax regime. Very low income can have no nonnegative equivalent gross salary under the chosen household budget; the tool reports that instead of inventing a result.
 
 Code is MIT. The EPI-derived data collection is **CC BY-NC-SA 4.0**, so commercial redistribution needs separate permission or replacement data. GeoNames attribution and all source hashes are preserved. See [DATA_LICENSE.md](DATA_LICENSE.md).
 

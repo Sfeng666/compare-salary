@@ -6,7 +6,9 @@ export function interpolateTax(curve, gross) {
   let lo = 0, hi = rows.length - 1;
   while (hi - lo > 1) { const mid = (lo + hi) >> 1; if (rows[mid].gross < gross) lo = mid; else hi = mid; }
   const a = rows[lo], b = rows[hi], t = (gross - a.gross) / (b.gross - a.gross || 1);
-  return { net: a.net + t * (b.net - a.net), tax: a.tax + t * (b.tax - a.tax),
+  const individual = Object.fromEntries(['yourTax','spouseTax'].filter(k=>number(a[k])&&number(b[k])).map(k=>[k,a[k]+t*(b[k]-a[k])]));
+  for(const key of ['parts','yourParts','spouseParts'])if(a[key]&&b[key])individual[key]=Object.fromEntries(Object.keys(a[key]).filter(k=>number(a[key][k])&&number(b[key][k])).map(k=>[k,a[key][k]+t*(b[key][k]-a[key][k])]));
+  return { ...individual, net: a.net + t * (b.net - a.net), tax: a.tax + t * (b.tax - a.tax),
     filing: t < 0.5 ? a.filing : b.filing,
     jointTax: a.jointTax + t * (b.jointTax - a.jointTax), separateTax: a.separateTax + t * (b.separateTax - a.separateTax) };
 }

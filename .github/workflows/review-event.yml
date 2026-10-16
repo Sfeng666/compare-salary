@@ -1,0 +1,11 @@
+name: Location review submitted
+on:
+  pull_request_review:
+    types: [submitted, dismissed]
+permissions:
+  contents: read
+jobs:
+  received:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'Review event received. The trusted merge workflow will recheck current approvals and data.'

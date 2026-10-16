@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import {build} from 'esbuild';
+fs.rmSync('dist',{recursive:true,force:true});
 fs.mkdirSync('dist',{recursive:true});
 fs.mkdirSync('data/locations',{recursive:true});
 for(const file of ['index.html','style.css'])fs.copyFileSync(file,'dist/'+file);

@@ -1,12 +1,19 @@
-import {validateEntry} from '../src/locations.mjs';
+import {mergeReadiness,validateContributionFile} from '../src/contribution-review.mjs';
 const {REPO,PR_NUMBER,REVIEWER,GH_TOKEN}=process.env;
-if(!REVIEWER)throw Error('Configure an exact trusted reviewer login');
 const api=async(path,method='GET',body)=>{const r=await fetch('https://api.github.com/repos/'+REPO+'/'+path,{method,headers:{Authorization:'Bearer '+GH_TOKEN,Accept:'application/vnd.github+json','Content-Type':'application/json'},...(body?{body:JSON.stringify(body)}:{})});const v=await r.json();if(!r.ok)throw Error(v.message);return v;};
-const pr=await api('pulls/'+PR_NUMBER),sha=pr.head.sha;
-if(pr.state!=='open'||pr.draft)throw Error('Pull request is not ready');
-const files=await api(`pulls/${PR_NUMBER}/files?per_page=100`);if(!files.length||files.length>20||!files.every(f=>/^data\/locations\/[a-z0-9-]+\.json$/.test(f.filename)&&['added','modified'].includes(f.status)))throw Error('Only location data changes may be merged by this workflow');
-const reviews=await api(`pulls/${PR_NUMBER}/reviews?per_page=100`),latest=reviews.filter(r=>r.user.login===REVIEWER&&r.commit_id===sha).at(-1);
-if(!latest||latest.state!=='APPROVED')throw Error('The configured reviewer has not approved this exact commit');
-const checks=await api('commits/'+sha+'/check-runs');if(!checks.check_runs.some(c=>c.name==='validate'&&c.conclusion==='success')||checks.check_runs.some(c=>['failure','cancelled','timed_out'].includes(c.conclusion)))throw Error('Required checks have not passed');
-for(const f of files){const r=await fetch(`https://api.github.com/repos/${pr.head.repo.full_name}/contents/${f.filename}?ref=${sha}`,{headers:{Authorization:'Bearer '+GH_TOKEN,Accept:'application/vnd.github+json'}});const b=await r.json();if(!r.ok||b.size>50000)throw Error('Invalid entry');validateEntry(JSON.parse(Buffer.from(b.content,'base64').toString()));}
-const result=await api('pulls/'+PR_NUMBER+'/merge','PUT',{sha,merge_method:'squash'});if(!result.merged)throw Error('GitHub did not merge this PR');console.log('Merged reviewed location data at '+sha);
+const pages=async path=>{const out=[];for(let page=1;page<=20;page++){const batch=await api(`${path}${path.includes('?')?'&':'?'}per_page=100&page=${page}`);out.push(...batch);if(batch.length<100)return out;}throw Error('Too many records to review safely');};
+async function mergeOne(number){
+const pr=await api('pulls/'+number),sha=pr.head.sha;
+const [files,reviews,statuses,checks]=await Promise.all([pages(`pulls/${number}/files`),pages(`pulls/${number}/reviews`),pages(`commits/${sha}/statuses`),api(`commits/${sha}/check-runs?per_page=100&filter=latest`)]);
+if(checks.total_count>100)throw Error('Too many checks to review safely');
+const readiness=mergeReadiness({pr,files,reviews,statuses,checks:checks.check_runs,reviewer:REVIEWER});
+if(!readiness.ready){console.log(`#${number}: ${readiness.reason}`);return;}
+for(const f of files){const r=await fetch(`https://api.github.com/repos/${pr.head.repo.full_name}/contents/${f.filename}?ref=${sha}`,{headers:{Authorization:'Bearer '+GH_TOKEN,Accept:'application/vnd.github+json'}});if(!r.ok)throw Error('Cannot read contribution');validateContributionFile(f,await r.json());}
+const result=await api('pulls/'+number+'/merge','PUT',{sha,merge_method:'squash'});if(!result.merged)throw Error('GitHub did not merge this PR');console.log('Merged reviewed location data at '+sha);
+
+}
+// workflow_run executes this base-branch code with write permissions after the
+// read-only review signal or trusted validator finishes, including fork PRs.
+// Never download or execute artifacts/code from the triggering workflow.
+if(PR_NUMBER){if(!/^[1-9][0-9]*$/.test(PR_NUMBER))throw Error('Invalid pull request number');await mergeOne(PR_NUMBER);}
+else for(const pr of await pages('pulls?state=open'))await mergeOne(pr.number);

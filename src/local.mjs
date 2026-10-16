@@ -23,7 +23,9 @@ export function createPolicyEngine(python){
  return {request:r=>new Promise((resolve,reject)=>{const n=++id,timer=setTimeout(()=>{pending.delete(n);reject(Error('Tax engine timed out'));child.kill();},120000);pending.set(n,{resolve,reject,timer});child.stdin.write(JSON.stringify({...r,id:n})+'\n');}),async curve(place,o,partner){
   const {validateTaxPlace}=await import('./tax-jurisdiction.mjs');validateTaxPlace(place,o.taxYear);
   if(!place.fips||place.quality==='state-approximation')throw Error('Detailed taxes require a researched county; use the table estimate until that is available');
-  const gross=[];for(let x=0;x<=300000;x+=500)gross.push(x);for(let x=302500;x<=2000000-partner;x+=2500)gross.push(x);
-  return this.request({year:o.taxYear,state:place.state,county:place.fips,city:place.city,partnerIncome:partner,filing:o.filing,gross,localTax:place.localTax});
+  const partnerAt=x=>typeof partner==='object'?x*partner.ratio:partner;
+  const maximum=typeof partner==='object'?2000000/(1+partner.ratio):2000000-partner;
+  const gross=[];for(let x=0;x<=Math.min(300000,maximum);x+=500)gross.push(x);for(let x=302500;x<=maximum;x+=2500)gross.push(x);if(gross.at(-1)!==maximum)gross.push(maximum);
+  return this.request({year:o.taxYear,state:place.state,county:place.fips,city:place.city,partnerIncome:typeof partner==='number'?partner:0,partnerIncomes:gross.map(partnerAt),filing:o.filing,gross,localTax:place.localTax});
  },close(){child.stdin.end();}};
 }

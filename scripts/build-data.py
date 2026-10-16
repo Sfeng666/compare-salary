@@ -23,7 +23,7 @@ for r in hud.iter_rows(min_row=2,values_only=True):
     if not r[0]:break
     fips=str(r[7]).zfill(10)[:5]
     if r[0]=='CT':fips=ct_counties.get(str(r[7]).zfill(10),fips)
-    if fips in counties:counties[fips]['rents'].append({'area':r[6],'town':r[4] or '', 'population':r[8] or 1,'oneBedroom':r[10],'twoBedroom':r[11],'metro':str(r[2])[5:10] if str(r[2]).startswith('METRO') else None})
+    if fips in counties:counties[fips]['rents'].append({'area':r[6],'town':r[4] or '', 'population':r[8] or 1,'studio':r[9],'oneBedroom':r[10],'twoBedroom':r[11],'metro':str(r[2])[5:10] if str(r[2]).startswith('METRO') else None})
 cities={}
 with zipfile.ZipFile(SOURCE/'geonames-US.zip') as z:
     for line in z.read('US.txt').decode().splitlines():
@@ -56,6 +56,6 @@ sources=[
  {'name':'GeoNames US gazetteer','url':'https://download.geonames.org/export/dump/US.zip','file':'geonames-US.zip','license':'CC-BY-4.0','changes':'Selected populated places, normalized county lookup and removed unused fields.'},
  {'name':'US Census Connecticut crosswalk','url':'https://www2.census.gov/geo/docs/reference/ct_change/ct_cou_to_cousub_crosswalk.txt','file':'census-ct-crosswalk.txt','license':'US government public data'}]
 for s in sources:s['sha256']=hashlib.sha256((SOURCE/s['file']).read_bytes()).hexdigest()
-write('base.json',{'version':'epi2026-hud2027-bls2025-public-v1','builtAt':datetime.now(timezone.utc).isoformat(),'sources':sources,'counties':counties,'wages':wages})
+write('base.json',{'version':'epi2026-hud2027-bls2025-public-v2','builtAt':datetime.now(timezone.utc).isoformat(),'sources':sources,'counties':counties,'wages':wages})
 write('cities.json',cities)
 print(json.dumps({'counties':len(counties),'cities':len(cities),'wageAreas':len(wages)}))

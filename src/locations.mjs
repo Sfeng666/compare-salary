@@ -17,22 +17,23 @@ export function resolveLocation(database,input,options={}){
  if(entry)row={...row,...entry};
  if(parsed.state==='NY'&&/^(New York|New York City|NYC)$/i.test(parsed.city))row={city:'New York City',state:'NY',fips:'36061',boroughs:['36005','36047','36061','36081','36085']};
  const adults=options.adults??1,bedrooms=options.bedrooms??1,family=`${adults}p0c`;
+ const rentKey=bedrooms===0?'studio':bedrooms===1?'oneBedroom':'twoBedroom';
  const warnings=[];
  let county=row&&database.counties[row.fips];
  let costs,rent,spouse,rentArea,metro,quality='county';
  if(county){
   const town=county.rents.find(r=>r.town.replace(/ (?:city|town)$/i,'').toLowerCase()===(row.city||parsed.city).toLowerCase());
-  const rates=county.rents.map(r=>r[bedrooms===1?'oneBedroom':'twoBedroom']);
+  const rates=county.rents.map(r=>r[rentKey]);
   const chosen=town||county.rents[0];
-  rent=town?town[bedrooms===1?'oneBedroom':'twoBedroom']:median(rates);
+  rent=town?town[rentKey]:median(rates);
   if(!town&&new Set(rates).size>1)warnings.push('Rent uses the median of HUD areas in this county; the town has not been matched to a rent area.');
   costs={...county.families[family]};metro=chosen?.metro;rentArea=chosen?.area;
   spouse=socialWorkerPay(database.wages[metro]||database.wages['state:'+parsed.state]);
-  if(row.boroughs){const parts=row.boroughs.map(fips=>database.counties[fips]);const weights=parts.map(c=>c.rents.reduce((s,r)=>s+r.population,0));const total=weights.reduce((a,b)=>a+b,0);for(const k of Object.keys(costs))costs[k]=parts.reduce((s,c,i)=>s+c.families[family][k]*weights[i]/total,0);rent=parts.reduce((s,c,i)=>s+c.rents[0][bedrooms===1?'oneBedroom':'twoBedroom']*weights[i]/total,0);}
+  if(row.boroughs){const parts=row.boroughs.map(fips=>database.counties[fips]);const weights=parts.map(c=>c.rents.reduce((s,r)=>s+r.population,0));const total=weights.reduce((a,b)=>a+b,0);for(const k of Object.keys(costs))costs[k]=parts.reduce((s,c,i)=>s+c.families[family][k]*weights[i]/total,0);rent=parts.reduce((s,c,i)=>s+c.rents[0][rentKey]*weights[i]/total,0);}
  }else{
   const counties=Object.values(database.counties).filter(c=>c.state===parsed.state);
   costs=Object.fromEntries(['food','transport','healthcare','other'].map(k=>[k,median(counties.map(c=>c.families[family]?.[k]))]));
-  rent=median(counties.flatMap(c=>c.rents.map(r=>r[bedrooms===1?'oneBedroom':'twoBedroom'])));
+  rent=median(counties.flatMap(c=>c.rents.map(r=>r[rentKey])));
   spouse=socialWorkerPay(database.wages['state:'+parsed.state]);quality='state-approximation';
   warnings.push(`This city is not in the database. Costs and rent use ${STATES[parsed.state]} medians, and spouse wages use the state estimate. Research can replace these inputs.`);
  }
@@ -43,7 +44,7 @@ export function resolveLocation(database,input,options={}){
  if(!Number.isFinite(annualCost)||!Number.isFinite(rent))throw Error('Incomplete location budget');
  return {...parsed,...row,label:row?.label||`${row?.city||parsed.city}, ${parsed.state}`,monthlyRent:rent,annualCost,costs:{rent:rent*12,...costs},spouse,county:county?.name,rentArea,metro,quality,warnings,localTax:entry?.localTax||null,sources:entry?.sources||database.sources,needsResearch:!row};
 }
-const STATE_FIPS={"AL":"01","AK":"02","AZ":"04","AR":"05","CA":"06","CO":"08","CT":"09","DE":"10","DC":"11","FL":"12","GA":"13","HI":"15","ID":"16","IL":"17","IN":"18","IA":"19","KS":"20","KY":"21","LA":"22","ME":"23","MD":"24","MA":"25","MI":"26","MN":"27","MS":"28","MO":"29","MT":"30","NE":"31","NV":"32","NH":"33","NJ":"34","NM":"35","NY":"36","NC":"37","ND":"38","OH":"39","OK":"40","OR":"41","PA":"42","RI":"44","SC":"45","SD":"46","TN":"47","TX":"48","UT":"49","VT":"50","VA":"51","WA":"53","WV":"54","WI":"55","WY":"56"};
+export const STATE_FIPS={"AL":"01","AK":"02","AZ":"04","AR":"05","CA":"06","CO":"08","CT":"09","DE":"10","DC":"11","FL":"12","GA":"13","HI":"15","ID":"16","IL":"17","IN":"18","IA":"19","KS":"20","KY":"21","LA":"22","ME":"23","MD":"24","MA":"25","MI":"26","MN":"27","MS":"28","MO":"29","MT":"30","NE":"31","NV":"32","NH":"33","NJ":"34","NM":"35","NY":"36","NC":"37","ND":"38","OH":"39","OK":"40","OR":"41","PA":"42","RI":"44","SC":"45","SD":"46","TN":"47","TX":"48","UT":"49","VT":"50","VA":"51","WA":"53","WV":"54","WI":"55","WY":"56"};
 export function validateEntry(e){
  const fail=m=>{throw Error(m);};
  if(!e||e.schemaVersion!==1)fail('Location entry needs schemaVersion 1');
@@ -61,7 +62,7 @@ export function validateEntry(e){
  if(!covers('fips'))fail('County needs cited evidence');
  const amount=(v,max)=>typeof v==='number'&&Number.isFinite(v)&&v>=0&&v<=max;
  if(e.familyCosts)for(const [family,costs]of Object.entries(e.familyCosts)){if(!['1p0c','2p0c'].includes(family)||Object.keys(costs).sort().join()!=='food,healthcare,other,transport')fail('Invalid family budget');if(Object.values(costs).some(v=>!amount(v,300000))||!covers('familyCosts'))fail('Invalid or unsourced annual costs');}
- if(e.rents)for(const [beds,value]of Object.entries(e.rents))if(!['1','2'].includes(beds)||!amount(value,20000)||value===0||!covers('rents'))fail('Invalid or unsourced monthly rent');
+ if(e.rents)for(const [beds,value]of Object.entries(e.rents))if(!['0','1','2'].includes(beds)||!amount(value,20000)||value===0||!covers('rents'))fail('Invalid or unsourced monthly rent');
  if(e.socialWorkerMedian!=null&&(!amount(e.socialWorkerMedian,300000)||e.socialWorkerMedian===0||!covers('socialWorkerMedian')))fail('Invalid or unsourced social-worker pay');
  if(e.localTax){const t=e.localTax;if(t.year!==2026||t.verified!==true||t.coverage!=='complete_resident_and_work_city'||!Array.isArray(t.income)||!Array.isArray(t.occupational)||!covers('localTax'))fail('Local tax needs complete sourced 2026 coverage');for(const r of t.income)if(!amount(r.rate,.15)||!amount(r.exemption_per_person,1000000))fail('Invalid local income tax');for(const r of t.occupational)if(!amount(r.amount,10000)||!['year','month','week'].includes(r.period)||!amount(r.minimum_annual_wages,1000000))fail('Invalid occupational tax');}
  return e;

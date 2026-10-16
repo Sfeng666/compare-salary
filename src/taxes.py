@@ -22,6 +22,11 @@ def calculate(request):
     if filing == "single" and partner:
         raise ValueError("Single filing requires zero partner income")
     gross = request["gross"]
+    partners = request.get("partnerIncomes", [partner] * len(gross))
+    if len(partners) != len(gross) or any(p < 0 for p in partners):
+        raise ValueError("Invalid spouse wage vector")
+    if filing == "single" and any(partners):
+        raise ValueError("Single filing requires zero partner income")
     local_rules = request.get("localTax")
     if local_rules and (not local_rules.get("verified") or local_rules.get("year") != year):
         raise ValueError("Unverified local tax rules")
@@ -46,7 +51,7 @@ def calculate(request):
             key = f"{mode}_{i}"
             a, b = f"a_{key}", f"b_{key}"
             members = [a] if mode == "SINGLE" else [a, b]
-            earned = [float(income)] if mode == "SINGLE" else [float(income), partner]
+            earned = [float(income)] if mode == "SINGLE" else [float(income), partners[i]]
             if mode.startswith("SEPARATE") and state in COMMUNITY:
                 earned = [sum(earned) / 2] * 2
             for name, wage in zip(members, earned):
@@ -88,15 +93,33 @@ def calculate(request):
         values = {}
         for var in ("income_tax", "state_income_tax", "local_tax", "employee_payroll_tax"):
             values[var] = sim.calculate(var, year, map_to="household").tolist()
+        unit_values = {v: dict(zip(units, sim.calculate(v, year, map_to="tax_unit").tolist()))
+                       for v in ("income_tax", "state_income_tax", "local_tax")}
+        person_payroll = dict(zip(people, sim.calculate("employee_payroll_tax", year, map_to="person").tolist()))
     n = len(gross)
     rows = []
     for i, income in enumerate(gross):
+        partner = partners[i]
         options = []
         for mode, offset in ([("SINGLE", 0)] if filing == "single" else [("JOINT", 0), ("SEPARATE_STANDARD", n), ("SEPARATE_ITEMIZED", 2*n)]):
             parts = {v: values[v][offset+i] for v in values}
             if mode.startswith("SEPARATE"):
                 parts["employee_payroll_tax"] = values["employee_payroll_tax"][3*n+i]
-            options.append({"filing": mode, "tax": sum(parts.values()), "parts": parts})
+            total_tax = sum(parts.values())
+            if mode.startswith("SEPARATE"):
+                own = []
+                own_parts = []
+                for who in ("a", "b"):
+                    unit = f"{who}_{mode}_{i}"
+                    item = {k: v[unit] for k, v in unit_values.items()}
+                    item["employee_payroll_tax"] = person_payroll[f"{who}_PAYROLL_{i}"]
+                    own_parts.append(item)
+                    own.append(sum(item.values()))
+            else:
+                share = income / (income + partner) if income + partner else 1
+                own = [total_tax * share, total_tax * (1-share)]
+                own_parts = [{k: v * share for k, v in parts.items()}, {k: v * (1-share) for k, v in parts.items()}]
+            options.append({"filing": mode, "tax": total_tax, "parts": parts, "yourTax": own[0], "spouseTax": own[1], "yourParts": own_parts[0], "spouseParts": own_parts[1]})
         eligible = options if filing in ("single", "lowest_married_tax") else options[:1] if filing == "joint" else options[1:]
         best = min(eligible, key=lambda x: x["tax"])
         rows.append({"gross": income, "net": income + partner - best["tax"], **best,
