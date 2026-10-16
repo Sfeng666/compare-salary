@@ -7,7 +7,7 @@ import {ROOT,loadDatabase,createPolicyEngine,saveEntry} from './local.mjs';
 import {compareSalary} from './compare.mjs';
 import {researchPrompt,parseResearch} from './research.mjs';
 const port=Number(process.env.COMPARE_SALARY_PORT||4317),token=crypto.randomBytes(24).toString('hex');
-const origins=new Set(['https://sfeng666.github.io',`http://127.0.0.1:${port}`,`http://localhost:${port}`]);
+const origins=new Set(['https://sfeng666.github.io','https://siyuanfeng.com','https://www.siyuanfeng.com',`http://127.0.0.1:${port}`,`http://localhost:${port}`]);
 const site=fs.existsSync(path.join(ROOT,'dist/index.html'))?path.join(ROOT,'dist'):ROOT;
 const engine=process.env.COMPARE_SALARY_PYTHON?createPolicyEngine(process.env.COMPARE_SALARY_PYTHON):null;
 let researchRunning=false;

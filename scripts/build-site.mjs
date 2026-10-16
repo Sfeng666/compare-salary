@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import {build} from 'esbuild';
 fs.mkdirSync('dist',{recursive:true});
+fs.mkdirSync('data/locations',{recursive:true});
 for(const file of ['index.html','style.css'])fs.copyFileSync(file,'dist/'+file);
 fs.cpSync('data','dist/data',{recursive:true});
 const entries=fs.readdirSync('data/locations').filter(n=>n.endsWith('.json')).map(n=>JSON.parse(fs.readFileSync('data/locations/'+n,'utf8')));
