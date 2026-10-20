@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "pa-bethlehem",
+  "label": "Bethlehem, PA",
+  "city": "Bethlehem",
+  "state": "PA",
+  "fips": "42095",
+  "researchedAt": "2026-10-20T23:16:26.634Z",
+  "license": "CC-BY-NC-SA-4.0",
+  "sources": [
+    {
+      "title": "Published GeoNames county mapping",
+      "url": "https://siyuanfeng.com/compare-salary/data/cities.json",
+      "quote": "{\"city\":\"Bethlehem\",\"state\":\"PA\",\"fips\":\"42095\",\"population\":74892}",
+      "retrievedAt": "2026-10-20T23:16:26.634Z",
+      "fields": [
+        "fips"
+      ]
+    },
+    {
+      "title": "Bethlehem local earned income tax",
+      "url": "https://www.bethlehem-pa.gov/meet-your-government/taxes/individual-earned-income-taxes/",
+      "quote": "The Earned Income Tax (EIT) rate for the City of Bethlehem is a 1% income tax that is assessed on the gross earnings of residents and non-residents and net profits of residents.",
+      "retrievedAt": "2026-10-20T23:16:26.634Z",
+      "fields": [
+        "localTax"
+      ]
+    },
+    {
+      "title": "Bethlehem Local Services Tax",
+      "url": "https://www.bethlehem-pa.gov/meet-your-government/taxes/individual-local-services-tax/",
+      "quote": "The Local Services Tax (LST) rate for the City of Bethlehem is $52 for per person who is employed or self-employed within the City of Bethlehem.",
+      "retrievedAt": "2026-10-20T23:16:26.634Z",
+      "fields": [
+        "localTax"
+      ]
+    }
+  ],
+  "localTax": {
+    "year": 2026,
+    "verified": true,
+    "coverage": "complete_resident_and_work_city",
+    "income": [
+      {
+        "rate": 0.01,
+        "exemption_per_person": 0
+      }
+    ],
+    "occupational": [
+      {
+        "amount": 52,
+        "period": "year",
+        "minimum_annual_wages": 12000
+      }
+    ]
+  }
+}
