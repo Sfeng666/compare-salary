@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "wv-morgantown",
+  "label": "Morgantown, WV",
+  "city": "Morgantown",
+  "state": "WV",
+  "fips": "54061",
+  "researchedAt": "2026-10-22T22:23:57.097Z",
+  "license": "CC-BY-NC-SA-4.0",
+  "sources": [
+    {
+      "title": "Published GeoNames county mapping",
+      "url": "https://siyuanfeng.com/compare-salary/data/cities.json",
+      "quote": "{\"city\":\"Morgantown\",\"state\":\"WV\",\"fips\":\"54061\",\"population\":30708}",
+      "retrievedAt": "2026-10-22T22:23:57.097Z",
+      "fields": [
+        "fips"
+      ]
+    },
+    {
+      "title": "Morgantown Municipal Service Fee",
+      "url": "https://www.morgantownwv.gov/310/Safe-Streets-Safe-Community",
+      "quote": "The Safe Streets and Safe Community Service Fee is $3.00 each week for those working within city limits.",
+      "retrievedAt": "2026-10-22T22:23:57.097Z",
+      "fields": [
+        "localTax"
+      ]
+    }
+  ],
+  "localTax": {
+    "year": 2026,
+    "verified": true,
+    "coverage": "complete_resident_and_work_city",
+    "income": [],
+    "occupational": [
+      {
+        "amount": 3,
+        "period": "week",
+        "minimum_annual_wages": 0
+      }
+    ]
+  }
+}
