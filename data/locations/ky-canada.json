@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "ky-canada",
+  "label": "Canada, KY",
+  "city": "Canada",
+  "state": "KY",
+  "fips": "21195",
+  "researchedAt": "2026-11-06T08:48:34.315Z",
+  "license": "CC-BY-NC-SA-4.0",
+  "sources": [
+    {
+      "title": "Published GeoNames county mapping",
+      "url": "https://siyuanfeng.com/compare-salary/data/cities.json",
+      "quote": "{\"city\":\"Canada\",\"state\":\"KY\",\"fips\":\"21195\",\"population\":0}",
+      "retrievedAt": "2026-11-06T08:48:34.315Z",
+      "fields": [
+        "fips"
+      ]
+    },
+    {
+      "title": "Local tax authority",
+      "url": "https://docs.legis.wisconsin.gov/statutes/statutes/66/VI/0611",
+      "quote": "No county, city, village, town, or other unit of government authorized to levy taxes may assess, levy or collect any tax on income, or measured by income, and any tax so assessed or levied is void.",
+      "retrievedAt": "2026-11-06T08:48:34.315Z",
+      "fields": [
+        "localTax"
+      ]
+    }
+  ],
+  "localTax": {
+    "year": 2026,
+    "verified": true,
+    "coverage": "complete_resident_and_work_city",
+    "income": [],
+    "occupational": []
+  }
+}
