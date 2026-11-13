@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "mi-grand-rapids",
+  "label": "Grand Rapids, MI",
+  "city": "Grand Rapids",
+  "state": "MI",
+  "fips": "26081",
+  "researchedAt": "2026-11-13T08:30:26.285Z",
+  "license": "CC-BY-NC-SA-4.0",
+  "sources": [
+    {
+      "title": "Published GeoNames county mapping",
+      "url": "https://siyuanfeng.com/compare-salary/data/cities.json",
+      "quote": "{\"city\":\"Grand Rapids\",\"state\":\"MI\",\"fips\":\"26081\",\"population\":195097}",
+      "retrievedAt": "2026-11-13T08:30:26.285Z",
+      "fields": [
+        "fips"
+      ]
+    },
+    {
+      "title": "Grand Rapids resident income tax",
+      "url": "https://www.grandrapidsmi.gov/departments/fiscal-services/income-tax/other-michigan-cities-with-income-tax/",
+      "quote": "Grand Rapids Effective Date of Ordinance 7/1/1967 Accepts Common Form Yes Exemption Amount 600 Exemption is prorated for part-year residency No Resident Rate 1.50% Non-Resident Rate 0.75%",
+      "retrievedAt": "2026-11-13T08:30:26.285Z",
+      "fields": [
+        "localTax"
+      ]
+    }
+  ],
+  "localTax": {
+    "year": 2026,
+    "verified": true,
+    "coverage": "complete_resident_and_work_city",
+    "income": [
+      {
+        "rate": 0.015,
+        "exemption_per_person": 600
+      }
+    ],
+    "occupational": []
+  }
+}
