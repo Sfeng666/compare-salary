@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "wi-middleton",
+  "label": "Middleton, WI",
+  "city": "Middleton",
+  "state": "WI",
+  "fips": "55025",
+  "researchedAt": "2026-10-16T04:59:51.135Z",
+  "license": "CC-BY-NC-SA-4.0",
+  "sources": [
+    {
+      "title": "US Census TIGERweb place and internal point",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Places_CouSub_ConCity_SubMCD/MapServer/4/query?f=json&returnGeometry=false&where=STATE+%3D+%2755%27+AND+UPPER%28BASENAME%29+%3D+%27MIDDLETON%27&outFields=NAME%2CBASENAME%2CSTATE%2CGEOID%2CINTPTLAT%2CINTPTLON",
+      "retrievedAt": "2026-10-16T04:59:51.135Z",
+      "quote": "{\"NAME\":\"Middleton city\",\"BASENAME\":\"Middleton\",\"STATE\":\"55\",\"GEOID\":\"5551575\",\"INTPTLAT\":\"+43.1069587\",\"INTPTLON\":\"-089.5063398\"}",
+      "fields": [
+        "fips"
+      ]
+    },
+    {
+      "title": "US Census TIGERweb county at the place internal point",
+      "url": "https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/State_County/MapServer/1/query?f=json&returnGeometry=false&geometry=-89.5063398%2C43.1069587&geometryType=esriGeometryPoint&inSR=4326&spatialRel=esriSpatialRelIntersects&outFields=GEOID%2CNAME%2CSTATE",
+      "retrievedAt": "2026-10-16T04:59:51.135Z",
+      "quote": "{\"GEOID\":\"55025\",\"NAME\":\"Dane County\",\"STATE\":\"55\"}",
+      "fields": [
+        "fips"
+      ]
+    }
+  ]
+}
