@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "oh-cincinnati",
+  "label": "Cincinnati, OH",
+  "city": "Cincinnati",
+  "state": "OH",
+  "fips": "39061",
+  "researchedAt": "2026-11-18T07:20:56.856Z",
+  "license": "CC-BY-NC-SA-4.0",
+  "sources": [
+    {
+      "title": "Published GeoNames county mapping",
+      "url": "https://siyuanfeng.com/compare-salary/data/cities.json",
+      "quote": "{\"city\":\"Cincinnati\",\"state\":\"OH\",\"fips\":\"39061\",\"population\":311097}",
+      "retrievedAt": "2026-11-18T07:20:56.856Z",
+      "fields": [
+        "fips"
+      ]
+    },
+    {
+      "title": "Cincinnati municipal income tax",
+      "url": "https://www.cincinnati-oh.gov/finance/frequently-asked-questions/",
+      "quote": "Anyone who lives or works in Cincinnati is subject to the 1.8% income tax (age 18 or older - regardless of income level).",
+      "retrievedAt": "2026-11-18T07:20:56.856Z",
+      "fields": [
+        "localTax"
+      ]
+    }
+  ],
+  "localTax": {
+    "year": 2026,
+    "verified": true,
+    "coverage": "complete_resident_and_work_city",
+    "income": [
+      {
+        "rate": 0.018,
+        "exemption_per_person": 0
+      }
+    ],
+    "occupational": []
+  }
+}
